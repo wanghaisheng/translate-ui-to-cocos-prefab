@@ -1,0 +1,18 @@
+# https://github.com/marketplace/actions/deploy-wordpress
+on: 
+  # push
+  workflow_dispatch:  # Allows manual trigger
+  
+name: Deploying WordPress Site
+
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy
+        uses: rtCamp/action-deploy-wordpress@v3
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}

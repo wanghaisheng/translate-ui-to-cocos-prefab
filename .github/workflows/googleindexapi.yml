@@ -1,0 +1,51 @@
+name: Google Indexing Script
+
+on:
+  workflow_dispatch:
+    inputs:
+      domain:
+        description: 'Domain or URL to index'
+        required: true
+        type: string
+        default: moodweather.heytcm.com
+
+  # Cron schedule to run every day at midnight (UTC)
+  # schedule:
+    # - cron: '0 0 * * *'  # Adjust this cron schedule as needed
+
+  # Trigger when the sitemap.xml file is modified
+  push:
+    paths:
+      - 'sitemap.xml'
+
+jobs:
+  indexing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm i -g google-indexing-script
+      - name: Set up service account JSON
+        run: |
+          mkdir -p ~/.gis
+          echo "${{ secrets.SERVICE_ACCOUNT_JSON_BASE64 }}" | base64 --decode > ~/.gis/service_account.json
+
+      - name: Run Google Indexing Script
+        env:
+          GIS_PRIVATE_KEY: ${{ secrets.SERVICE_ACCOUNT_PRIVATE_KEY }}      
+          GIS_CLIENT_EMAIL: ${{ secrets.SERVICE_ACCOUNT_CLIENT_EMAIL }}
+        run: |
+          echo "${{ secrets.SERVICE_ACCOUNT_PRIVATE_KEY }}" | sed 's/\\n/\n/g' > private_key.pem
+          export GIS_PRIVATE_KEY=$(cat private_key.pem)
+        
+          # If no domain input was provided, fallback to a default domain or from an environment variable
+          DOMAIN=${{ github.event.inputs.domain || 'default-domain.com' }}
+          gis $DOMAIN  --client-email "$GIS_CLIENT_EMAIL" --private-key "$GIS_PRIVATE_KEY"
