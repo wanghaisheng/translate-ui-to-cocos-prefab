@@ -1,0 +1,126 @@
+/* 基础按钮样式 */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-lg);
+    font-weight: var(--font-medium);
+    font-size: var(--text-base);
+    transition: var(--transition-base);
+    cursor: pointer;
+    gap: 0.5rem;
+}
+
+/* 主要按钮 */
+.btn-primary {
+    background: var(--primary-color);
+    color: var(--light-color);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(var(--primary-color), 0.3);
+}
+
+/* 轮廓按钮 */
+.btn-outline {
+    background: transparent;
+    color: var(--light-color);
+    border: 2px solid var(--light-gray);
+}
+
+.btn-outline:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* 大按钮 */
+.btn-lg {
+    padding: 1rem 2rem;
+    font-size: var(--text-lg);
+}
+
+/* 小按钮 */
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: var(--text-sm);
+}
+
+/* 图标按钮 */
+.btn-icon {
+    padding: 0.75rem;
+    border-radius: var(--radius-full);
+}
+
+.btn-icon .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* 禁用状态 */
+.btn:disabled,
+.btn.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* 加载状态 */
+.btn.loading {
+    position: relative;
+    color: transparent;
+}
+
+.btn.loading::after {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid var(--light-color);
+    border-radius: var(--radius-full);
+    border-right-color: transparent;
+    animation: rotate 1s linear infinite;
+}
+
+/* 成功状态 */
+.btn.success {
+    background: var(--success-color);
+    border-color: var(--success-color);
+}
+
+/* 警告状态 */
+.btn.warning {
+    background: var(--warning-color);
+    border-color: var(--warning-color);
+}
+
+/* 错误状态 */
+.btn.error {
+    background: var(--error-color);
+    border-color: var(--error-color);
+}
+
+/* 按钮组 */
+.btn-group {
+    display: inline-flex;
+    gap: 0.5rem;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .btn {
+        padding: 0.625rem 1.25rem;
+    }
+    
+    .btn-lg {
+        padding: 0.875rem 1.75rem;
+    }
+    
+    .btn-sm {
+        padding: 0.375rem 0.875rem;
+    }
+} 

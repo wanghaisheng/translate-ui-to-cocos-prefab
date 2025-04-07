@@ -268,23 +268,199 @@ These capabilities accelerate the UI implementation process by bridging AI-gener
 - **SEO Keywords**: game UI library, UI inspiration, UI examples, UI reference
 - **Access**: Public (Preview Only for Free Users, Full Access for Logged-in)
 
-### UI Categories
-- **URL**: `/ui/categories`
-- **Title**: Game UI Categories - Browse by Game Type, Theme & Function
-- **Meta Description**: Browse game UI screens by game type, theme, and function. Find the perfect UI reference for your specific game genre and style.
-- **H1**: Game UI Categories
-- **Key Features**: Category navigation, filter combinations, category descriptions
-- **SEO Keywords**: game UI categories, UI by game type, UI by theme, UI by function
-- **Access**: Public (Preview Only for Free Users, Full Access for Logged-in)
-
-### UI Detail Page
-- **URL**: `/ui/[category]/[slug]`
-- **Title**: [UI Name] - Game UI Analysis & Components
-- **Meta Description**: Detailed analysis of [UI Name] including component breakdown, style analysis, and implementation guidance for game developers.
-- **H1**: [UI Name] UI Analysis
-- **Key Features**: UI preview, component list, style analysis, export options
-- **SEO Keywords**: UI analysis, UI components, UI implementation, [specific UI type]
+### Game UI Screen Database
+- **URL**: `/ui/screens`
+- **Title**: Game UI Screen Database - Comprehensive Collection of Game UI Screens
+- **Meta Description**: Access our extensive database of game UI screens with detailed analysis, component breakdowns, and implementation guidance for various game genres and styles.
+- **H1**: Game UI Screen Database
+- **Key Features**: 
+  - Advanced search and filtering by game type, theme, and function
+  - Detailed component analysis and breakdown
+  - Style extraction and implementation guides
+  - Grid layout with preview images
+  - Download and export options
+  - Rating and review system
+- **SEO Keywords**: game UI database, UI screens, UI reference, UI implementation, game UI examples
 - **Access**: Logged-in Users Only
+- **Page Layout**:
+  - **Search & Filter Section**:
+    - Advanced search bar with auto-suggestions
+    - Filter panel for game type, theme, and function
+    - Sort options for relevance, popularity, and recency
+  - **Grid Display**:
+    - Responsive grid layout for UI screen previews
+    - Each card shows preview image, title, and key features
+    - Hover effects for quick actions
+  - **Detail View**:
+    - Full-screen preview with zoom capability
+    - Component breakdown with annotations
+    - Style guide and color palette
+    - Implementation notes and best practices
+  - **Download Options**:
+    - Multiple format exports (JSON, PNG, SVG)
+    - Engine-specific prefab downloads
+    - Resource pack with all assets
+
+### Game UI Component Database
+- **URL**: `/ui/components`
+- **Title**: Game UI Component Database - Reusable UI Components for Game Development
+- **Meta Description**: Browse our comprehensive database of reusable game UI components with detailed specifications, usage examples, and implementation code for multiple game engines.
+- **H1**: Game UI Component Database
+- **Key Features**:
+  - Component categorization and tagging
+  - Detailed specifications and documentation
+  - Usage examples and best practices
+  - Implementation code for multiple engines
+  - Cross-engine compatibility
+  - Version tracking and updates
+- **SEO Keywords**: game UI components, UI elements, UI widgets, UI implementation, reusable UI
+- **Access**: Logged-in Users Only
+- **Page Layout**:
+  - **Component Categories**:
+    - Navigation components
+    - Input components
+    - Display components
+    - Container components
+    - Specialized game components
+  - **Component Cards**:
+    - Visual preview
+    - Component name and description
+    - Usage statistics and ratings
+    - Quick download options
+  - **Detail View**:
+    - Interactive component demo
+    - Property documentation
+    - Code examples
+    - Implementation guides
+    - Related components
+
+### Game UI Screen Prompt Database
+- **URL**: `/ui/prompts/screens`
+- **Title**: Game UI Screen Prompt Database - AI Prompts for UI Screen Generation
+- **Meta Description**: Access our curated collection of AI prompts for generating game UI screens with various styles, themes, and functions using popular AI image generation tools.
+- **H1**: Game UI Screen Prompt Database
+- **Key Features**:
+  - Prompt categorization by game type and style
+  - Prompt effectiveness ratings and reviews
+  - Example outputs and variations
+  - Prompt customization tools
+  - Integration with AI tools
+  - Community contributions
+- **SEO Keywords**: UI prompts, AI UI generation, UI screen prompts, game UI AI, prompt engineering
+- **Access**: Logged-in Users Only
+- **Page Layout**:
+  - **Prompt Categories**:
+    - Game genre-specific prompts
+    - Style-specific prompts
+    - Function-specific prompts
+    - Platform-specific prompts
+  - **Prompt Cards**:
+    - Prompt text preview
+    - Example outputs
+    - Success rate and ratings
+    - Usage statistics
+  - **Detail View**:
+    - Full prompt text and variations
+    - Parameter customization
+    - Output examples gallery
+    - User reviews and tips
+    - Related prompts
+
+### Game UI Component Prompt Database
+- **URL**: `/ui/prompts/components`
+- **Title**: Game UI Component Prompt Database - AI Prompts for UI Component Generation
+- **Meta Description**: Explore our database of AI prompts for generating game UI components with various styles and functions using popular AI image and code generation tools.
+- **H1**: Game UI Component Prompt Database
+- **Key Features**:
+  - Component-specific prompt templates
+  - Style consistency guides
+  - Cross-component compatibility
+  - Prompt effectiveness tracking
+  - Community contributions
+  - Integration with component database
+- **SEO Keywords**: UI prompts, AI UI generation, UI component prompts, game UI AI, prompt engineering
+- **Access**: Logged-in Users Only
+- **Page Layout**:
+  - **Component Categories**:
+    - Navigation prompts
+    - Input prompts
+    - Display prompts
+    - Container prompts
+    - Specialized game component prompts
+  - **Prompt Cards**:
+    - Component preview
+    - Prompt text
+    - Success rate
+    - Usage examples
+  - **Detail View**:
+    - Full prompt documentation
+    - Parameter customization
+    - Example outputs
+    - Implementation guides
+    - Related prompts
+
+### Game Style Prompt Database
+- **URL**: `/ui/prompts/styles`
+- **Title**: Game Style Prompt Database - AI Prompts for Game UI Style Generation
+- **Meta Description**: Access our database of AI prompts for generating consistent game UI styles across multiple screens and components using popular AI tools.
+- **H1**: Game Style Prompt Database
+- **Key Features**:
+  - Style categorization and tagging
+  - Style consistency guides
+  - Cross-component style application
+  - Style customization tools
+  - Style effectiveness tracking
+  - Community contributions
+- **SEO Keywords**: UI style prompts, game UI styles, UI design system, AI style generation, consistent UI
+- **Access**: Logged-in Users Only
+- **Page Layout**:
+  - **Style Categories**:
+    - Game genre styles
+    - Art style categories
+    - Platform-specific styles
+    - Theme-based styles
+  - **Style Cards**:
+    - Style preview
+    - Key characteristics
+    - Application examples
+    - Success rate
+  - **Detail View**:
+    - Style guide
+    - Color palette
+    - Typography rules
+    - Component examples
+    - Implementation guides
+
+### Color Palette Extractor
+- **URL**: `/tools/color-palette`
+- **Title**: Game Interface Color Palette Extractor - Extract & Analyze UI Color Schemes
+- **Meta Description**: Extract and analyze color palettes from game interfaces using screenshots, app URLs, or game names. Generate color schemes for your own game UI development.
+- **H1**: Game Interface Color Palette Extractor
+- **Key Features**:
+  - Multiple input methods (screenshots, URLs, game names)
+  - Color extraction algorithm
+  - Palette generation
+  - Color harmony analysis
+  - Export to design tools
+  - Color accessibility checking
+  - Theme variation suggestions
+- **SEO Keywords**: game UI colors, UI color palette, color extraction, UI design colors, game interface colors, color scheme generator
+- **Access**: Logged-in Users Only
+- **Page Layout**:
+  - **Input Section**:
+    - Multiple input methods
+    - Preview area
+    - Processing options
+  - **Analysis Results**:
+    - Color palette display
+    - Color harmony analysis
+    - Accessibility report
+    - Theme variations
+  - **Export Options**:
+    - Design tool formats
+    - Code snippets
+    - Style guide generation
+    - Custom format export
 
 ## UI Analysis & Translation Tools
 
@@ -373,29 +549,29 @@ These capabilities accelerate the UI implementation process by bridging AI-gener
 
 ### Cocos Creator Plugin
 - **URL**: `/integrations/cocos`
-- **Title**: Cocos Creator UI Plugin - Import UI Designs Directly
-- **Meta Description**: Import UI designs directly into Cocos Creator 3.8 with our plugin. Automatic component creation, hierarchy setup, and style application.
+- **Title**: Cocos Creator UI Plugin - Import UI Designs & JSON Prefabs Directly
+- **Meta Description**: Import UI designs and JSON prefabs directly into Cocos Creator 3.8 with our plugin. Automatic component creation, hierarchy setup, style application, and seamless JSON prefab import.
 - **H1**: Cocos Creator UI Plugin
-- **Key Features**: Plugin overview, installation guide, usage examples
-- **SEO Keywords**: Cocos Creator plugin, UI import, Cocos UI, UI implementation
+- **Key Features**: Plugin overview, installation guide, usage examples, JSON prefab import workflow, component mapping configuration, style system integration
+- **SEO Keywords**: Cocos Creator plugin, UI import, Cocos UI, UI implementation, JSON prefab, Cocos Creator JSON
 - **Access**: Logged-in Users Only
 
 ### Unity Integration
 - **URL**: `/integrations/unity`
-- **Title**: Unity UI Integration - Import UI Designs into Unity
-- **Meta Description**: Import UI designs directly into Unity with our integration tools. Generate prefabs, map components, and apply styles automatically.
+- **Title**: Unity UI Integration - Import UI Designs & JSON Prefabs into Unity
+- **Meta Description**: Import UI designs and JSON prefabs directly into Unity with our integration tools. Generate prefabs, map components, apply styles, and seamlessly import JSON prefabs.
 - **H1**: Unity UI Integration
-- **Key Features**: Integration overview, installation guide, usage examples
-- **SEO Keywords**: Unity UI, UI import, Unity prefabs, UI implementation
+- **Key Features**: Integration overview, installation guide, usage examples, JSON prefab import workflow, component mapping configuration, style system integration
+- **SEO Keywords**: Unity UI, UI import, Unity prefabs, UI implementation, JSON prefab, Unity JSON
 - **Access**: Logged-in Users Only
 
 ### Unreal Engine Integration
 - **URL**: `/integrations/unreal`
-- **Title**: Unreal Engine UI Integration - Import UI Designs into Unreal
-- **Meta Description**: Import UI designs directly into Unreal Engine with our integration tools. Generate widgets, apply styles, and manage assets automatically.
+- **Title**: Unreal Engine UI Integration - Import UI Designs & JSON Prefabs into Unreal
+- **Meta Description**: Import UI designs and JSON prefabs directly into Unreal Engine with our integration tools. Generate widgets, apply styles, manage assets, and seamlessly import JSON prefabs.
 - **H1**: Unreal Engine UI Integration
-- **Key Features**: Integration overview, installation guide, usage examples
-- **SEO Keywords**: Unreal UI, UI import, Unreal widgets, UI implementation
+- **Key Features**: Integration overview, installation guide, usage examples, JSON prefab import workflow, component mapping configuration, style system integration
+- **SEO Keywords**: Unreal UI, UI import, Unreal widgets, UI implementation, JSON prefab, Unreal JSON
 - **Access**: Logged-in Users Only
 
 ## Development Tools

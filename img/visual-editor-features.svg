@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="400" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#F8F9FA" />
+  
+  <!-- Feature 1: Drag and Drop -->
+  <g transform="translate(50, 50)">
+    <rect width="200" height="300" rx="8" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="2" />
+    <circle cx="100" cy="80" r="40" fill="#6C5CE7" />
+    <path d="M80 60 L120 100 M120 60 L80 100" stroke="#FFFFFF" stroke-width="4" />
+    <text x="100" y="150" font-family="Arial" font-size="16" font-weight="bold" fill="#333333" text-anchor="middle">Drag and Drop</text>
+    <text x="100" y="180" font-family="Arial" font-size="14" fill="#666666" text-anchor="middle" width="160">Easily add and arrange UI components with drag and drop</text>
+  </g>
+  
+  <!-- Feature 2: Real-time Preview -->
+  <g transform="translate(300, 50)">
+    <rect width="200" height="300" rx="8" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="2" />
+    <circle cx="100" cy="80" r="40" fill="#00B894" />
+    <path d="M70 80 L130 80 M100 50 L100 110" stroke="#FFFFFF" stroke-width="4" />
+    <text x="100" y="150" font-family="Arial" font-size="16" font-weight="bold" fill="#333333" text-anchor="middle">Real-time Preview</text>
+    <text x="100" y="180" font-family="Arial" font-size="14" fill="#666666" text-anchor="middle" width="160">See changes instantly as you edit your UI</text>
+  </g>
+  
+  <!-- Feature 3: Export to JSON -->
+  <g transform="translate(550, 50)">
+    <rect width="200" height="300" rx="8" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="2" />
+    <circle cx="100" cy="80" r="40" fill="#FD9644" />
+    <path d="M80 80 L120 80 M100 60 L100 100" stroke="#FFFFFF" stroke-width="4" />
+    <text x="100" y="150" font-family="Arial" font-size="16" font-weight="bold" fill="#333333" text-anchor="middle">Export to JSON</text>
+    <text x="100" y="180" font-family="Arial" font-size="14" fill="#666666" text-anchor="middle" width="160">Export your UI design as JSON prefab format</text>
+  </g>
+</svg> 

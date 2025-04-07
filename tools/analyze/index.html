@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="analyze_tool_title">UI Analysis Tool - Extract Components from Game UI Images</title>
+  <meta name="description" data-i18n="analyze_tool_meta_description" content="Upload game UI images and get instant component analysis, style extraction, and JSON generation for implementation in game engines.">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/new-sections.css">
+  <link rel="stylesheet" href="../../css/dual-workflow-styles.css">
+  <link rel="stylesheet" href="../../css/cta-section-styles.css">
+  <link rel="stylesheet" href="../../css/ai-hub-styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- 添加结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "UI Analysis Tool",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "49.00",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "2800"
+    },
+    "description": "AI-powered tool for analyzing game UI images and extracting components for implementation in game engines",
+    "potentialAction": {
+      "@type": "ControlAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://example.com/try"
+      },
+      "actionStatus": "PotentialActionStatus"
+    }
+  }
+  </script>
+
+  <!-- 添加常见问题的结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How accurate is the UI component detection?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our AI-powered analysis achieves over 95% accuracy for common UI elements like buttons, panels, and text fields. For more complex or custom components, our interactive editor allows you to make adjustments to ensure perfect results."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What file formats are supported for analysis?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We support PNG, JPG, WebP, and SVG formats for UI analysis. You can also provide a URL to an image or take a screenshot directly in the tool."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the JSON output work with game engines?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The generated JSON contains all component information including hierarchy, position, size, and styling. This can be imported directly into Cocos Creator using our plugin, or into Unity and Unreal Engine with our specialized exporters."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I edit the detected components before exporting?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, our interactive editor allows you to adjust component properties, hierarchy, and relationships before generating the final JSON output. You can also manually add components that might not have been detected automatically."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* Analysis Tool Specific Styles */
+    .analysis-hero {
+      background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .analysis-hero::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      top: -250px;
+      right: -250px;
+      z-index: 0;
+    }
+    
+    .analysis-hero .hero-content h1,
+    .analysis-hero .hero-content p {
+      color: white;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .upload-preview {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 2px dashed rgba(255, 255, 255, 0.3);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: var(--spacing-lg);
+      cursor: pointer;
+      transition: all var(--transition-normal);
+    }
+    
+    .upload-preview:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+    
+    .upload-icon {
+      font-size: 48px;
+      margin-bottom: var(--spacing-md);
+      color: white;
+    }
+    
+    .upload-text {
+      color: white;
+      text-align: center;
+    }
+    
+    .workflow-section {
+      padding: var(--spacing-xxl) 0;
+      background-color: var(--bg-white);
+    }
+    
+    .workflow-steps {
+      display: flex;
+      justify-content: space-between;
+      margin-top: var(--spacing-xl);
+    }
+    
+    .workflow-step {
+      flex: 1;
+      padding: 0 var(--spacing-md);
+      text-align: center;
+    }
+    
+    .workflow-step-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: var(--bg-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--spacing-md);
+      color: var(--primary-color);
+      font-size: var(--text-2xl);
+    }
+    
+    .workflow-step h3 {
+      font-size: var(--text-lg);
+      font-weight: 700;
+      margin-bottom: var(--spacing-sm);
+      color: var(--text-dark);
+    }
+    
+    .workflow-step p {
+      color: var(--text-medium);
+    }
+    
+    .features-section {
+      padding: var(--spacing-xxl) 0;
+      background-color: var(--bg-light);
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-xl);
+    }
+    
+    .feature-card {
+      background-color: var(--bg-white);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-lg);
+      box-shadow: var(--shadow-md);
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .feature-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--spacing-md);
+      color: white;
+      font-size: var(--text-2xl);
+    }
+    
+    .feature-card h3 {
+      font-size: var(--text-lg);
+      font-weight: 700;
+      margin-bottom: var(--spacing-sm);
+      color: var(--text-dark);
+    }
+    
+    .feature-card p {
+      color: var(--text-medium);
+    }
+    
+    .demo-section {
+      padding: var(--spacing-xxl) 0;
+      background-color: var(--bg-white);
+    }
+    
+    .demo-container {
+      display: flex;
+      gap: var(--spacing-xl);
+      margin-top: var(--spacing-xl);
+      align-items: stretch;
+    }
+    
+    .demo-preview {
+      flex: 1;
+      background-color: var(--bg-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .demo-preview img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .demo-controls {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .demo-examples {
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .demo-examples h3 {
+      font-size: var(--text-lg);
+      font-weight: 700;
+      margin-bottom: var(--spacing-md);
+      color: var(--text-dark);
+    }
+    
+    .example-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-sm);
+    }
+    
+    .example-btn {
+      padding: var(--spacing-sm) var(--spacing-md);
+      background-color: var(--bg-medium);
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--text-dark);
+      cursor: pointer;
+      transition: all var(--transition-normal);
+    }
+    
+    .example-btn:hover,
+    .example-btn.active {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .demo-results {
+      flex-grow: 1;
+      background-color: var(--bg-light);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-md);
+      overflow: hidden;
+    }
+    
+    .result-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--bg-medium);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .result-tab {
+      padding: var(--spacing-sm) var(--spacing-md);
+      background: none;
+      border: none;
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--text-medium);
+      cursor: pointer;
+      position: relative;
+      transition: color var(--transition-normal);
+    }
+    
+    .result-tab.active {
+      color: var(--primary-color);
+    }
+    
+    .result-tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--primary-color);
+    }
+    
+    .result-content {
+      height: 300px;
+      overflow-y: auto;
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      line-height: 1.5;
+      color: var(--text-dark);
+      background-color: var(--bg-white);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-md);
+    }
+    
+    .cases-section {
+      padding: var(--spacing-xxl) 0;
+      background-color: var(--bg-light);
+    }
+    
+    .case-studies {
+      margin-top: var(--spacing-xl);
+    }
+    
+    .case-study {
+      background-color: var(--bg-white);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-lg);
+      box-shadow: var(--shadow-md);
+      margin-bottom: var(--spacing-lg);
+      display: flex;
+      gap: var(--spacing-xl);
+    }
+    
+    .case-content {
+      flex: 2;
+    }
+    
+    .case-image {
+      flex: 1;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    
+    .case-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .case-content h3 {
+      font-size: var(--text-xl);
+      font-weight: 700;
+      margin-bottom: var(--spacing-sm);
+      color: var(--text-dark);
+    }
+    
+    .case-meta {
+      display: flex;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-md);
+      color: var(--text-medium);
+      font-size: var(--text-sm);
+    }
+    
+    .case-problem,
+    .case-solution,
+    .case-result {
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .case-problem h4,
+    .case-solution h4,
+    .case-result h4 {
+      font-size: var(--text-md);
+      font-weight: 700;
+      margin-bottom: var(--spacing-xs);
+      color: var(--text-dark);
+    }
+    
+    .case-quote {
+      background-color: var(--bg-light);
+      border-left: 3px solid var(--primary-color);
+      padding: var(--spacing-md);
+      margin-top: var(--spacing-md);
+      font-style: italic;
+      color: var(--text-medium);
+    }
+    
+    .case-quote-author {
+      margin-top: var(--spacing-sm);
+      font-weight: 600;
+      font-style: normal;
+      color: var(--text-dark);
+    }
+    
+    .specs-section {
+      padding: var(--spacing-xxl) 0;
+      background-color: var(--bg-white);
+    }
+    
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-xl);
+    }
+    
+    .spec-card {
+      background-color: var(--bg-light);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-lg);
+    }
+    
+    .spec-card h3 {
+      font-size: var(--text-lg);
+      font-weight: 700;
+      margin-bottom: var(--spacing-md);
+      color: var(--text-dark);
+      border-bottom: 1px solid var(--bg-medium);
+      padding-bottom: var(--spacing-sm);
+    }
+    
+    .spec-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .spec-list li {
+      padding: var(--spacing-sm) 0;
+      border-bottom: 1px solid var(--bg-medium);
+      color: var(--text-medium);
+    }
+    
+    .spec-list li:last-child {
+      border-bottom: none;
+    }
+    
+    @media (max-width: 1024px) {
+      .demo-container {
+        flex-direction: column;
+      }
+      
+      .case-study {
+        flex-direction: column;
+      }
+      
+      .case-image {
+        order: -1;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .workflow-steps {
+        flex-direction: column;
+        gap: var(--spacing-xl);
+      }
+      
+      .workflow-step {
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="../../index.html">
+          <img src="../../img/logo.svg" alt="Game UI Generator Logo">
+          <h1 data-i18n="brand_name">Game UI Generator</h1>
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../../index.html#features" data-i18n="nav_features">Features</a></li>
+          <li><a href="../../index.html#workflow" data-i18n="nav_workflow">Workflow</a></li>
+          <li><a href="../../ai/index.html" data-i18n="nav_ai_tools">AI Tools</a></li>
+          <li><a href="../../index.html#pricing" data-i18n="nav_pricing">Pricing</a></li>
+        </ul>
+      </nav>
+      <div class="cta-button">
+        <a href="#signup" class="btn primary-btn" data-i18n="header_cta">Start Free Trial</a>
+      </div>
+      <div class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero analysis-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 data-i18n="analyze_tool_hero_title">UI Analysis Tool</h1>
+        <p data-i18n="analyze_tool_hero_subtitle">Upload your game UI designs and instantly extract components, styles, and structure for implementation in your game engine.</p>
+        <div class="hero-cta">
+          <a href="#signup" class="btn primary-btn" data-i18n="analyze_tool_cta_primary">Analyze Your UI</a>
+          <a href="#demo" class="btn secondary-btn" data-i18n="analyze_tool_cta_secondary">See How It Works</a>
+        </div>
+        
+        <div class="upload-preview">
+          <div class="upload-icon">
+            <i class="fas fa-cloud-upload-alt"></i>
+          </div>
+          <div class="upload-text">
+            <p data-i18n="upload_preview_text">Drag & drop your UI design here or click to browse</p>
+            <p class="upload-formats" data-i18n="upload_formats">Supports PNG, JPG, WebP, SVG</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Workflow Section -->
+  <section class="workflow-section" id="workflow">
+    <div class="container">
+      <h2 data-i18n="workflow_title">How It Works</h2>
+      <p class="section-subtitle" data-i18n="workflow_subtitle">Our streamlined process takes you from design to implementation in minutes</p>
+      
+      <div class="workflow-steps">
+        <div class="workflow-step">
+          <div class="workflow-step-icon">
+            <i class="fas fa-upload"></i>
+          </div>
+          <h3 data-i18n="workflow_step1_title">Upload</h3>
+          <p data-i18n="workflow_step1_desc">Upload your UI design image, paste a URL, or take a screenshot directly in the tool.</p>
+        </div>
+        
+        <div class="workflow-step">
+          <div class="workflow-step-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <h3 data-i18n="workflow_step2_title">Analyze</h3>
+          <p data-i18n="workflow_step2_desc">Our AI identifies UI components, extracts styles, and determines the hierarchy.</p>
+        </div>
+        
+        <div class="workflow-step">
+          <div class="workflow-step-icon">
+            <i class="fas fa-sliders-h"></i>
+          </div>
+          <h3 data-i18n="workflow_step3_title">Refine</h3>
+          <p data-i18n="workflow_step3_desc">Review and adjust the detected components, properties, and relationships as needed.</p>
+        </div>
+        
+        <div class="workflow-step">
+          <div class="workflow-step-icon">
+            <i class="fas fa-file-export"></i>
+          </div>
+          <h3 data-i18n="workflow_step4_title">Export</h3>
+          <p data-i18n="workflow_step4_desc">Generate JSON output and assets ready for implementation in your game engine.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <h2 data-i18n="features_title">Key Features</h2>
+      <p class="section-subtitle" data-i18n="features_subtitle">Powerful capabilities to streamline your UI implementation workflow</p>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3 data-i18n="feature1_title">Smart Component Detection</h3>
+          <p data-i18n="feature1_desc">Our AI accurately identifies buttons, panels, text fields, sliders, and other common UI elements from your designs.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-palette"></i>
+          </div>
+          <h3 data-i18n="feature2_title">Style Extraction</h3>
+          <p data-i18n="feature2_desc">Automatically extract colors, fonts, shadows, and other styling properties from your UI design.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-sitemap"></i>
+          </div>
+          <h3 data-i18n="feature3_title">Hierarchy Generation</h3>
+          <p data-i18n="feature3_desc">Create logical component hierarchies based on visual layout and structural analysis.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-crop-alt"></i>
+          </div>
+          <h3 data-i18n="feature4_title">Asset Extraction</h3>
+          <p data-i18n="feature4_desc">Automatically slice and optimize images and icons from your UI design for game implementation.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-edit"></i>
+          </div>
+          <h3 data-i18n="feature5_title">Interactive Editor</h3>
+          <p data-i18n="feature5_desc">Fine-tune detected components, properties, and relationships with our intuitive editing tools.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 data-i18n="feature6_title">Universal JSON Format</h3>
+          <p data-i18n="feature6_desc">Generate a standardized JSON format that works across multiple game engines for maximum flexibility.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo Section -->
+  <section class="demo-section" id="demo">
+    <div class="container">
+      <h2 data-i18n="demo_title">Interactive Demo</h2>
+      <p class="section-subtitle" data-i18n="demo_subtitle">See the analysis tool in action with these example UI designs</p>
+      
+      <div class="demo-container">
+        <div class="demo-preview">
+          <img src="../../img/analysis-demo.jpg" alt="UI Analysis Demo" id="demo-image">
+        </div>
+        
+        <div class="demo-controls">
+          <div class="demo-examples">
+            <h3 data-i18n="demo_examples_title">Example UI Designs</h3>
+            <div class="example-buttons">
+              <button class="example-btn active" data-example="rpg">RPG Inventory</button>
+              <button class="example-btn" data-example="mobile">Mobile Menu</button>
+              <button class="example-btn" data-example="strategy">Strategy HUD</button>
+              <button class="example-btn" data-example="settings">Settings Panel</button>
+            </div>
+          </div>
+          
+          <div class="demo-results">
+            <div class="result-tabs">
+              <button class="result-tab active" data-result="components">Components</button>
+              <button class="result-tab" data-result="hierarchy">Hierarchy</button>
+              <button class="result-tab" data-result="json">JSON Output</button>
+            </div>
+            
+            <div class="result-content" id="result-content">
+              // Component detection results will appear here
+              // Login to access the full interactive demo
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies Section -->
+  <section class="cases-section" id="cases">
+    <div class="container">
+      <h2 data-i18n="cases_title">Success Stories</h2>
+      <p class="section-subtitle" data-i18n="cases_subtitle">See how developers are using our analysis tool to save time and improve quality</p>
+      
+      <div class="case-studies">
+        <div class="case-study">
+          <div class="case-content">
+            <h3>SpaceQuest Mobile UI Implementation</h3>
+            <div class="case-meta">
+              <span><i class="fas fa-user"></i> Mobile Game Studio</span>
+              <span><i class="fas fa-clock"></i> 95% Time Reduction</span>
+            </div>
+            
+            <div class="case-problem">
+              <h4>Challenge</h4>
+              <p>SpaceQuest's design team created detailed UI mockups for their mobile game, but the development team was spending weeks manually implementing each screen.</p>
+            </div>
+            
+            <div class="case-solution">
+              <h4>Solution</h4>
+              <p>Using our UI Analysis Tool, they were able to automatically extract components, hierarchy, and styling from their design files and generate Cocos Creator prefabs.</p>
+            </div>
+            
+            <div class="case-result">
+              <h4>Result</h4>
+              <p>Implementation time was reduced from 2-3 weeks to just 1-2 days per screen, with higher accuracy and consistency across the game's UI.</p>
+            </div>
+            
+            <div class="case-quote">
+              <p>"The UI Analysis Tool has completely transformed our workflow. What used to take our team weeks now takes hours, and the quality is consistently better."</p>
+              <div class="case-quote-author">- Alex Chen, Lead Developer</div>
+            </div>
+          </div>
+          
+          <div class="case-image">
+            <img src="../../img/spacequest-logo.svg" alt="SpaceQuest Case Study">
+          </div>
+        </div>
+        
+        <div class="case-study">
+          <div class="case-content">
+            <h3>Fantasy RPG Inventory System</h3>
+            <div class="case-meta">
+              <span><i class="fas fa-user"></i> Indie Game Developer</span>
+              <span><i class="fas fa-clock"></i> 90% Time Reduction</span>
+            </div>
+            
+            <div class="case-problem">
+              <h4>Challenge</h4>
+              <p>An indie developer had created a complex inventory design for their RPG but lacked the resources to implement it efficiently in Unity.</p>
+            </div>
+            
+            <div class="case-solution">
+              <h4>Solution</h4>
+              <p>They used our analysis tool to break down the inventory design into components, extract all assets, and generate a complete Unity prefab structure.</p>
+            </div>
+            
+            <div class="case-result">
+              <h4>Result</h4>
+              <p>The entire inventory system was implemented in just two days instead of the estimated three weeks, allowing them to focus on gameplay features.</p>
+            </div>
+            
+            <div class="case-quote">
+              <p>"As a solo developer, I couldn't afford to spend weeks on UI implementation. This tool gave me back precious development time while delivering better results than I could have created manually."</p>
+              <div class="case-quote-author">- Marco Silva, Indie Developer</div>
+            </div>
+          </div>
+          
+          <div class="case-image">
+            <img src="../../img/case-study-image.svg" alt="Fantasy RPG Case Study">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Specs Section -->
+  <section class="specs-section" id="specs">
+    <div class="container">
+      <h2 data-i18n="specs_title">Technical Specifications</h2>
+      <p class="section-subtitle" data-i18n="specs_subtitle">Detailed information about supported formats, capabilities, and limitations</p>
+      
+      <div class="specs-grid">
+        <div class="spec-card">
+          <h3 data-i18n="supported_formats_title">Supported Formats</h3>
+          <ul class="spec-list">
+            <li>PNG (up to 4000x4000 pixels)</li>
+            <li>JPG/JPEG (up to 4000x4000 pixels)</li>
+            <li>WebP (up to 4000x4000 pixels)</li>
+            <li>SVG (vector format, no size limit)</li>
+            <li>Direct URL to image</li>
+            <li>Screenshot capture</li>
+          </ul>
+        </div>
+        
+        <div class="spec-card">
+          <h3 data-i18n="analysis_capabilities_title">Analysis Capabilities</h3>
+          <ul class="spec-list">
+            <li>Component detection accuracy: 95%+</li>
+            <li>Style extraction precision: 98%+</li>
+            <li>Processing time: 2-5 seconds</li>
+            <li>Maximum components per image: 500</li>
+            <li>Hierarchy depth: Unlimited</li>
+            <li>Custom component support: Yes</li>
+          </ul>
+        </div>
+        
+        <div class="spec-card">
+          <h3 data-i18n="export_options_title">Export Options</h3>
+          <ul class="spec-list">
+            <li>Universal JSON format</li>
+            <li>Cocos Creator prefab (via plugin)</li>
+            <li>Unity prefab (via exporter)</li>
+            <li>Unreal Engine widget (experimental)</li>
+            <li>Optimized asset extraction</li>
+            <li>Component property mapping</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq">
+    <div class="container">
+      <h2 data-i18n="faq_title">Frequently Asked Questions</h2>
+      <p class="section-subtitle" data-i18n="faq_subtitle">Find answers to common questions about our UI analysis tool</p>
+      
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>How accurate is the component detection?</h3>
+            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Our AI component detection achieves over 95% accuracy for common UI elements like buttons, panels, text fields, and sliders. For more complex or custom components, our interactive editor allows you to make adjustments to ensure perfect results.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Can I analyze multiple screens at once?</h3>
+            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, our batch processing feature allows you to analyze multiple UI screens in one go. This is especially useful for games with many UI screens that share common elements and styles.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>How does the asset extraction work?</h3>
+            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Our tool automatically identifies discrete visual elements in your UI design and extracts them as individual image assets. It optimizes these assets for game use, removing unnecessary pixels and generating appropriate formats for your target platform.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Can I customize the generated output?</h3>
+            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Absolutely. After the initial analysis, you can use our interactive editor to adjust component properties, hierarchy, relationships, and naming conventions before generating the final output. You can also save custom presets for future analyses.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>How do I get started?</h3>
+            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Simply sign up for a free trial to access the full UI Analysis Tool. You can immediately start uploading your UI designs and converting them to your preferred game engine format. Our guided workflow will help you through each step of the process.</p>
+            <a href="#signup" class="btn primary-btn">Start Free Trial</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 data-i18n="cta_title">Ready to Accelerate Your UI Implementation?</h2>
+        <p data-i18n="cta_subtitle">Join thousands of game developers who are saving time and improving quality with our UI Analysis Tool.</p>
+        <div class="cta-buttons">
+          <a href="#signup" class="btn primary-btn" data-i18n="cta_primary">Start 14-Day Free Trial</a>
+          <a href="#demo" class="btn secondary-btn" data-i18n="cta_secondary">Schedule Demo</a>
+        </div>
+        <p class="cta-note" data-i18n="cta_note">No credit card required. Full access to all features during trial.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="../../img/logo.svg" alt="Game UI Generator Logo">
+          <h2 data-i18n="brand_name">Game UI Generator</h2>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h3 data-i18n="footer_products">Products</h3>
+            <ul>
+              <li><a href="../../index.html">Game UI Generator</a></li>
+              <li><a href="../../ai/index.html">AI Conversion Hub</a></li>
+              <li><a href="index.html">UI Analysis Tool</a></li>
+              <li><a href="../json-prefab-format">JSON Prefab Format</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3 data-i18n="footer_resources">Resources</h3>
+            <ul>
+              <li><a href="../../docs">Documentation</a></li>
+              <li><a href="../../blog">Blog</a></li>
+              <li><a href="../../tutorials">Tutorials</a></li>
+              <li><a href="../../faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3 data-i18n="footer_company">Company</h3>
+            <ul>
+              <li><a href="../../about">About Us</a></li>
+              <li><a href="../../contact">Contact</a></li>
+              <li><a href="../../privacy.html">Privacy Policy</a></li>
+              <li><a href="../../terms.html">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Game UI Generator. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-discord"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Login Modal -->
+  <div class="modal" id="login-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Login to Access</h2>
+      <p>Please login or create an account to access this feature.</p>
+      <div class="modal-buttons">
+        <a href="../../login" class="btn secondary-btn">Login</a>
+        <a href="../../signup" class="btn primary-btn">Create Account</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../../js/main.js"></script>
+  <script>
+    // Show login modal when restricted features are clicked
+    document.addEventListener('DOMContentLoaded', function() {
+      const restrictedElements = document.querySelectorAll('.upload-preview, .example-btn, .btn.primary-btn');
+      const loginModal = document.getElementById('login-modal');
+      const closeModal = document.querySelector('.close-modal');
+      
+      restrictedElements.forEach(element => {
+        element.addEventListener('click', function(e) {
+          if (!element.classList.contains('modal-btn')) {
+            e.preventDefault();
+            loginModal.style.display = 'flex';
+          }
+        });
+      });
+      
+      closeModal.addEventListener('click', function() {
+        loginModal.style.display = 'none';
+      });
+      
+      window.addEventListener('click', function(e) {
+        if (e.target == loginModal) {
+          loginModal.style.display = 'none';
+        }
+      });
+      
+      // Demo example buttons functionality
+      const exampleButtons = document.querySelectorAll('.example-btn');
+      const demoImage = document.getElementById('demo-image');
+      
+      exampleButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          exampleButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          
+          // In a real implementation, this would change the demo image and results
+          // For now, we just show the login modal
+        });
+      });
+      
+      // Result tabs functionality
+      const resultTabs = document.querySelectorAll('.result-tab');
+      const resultContent = document.getElementById('result-content');
+      
+      resultTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          resultTabs.forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+          
+          // In a real implementation, this would change the result content
+          // For now, we just show different placeholder text based on the tab
+          const resultType = this.getAttribute('data-result');
+          
+          if (resultType === 'components') {
+            resultContent.textContent = '// Component detection results will appear here\n// Login to access the full interactive demo';
+          } else if (resultType === 'hierarchy') {
+            resultContent.textContent = '// Hierarchy structure will appear here\n// Login to access the full interactive demo';
+          } else if (resultType === 'json') {
+            resultContent.textContent = '// JSON output will appear here\n// Login to access the full interactive demo';
+          }
+        });
+      });
+      
+      // FAQ accordion functionality
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', function() {
+          item.classList.toggle('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

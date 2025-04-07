@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML to Cocos Creator Converter - Web UI to Game Prefab</title>
+  <meta name="description" content="Convert HTML/CSS designs directly to Cocos Creator prefabs. Transform web UI components into functional game UI elements in minutes.">
+  <link rel="stylesheet" href="../../../css/styles.css">
+  <link rel="stylesheet" href="../../../css/tool-landing-pages.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "HTML to Cocos Creator Converter",
+    "applicationCategory": "GameDevelopmentApplication",
+    "operatingSystem": "Web-based",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.7",
+      "ratingCount": "92"
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">
+        <a href="../../../index.html">
+          <img src="../../../img/logo.svg" alt="Game UI Generator Logo">
+        </a>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="../../../index.html">Home</a></li>
+          <li><a href="../../analyze/index.html">Analysis Tool</a></li>
+          <li class="active"><a href="../../index.html">AI Tools Hub</a></li>
+          <li><a href="../../../pricing.html">Pricing</a></li>
+          <li><a href="../../../docs/index.html">Documentation</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <a href="../../../login.html" class="btn btn-outline">Log In</a>
+        <a href="../../../signup.html" class="btn btn-primary">Start Free Trial</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <h1>HTML to Cocos Creator Converter</h1>
+        <p class="subtitle">Transform HTML/CSS designs into functional Cocos Creator prefabs in minutes</p>
+        <div class="hero-cta">
+          <a href="#converter" class="btn btn-primary btn-lg">Try Converter Now</a>
+          <a href="#demo" class="btn btn-outline btn-lg">Watch Demo</a>
+        </div>
+        <div class="hero-features">
+          <div class="feature">
+            <i class="fas fa-bolt"></i>
+            <span>95%+ accuracy</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-clock"></i>
+            <span>Save 8+ hours per UI</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-code"></i>
+            <span>Production-ready code</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="../../../img/tools/html-cocos-hero.svg" alt="HTML to Cocos Creator Conversion Process">
+      </div>
+    </div>
+  </section>
+
+  <!-- Converter Tool Section -->
+  <section class="converter-section" id="converter">
+    <div class="container">
+      <h2>Convert Your HTML/CSS Design</h2>
+      <p class="section-subtitle">Paste your HTML/CSS code and get a Cocos Creator prefab in minutes</p>
+      
+      <div class="converter-tool">
+        <div class="converter-steps">
+          <div class="converter-step active" data-step="1">
+            <div class="step-number">1</div>
+            <h3>Paste HTML/CSS Code</h3>
+            <p>Paste your HTML and CSS code or upload a file</p>
+            <div class="code-input-area">
+              <div class="code-tabs">
+                <button class="code-tab active" data-tab="html">HTML</button>
+                <button class="code-tab" data-tab="css">CSS</button>
+                <button class="code-tab" data-tab="upload">Upload File</button>
+              </div>
+              <div class="code-editor html-editor active">
+                <textarea placeholder="Paste your HTML code here..."></textarea>
+              </div>
+              <div class="code-editor css-editor">
+                <textarea placeholder="Paste your CSS code here..."></textarea>
+              </div>
+              <div class="code-editor upload-editor">
+                <div class="upload-area">
+                  <i class="fas fa-cloud-upload-alt"></i>
+                  <p>Drag & drop your HTML file here or click to browse</p>
+                  <input type="file" accept=".html,.htm">
+                </div>
+              </div>
+              <div class="input-actions">
+                <button class="btn btn-outline">Clear</button>
+                <button class="btn btn-primary">Convert</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="converter-step" data-step="2">
+            <div class="step-number">2</div>
+            <h3>AI Analysis</h3>
+            <p>Our AI analyzes and converts your HTML/CSS to Cocos Creator components</p>
+            <div class="analysis-progress">
+              <div class="progress-bar">
+                <div class="progress-fill"></div>
+              </div>
+              <p class="progress-text">Analyzing HTML/CSS structure...</p>
+            </div>
+          </div>
+          
+          <div class="converter-step" data-step="3">
+            <div class="step-number">3</div>
+            <h3>Adjust & Refine</h3>
+            <p>Fine-tune component mapping and properties</p>
+            <div class="refinement-tools">
+              <div class="tool-group">
+                <h4>Component Mapping</h4>
+                <div class="mapping-table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>HTML Element</th>
+                        <th>Cocos Component</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>div.container</td>
+                        <td>Layout</td>
+                        <td>
+                          <button class="btn btn-sm btn-outline">Edit</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>button.primary</td>
+                        <td>Button</td>
+                        <td>
+                          <button class="btn btn-sm btn-outline">Edit</button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>input.text-field</td>
+                        <td>EditBox</td>
+                        <td>
+                          <button class="btn btn-sm btn-outline">Edit</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tool-group">
+                <h4>Export Options</h4>
+                <div class="checkbox-group">
+                  <label><input type="checkbox" checked> Preserve CSS Styles</label>
+                  <label><input type="checkbox" checked> Generate Event Handlers</label>
+                  <label><input type="checkbox" checked> Optimize Layout</label>
+                  <label><input type="checkbox"> Include Animation Data</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="converter-step" data-step="4">
+            <div class="step-number">4</div>
+            <h3>Export to Cocos Creator</h3>
+            <p>Download your prefab ready for Cocos Creator</p>
+            <div class="export-options">
+              <div class="export-preview">
+                <img src="../../../img/tools/prefab-preview.svg" alt="Prefab Preview">
+              </div>
+              <div class="export-actions">
+                <a href="#" class="btn btn-primary btn-lg">Download Prefab</a>
+                <a href="#" class="btn btn-outline">View Documentation</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="converter-navigation">
+          <button class="btn btn-outline" id="prev-step" disabled>Previous</button>
+          <button class="btn btn-primary" id="next-step">Next</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="container">
+      <h2>Why Choose Our HTML to Cocos Converter</h2>
+      <p class="section-subtitle">Specialized tools for converting HTML/CSS to Cocos Creator</p>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>HTML/CSS Parsing</h3>
+          <p>Advanced parsing of HTML structure and CSS styles for accurate conversion</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-exchange-alt"></i>
+          </div>
+          <h3>Smart Component Mapping</h3>
+          <p>Intelligent mapping of HTML elements to appropriate Cocos Creator components</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3>Style Preservation</h3>
+          <p>Maintains your CSS styles and visual design in the Cocos Creator prefab</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Responsive Design</h3>
+          <p>Converts responsive layouts to Cocos Creator's layout system</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-sliders-h"></i>
+          </div>
+          <h3>Customizable Export</h3>
+          <p>Fine-tune conversion settings and export options to match your workflow</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-sync-alt"></i>
+          </div>
+          <h3>Iterative Refinement</h3>
+          <p>Easily update your prefab as you refine your HTML/CSS</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="how-it-works-section">
+    <div class="container">
+      <h2>How It Works</h2>
+      <p class="section-subtitle">From HTML/CSS to Cocos Creator prefab in 4 simple steps</p>
+      
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <div class="step-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Paste HTML/CSS</h3>
+          <p>Paste your HTML and CSS code or upload a file</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <div class="step-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>AI Conversion</h3>
+          <p>Our specialized AI converts your HTML/CSS to Cocos Creator components</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <div class="step-icon">
+            <i class="fas fa-sliders-h"></i>
+          </div>
+          <h3>Adjust & Refine</h3>
+          <p>Fine-tune component mapping and customize export options</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <div class="step-icon">
+            <i class="fas fa-download"></i>
+          </div>
+          <h3>Export to Cocos Creator</h3>
+          <p>Download your prefab ready to use in Cocos Creator</p>
+        </div>
+      </div>
+      
+      <div class="process-demo">
+        <div class="demo-video">
+          <img src="../../../img/tools/html-cocos-demo.svg" alt="HTML to Cocos Creator Demo">
+          <a href="#" class="play-button" id="demo">
+            <i class="fas fa-play"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Examples Section -->
+  <section class="examples-section">
+    <div class="container">
+      <h2>See It In Action</h2>
+      <p class="section-subtitle">Real examples of HTML/CSS converted to Cocos Creator prefabs</p>
+      
+      <div class="examples-grid">
+        <div class="example-card">
+          <div class="example-before">
+            <div class="code-example">
+              <h4>HTML/CSS:</h4>
+              <pre><code>&lt;div class="login-form"&gt;
+  &lt;h2&gt;Login&lt;/h2&gt;
+  &lt;input type="text" placeholder="Username"&gt;
+  &lt;input type="password" placeholder="Password"&gt;
+  &lt;button class="btn-primary"&gt;Login&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <span class="label">HTML/CSS</span>
+          </div>
+          <div class="example-after">
+            <img src="../../../img/examples/html-after-1.jpg" alt="Cocos Creator Implementation">
+            <span class="label">Cocos Creator Implementation</span>
+          </div>
+          <div class="example-info">
+            <h3>Login Form</h3>
+            <p>HTML/CSS converted to Cocos Creator prefab</p>
+            <a href="#" class="btn btn-outline">View Case Study</a>
+          </div>
+        </div>
+        
+        <div class="example-card">
+          <div class="example-before">
+            <div class="code-example">
+              <h4>HTML/CSS:</h4>
+              <pre><code>&lt;div class="inventory-grid"&gt;
+  &lt;div class="item-slot"&gt;
+    &lt;img src="sword.png"&gt;
+    &lt;span class="item-count"&gt;1&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="item-slot"&gt;
+    &lt;img src="potion.png"&gt;
+    &lt;span class="item-count"&gt;5&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <span class="label">HTML/CSS</span>
+          </div>
+          <div class="example-after">
+            <img src="../../../img/examples/html-after-2.jpg" alt="Cocos Creator Implementation">
+            <span class="label">Cocos Creator Implementation</span>
+          </div>
+          <div class="example-info">
+            <h3>Inventory Grid</h3>
+            <p>HTML/CSS converted to Cocos Creator prefab</p>
+            <a href="#" class="btn btn-outline">View Case Study</a>
+          </div>
+        </div>
+        
+        <div class="example-card">
+          <div class="example-before">
+            <div class="code-example">
+              <h4>HTML/CSS:</h4>
+              <pre><code>&lt;div class="settings-panel"&gt;
+  &lt;div class="settings-header"&gt;
+    &lt;h2&gt;Settings&lt;/h2&gt;
+  &lt;/div&gt;
+  &lt;div class="settings-content"&gt;
+    &lt;div class="setting-item"&gt;
+      &lt;label&gt;Music Volume&lt;/label&gt;
+      &lt;input type="range" min="0" max="100"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <span class="label">HTML/CSS</span>
+          </div>
+          <div class="example-after">
+            <img src="../../../img/examples/html-after-3.jpg" alt="Cocos Creator Implementation">
+            <span class="label">Cocos Creator Implementation</span>
+          </div>
+          <div class="example-info">
+            <h3>Settings Panel</h3>
+            <p>HTML/CSS converted to Cocos Creator prefab</p>
+            <a href="#" class="btn btn-outline">View Case Study</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="examples-cta">
+        <a href="../../../case-studies.html" class="btn btn-primary">View All Examples</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="container">
+      <h2>What Game Developers Say</h2>
+      <p class="section-subtitle">Hear from developers who use our HTML to Cocos Creator converter</p>
+      
+      <div class="testimonials-slider">
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"The HTML to Cocos converter saved us countless hours. We were able to convert our web UI designs to game UI in minutes instead of days."</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="../../../img/testimonials/author-10.jpg" alt="Sarah Martinez">
+            <div class="author-info">
+              <h4>Sarah Martinez</h4>
+              <p>UI Developer, Game Studio X</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"As a web developer transitioning to game development, this tool was invaluable. It preserved our existing UI designs while making them game-ready."</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="../../../img/testimonials/author-11.jpg" alt="David Kim">
+            <div class="author-info">
+              <h4>David Kim</h4>
+              <p>Full Stack Developer, Indie Game Co</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"The component mapping is incredibly accurate. It correctly interpreted even complex HTML structures and CSS styles."</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="../../../img/testimonials/author-12.jpg" alt="Emily Rodriguez">
+            <div class="author-info">
+              <h4>Emily Rodriguez</h4>
+              <p>Game Designer, Creative Games</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <p class="section-subtitle">Common questions about our HTML to Cocos Creator converter</p>
+      
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>What versions of Cocos Creator are supported?</h3>
+            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>We currently support Cocos Creator 3.x. The generated prefabs are compatible with the latest versions of Cocos Creator.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>How accurate is the HTML/CSS conversion?</h3>
+            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Our AI achieves 95%+ accuracy in converting HTML/CSS to Cocos Creator components. The conversion is specifically optimized for web UI to game UI transformation.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Can I customize the generated prefabs?</h3>
+            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, all generated prefabs are fully customizable. You can adjust properties, add functionality, and modify the hierarchy to suit your specific needs.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>What HTML/CSS features are supported?</h3>
+            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>We support most common HTML elements and CSS properties, including flexbox, grid layouts, transforms, and animations. Check our documentation for a complete list of supported features.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Do you offer a free trial?</h3>
+            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, we offer a 14-day free trial with access to all features. No credit card required to start your trial.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Is there an API available for integration?</h3>
+            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, we offer a RESTful API for integrating our HTML to Cocos Creator converter into your existing workflow. API documentation is available for registered users.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Transform Your HTML/CSS?</h2>
+      <p>Start your free trial today and see how our converter can revolutionize your game development workflow.</p>
+      <div class="cta-buttons">
+        <a href="../../../signup.html" class="btn btn-primary btn-lg">Start Free Trial</a>
+        <a href="../../../contact.html" class="btn btn-outline btn-lg">Contact Sales</a>
+      </div>
+      <p class="cta-note">No credit card required • 14-day free trial • Cancel anytime</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Product</h3>
+          <ul>
+            <li><a href="../../../features.html">Features</a></li>
+            <li><a href="../../../pricing.html">Pricing</a></li>
+            <li><a href="../../../case-studies.html">Case Studies</a></li>
+            <li><a href="../../../integrations.html">Integrations</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="../../../docs/index.html">Documentation</a></li>
+            <li><a href="../../../blog.html">Blog</a></li>
+            <li><a href="../../../tutorials.html">Tutorials</a></li>
+            <li><a href="../../../api-docs.html">API Reference</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="../../../about.html">About Us</a></li>
+            <li><a href="../../../careers.html">Careers</a></li>
+            <li><a href="../../../contact.html">Contact</a></li>
+            <li><a href="../../../partners.html">Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="../../../privacy.html">Privacy Policy</a></li>
+            <li><a href="../../../terms.html">Terms of Service</a></li>
+            <li><a href="../../../security.html">Security</a></li>
+            <li><a href="../../../cookies.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="copyright">
+          <p>&copy; 2023 Game UI Generator. All rights reserved.</p>
+        </div>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-discord"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../../js/main.js"></script>
+  <script src="../../../js/tool-landing-pages.js"></script>
+  <script>
+    // Additional JavaScript for the converter tool
+    document.addEventListener('DOMContentLoaded', function() {
+      // Code tabs functionality
+      const codeTabs = document.querySelectorAll('.code-tab');
+      const codeEditors = document.querySelectorAll('.code-editor');
+      
+      if (codeTabs.length && codeEditors.length) {
+        codeTabs.forEach(tab => {
+          tab.addEventListener('click', () => {
+            // Remove active class from all tabs and editors
+            codeTabs.forEach(t => t.classList.remove('active'));
+            codeEditors.forEach(e => e.classList.remove('active'));
+            
+            // Add active class to clicked tab and corresponding editor
+            tab.classList.add('active');
+            const editor = document.querySelector(`.${tab.dataset.tab}-editor`);
+            if (editor) {
+              editor.classList.add('active');
+            }
+          });
+        });
+      }
+      
+      // File upload handling
+      const uploadArea = document.querySelector('.upload-area');
+      const fileInput = document.querySelector('input[type="file"]');
+      
+      if (uploadArea && fileInput) {
+        uploadArea.addEventListener('click', () => {
+          fileInput.click();
+        });
+        
+        uploadArea.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          uploadArea.classList.add('dragover');
+        });
+        
+        uploadArea.addEventListener('dragleave', () => {
+          uploadArea.classList.remove('dragover');
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+          e.preventDefault();
+          uploadArea.classList.remove('dragover');
+          
+          if (e.dataTransfer.files.length) {
+            handleFile(e.dataTransfer.files[0]);
+          }
+        });
+        
+        fileInput.addEventListener('change', (e) => {
+          if (e.target.files.length) {
+            handleFile(e.target.files[0]);
+          }
+        });
+        
+        function handleFile(file) {
+          if (file.type === 'text/html' || file.name.endsWith('.html') || file.name.endsWith('.htm')) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+              const htmlEditor = document.querySelector('.html-editor textarea');
+              if (htmlEditor) {
+                htmlEditor.value = e.target.result;
+              }
+            };
+            reader.readAsText(file);
+          } else {
+            alert('Please upload an HTML file.');
+          }
+        }
+      }
+      
+      // Converter navigation
+      const prevButton = document.getElementById('prev-step');
+      const nextButton = document.getElementById('next-step');
+      const steps = document.querySelectorAll('.converter-step');
+      let currentStep = 1;
+      
+      if (prevButton && nextButton && steps.length) {
+        prevButton.addEventListener('click', () => {
+          if (currentStep > 1) {
+            steps[currentStep - 1].classList.remove('active');
+            currentStep--;
+            steps[currentStep - 1].classList.add('active');
+            
+            if (currentStep === 1) {
+              prevButton.disabled = true;
+            }
+          }
+        });
+        
+        nextButton.addEventListener('click', () => {
+          if (currentStep < steps.length) {
+            steps[currentStep - 1].classList.remove('active');
+            currentStep++;
+            steps[currentStep - 1].classList.add('active');
+            
+            prevButton.disabled = false;
+            
+            if (currentStep === steps.length) {
+              nextButton.textContent = 'Finish';
+            }
+          } else {
+            // Reset to first step
+            steps[currentStep - 1].classList.remove('active');
+            currentStep = 1;
+            steps[currentStep - 1].classList.add('active');
+            prevButton.disabled = true;
+            nextButton.textContent = 'Next';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html> 

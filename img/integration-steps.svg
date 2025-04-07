@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="400" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#F8F9FA" />
+  
+  <!-- Step 1: Analyze UI Design -->
+  <g transform="translate(50, 50)">
+    <rect width="150" height="300" rx="8" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="2" />
+    <circle cx="75" cy="50" r="30" fill="#6C5CE7" />
+    <text x="75" y="55" font-family="Arial" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">1</text>
+    <text x="75" y="120" font-family="Arial" font-size="16" font-weight="bold" fill="#333333" text-anchor="middle">Analyze UI Design</text>
+    <text x="75" y="150" font-family="Arial" font-size="14" fill="#666666" text-anchor="middle" width="130">Upload your UI design files for analysis</text>
+  </g>
+  
+  <!-- Step 2: Generate JSON -->
+  <g transform="translate(250, 50)">
+    <rect width="150" height="300" rx="8" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="2" />
+    <circle cx="75" cy="50" r="30" fill="#00B894" />
+    <text x="75" y="55" font-family="Arial" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">2</text>
+    <text x="75" y="120" font-family="Arial" font-size="16" font-weight="bold" fill="#333333" text-anchor="middle">Generate JSON</text>
+    <text x="75" y="150" font-family="Arial" font-size="14" fill="#666666" text-anchor="middle" width="130">Convert design to JSON prefab format</text>
+  </g>
+  
+  <!-- Step 3: Import to Engine -->
+  <g transform="translate(450, 50)">
+    <rect width="150" height="300" rx="8" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="2" />
+    <circle cx="75" cy="50" r="30" fill="#FD9644" />
+    <text x="75" y="55" font-family="Arial" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">3</text>
+    <text x="75" y="120" font-family="Arial" font-size="16" font-weight="bold" fill="#333333" text-anchor="middle">Import to Engine</text>
+    <text x="75" y="150" font-family="Arial" font-size="14" fill="#666666" text-anchor="middle" width="130">Import JSON prefab into your game engine</text>
+  </g>
+  
+  <!-- Step 4: Deploy Game -->
+  <g transform="translate(650, 50)">
+    <rect width="150" height="300" rx="8" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="2" />
+    <circle cx="75" cy="50" r="30" fill="#FC5C65" />
+    <text x="75" y="55" font-family="Arial" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">4</text>
+    <text x="75" y="120" font-family="Arial" font-size="16" font-weight="bold" fill="#333333" text-anchor="middle">Deploy Game</text>
+    <text x="75" y="150" font-family="Arial" font-size="14" fill="#666666" text-anchor="middle" width="130">Build and deploy your game with the UI</text>
+  </g>
+  
+  <!-- Connecting Lines -->
+  <path d="M200 200 L250 200" stroke="#6C5CE7" stroke-width="2" stroke-dasharray="5 5" />
+  <path d="M400 200 L450 200" stroke="#00B894" stroke-width="2" stroke-dasharray="5 5" />
+  <path d="M600 200 L650 200" stroke="#FD9644" stroke-width="2" stroke-dasharray="5 5" />
+  
+  <!-- Arrows -->
+  <path d="M240 200 L250 190 L250 210 Z" fill="#6C5CE7" />
+  <path d="M440 200 L450 190 L450 210 Z" fill="#00B894" />
+  <path d="M640 200 L650 190 L650 210 Z" fill="#FD9644" />
+</svg> 

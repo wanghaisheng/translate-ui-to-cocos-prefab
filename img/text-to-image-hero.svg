@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#F8F9FA" />
+  
+  <!-- Text Input Side -->
+  <g transform="translate(50, 100)">
+    <rect width="300" height="400" rx="8" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="2" />
+    <rect x="20" y="20" width="260" height="40" rx="4" fill="#6C5CE7" />
+    <text x="150" y="45" font-family="Arial" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Text Description</text>
+    
+    <!-- Text Lines -->
+    <rect x="20" y="80" width="260" height="20" rx="2" fill="#F0F0F0" />
+    <rect x="20" y="110" width="260" height="20" rx="2" fill="#F0F0F0" />
+    <rect x="20" y="140" width="260" height="20" rx="2" fill="#F0F0F0" />
+    <rect x="20" y="170" width="260" height="20" rx="2" fill="#F0F0F0" />
+    <rect x="20" y="200" width="260" height="20" rx="2" fill="#F0F0F0" />
+    <rect x="20" y="230" width="260" height="20" rx="2" fill="#F0F0F0" />
+    <rect x="20" y="260" width="260" height="20" rx="2" fill="#F0F0F0" />
+    <rect x="20" y="290" width="260" height="20" rx="2" fill="#F0F0F0" />
+    <rect x="20" y="320" width="260" height="20" rx="2" fill="#F0F0F0" />
+    <rect x="20" y="350" width="260" height="20" rx="2" fill="#F0F0F0" />
+    
+    <!-- Text Content -->
+    <text x="40" y="95" font-family="Arial" font-size="14" fill="#333333">A magical forest with glowing mushrooms</text>
+    <text x="40" y="125" font-family="Arial" font-size="14" fill="#333333">and fairy lights floating in the air.</text>
+    <text x="40" y="155" font-family="Arial" font-size="14" fill="#333333">The trees have iridescent leaves that</text>
+    <text x="40" y="185" font-family="Arial" font-size="14" fill="#333333">change color with the wind. A small</text>
+    <text x="40" y="215" font-family="Arial" font-size="14" fill="#333333">stream runs through the middle with</text>
+    <text x="40" y="245" font-family="Arial" font-size="14" fill="#333333">crystal clear water that reflects the</text>
+    <text x="40" y="275" font-family="Arial" font-size="14" fill="#333333">stars above. Fireflies dance around</text>
+    <text x="40" y="305" font-family="Arial" font-size="14" fill="#333333">the scene, creating a magical</text>
+    <text x="40" y="335" font-family="Arial" font-size="14" fill="#333333">atmosphere.</text>
+  </g>
+  
+  <!-- Image Output Side -->
+  <g transform="translate(450, 100)">
+    <rect width="300" height="400" rx="8" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="2" />
+    <rect x="20" y="20" width="260" height="40" rx="4" fill="#00B894" />
+    <text x="150" y="45" font-family="Arial" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Generated Image</text>
+    
+    <!-- Image Placeholder -->
+    <rect x="20" y="80" width="260" height="300" rx="4" fill="#F0F0F0" />
+    
+    <!-- Image Elements -->
+    <circle cx="150" cy="200" r="50" fill="#6C5CE7" opacity="0.2" />
+    <circle cx="200" cy="250" r="30" fill="#00B894" opacity="0.2" />
+    <circle cx="100" cy="250" r="40" fill="#FD9644" opacity="0.2" />
+    <circle cx="150" cy="300" r="20" fill="#FC5C65" opacity="0.2" />
+    <circle cx="250" cy="200" r="25" fill="#6C5CE7" opacity="0.2" />
+    <circle cx="200" cy="150" r="35" fill="#00B894" opacity="0.2" />
+    <circle cx="100" cy="150" r="30" fill="#FD9644" opacity="0.2" />
+  </g>
+  
+  <!-- Bridge -->
+  <path d="M350 300 L450 300" stroke="#6C5CE7" stroke-width="4" stroke-dasharray="10 5" />
+  <path d="M350 320 L450 320" stroke="#00B894" stroke-width="4" stroke-dasharray="10 5" />
+  
+  <!-- Arrow -->
+  <path d="M400 280 L420 300 L400 320 Z" fill="#6C5CE7" />
+  
+  <!-- Text -->
+  <text x="400" y="270" font-family="Arial" font-size="14" font-weight="bold" fill="#333333" text-anchor="middle">AI Generation</text>
+</svg> 

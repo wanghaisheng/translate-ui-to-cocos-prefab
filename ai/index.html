@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="ai_hub_title">AI to Game Engine Conversion Hub - Seamless Integration Tools</title>
+  <meta name="description" data-i18n="ai_hub_meta_description" content="One-stop hub for converting AI-generated game UI designs into production-ready game engine assets. Support for multiple AI platforms and game engines.">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/new-sections.css">
+  <link rel="stylesheet" href="../css/dual-workflow-styles.css">
+  <link rel="stylesheet" href="../css/cta-section-styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- 添加结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "AI to Game Engine Conversion Hub",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "49.00",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "3200"
+    },
+    "description": "One-stop hub for converting AI-generated game UI designs into production-ready game engine assets",
+    "potentialAction": {
+      "@type": "ControlAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://example.com/try"
+      },
+      "actionStatus": "PotentialActionStatus"
+    }
+  }
+  </script>
+
+  <!-- 添加常见问题的结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the AI to Game Engine Conversion Hub?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The AI to Game Engine Conversion Hub is a comprehensive platform that allows game developers to convert AI-generated designs (from tools like Midjourney, Ideogram, and ChatGPT) directly into functional game components for various game engines including Cocos Creator, Unity, and Unreal Engine."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which AI platforms are supported?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We support all major AI design platforms including Midjourney, Ideogram, DALL-E, Stable Diffusion, ChatGPT, and more. Our specialized algorithms are optimized for each platform's unique output style."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What game engines can I export to?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Currently, we offer direct integration with Cocos Creator through our plugin. We also support Unity and Unreal Engine with specialized exporters. Our universal JSON format ensures compatibility across multiple game engines."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the conversion process work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our platform uses advanced AI to analyze your design, identify UI components, extract assets, and generate a structured hierarchy. This is then converted to our universal JSON format, which can be imported directly into your game engine of choice using our plugins."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="../index.html">
+          <img src="../img/logo.svg" alt="Game UI Generator Logo">
+          <h1 data-i18n="brand_name">Game UI Generator</h1>
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../index.html#features" data-i18n="nav_features">Features</a></li>
+          <li><a href="../index.html#workflow" data-i18n="nav_workflow">Workflow</a></li>
+          <li><a href="#ai-tools" data-i18n="nav_ai_tools">AI Tools</a></li>
+          <li><a href="../index.html#pricing" data-i18n="nav_pricing">Pricing</a></li>
+        </ul>
+      </nav>
+      <div class="cta-button">
+        <a href="#signup" class="btn primary-btn" data-i18n="header_cta">Start Free Trial</a>
+      </div>
+      <div class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero ai-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 data-i18n="ai_hub_hero_title">AI to Game Engine Conversion Hub</h1>
+        <p data-i18n="ai_hub_hero_subtitle">Transform your AI-generated concepts into game reality. Convert designs from any AI platform to functional game components with 94% time savings.</p>
+        <div class="hero-cta">
+          <a href="#signup" class="btn primary-btn" data-i18n="ai_hub_cta_primary">Start Free Trial</a>
+          <a href="#demo" class="btn secondary-btn" data-i18n="ai_hub_cta_secondary">Watch Demo</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="../img/hero-image.svg" alt="AI to Game Engine Conversion">
+      </div>
+    </div>
+  </section>
+
+  <!-- Platform Support Section -->
+  <section class="platform-support">
+    <div class="container">
+      <h2 data-i18n="platform_support_title">Multi-Platform Support</h2>
+      <p class="section-subtitle" data-i18n="platform_support_subtitle">Our platform supports all major AI design tools and game engines</p>
+      
+      <div class="platform-grid">
+        <div class="platform-card" data-platform="midjourney">
+          <div class="platform-icon">
+            <i class="fas fa-image"></i>
+          </div>
+          <h3>Midjourney</h3>
+          <p data-i18n="midjourney_desc">Convert detailed Midjourney UI visualizations to functional game components.</p>
+          <a href="#" class="platform-select-btn" data-i18n="select_platform">Select</a>
+        </div>
+        
+        <div class="platform-card" data-platform="ideogram">
+          <div class="platform-icon">
+            <i class="fas fa-palette"></i>
+          </div>
+          <h3>Ideogram</h3>
+          <p data-i18n="ideogram_desc">Transform Ideogram's stylized UI designs into game-ready assets.</p>
+          <a href="#" class="platform-select-btn" data-i18n="select_platform">Select</a>
+        </div>
+        
+        <div class="platform-card" data-platform="chatgpt">
+          <div class="platform-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3>ChatGPT</h3>
+          <p data-i18n="chatgpt_desc">Process images or code from ChatGPT to native game components.</p>
+          <a href="#" class="platform-select-btn" data-i18n="select_platform">Select</a>
+        </div>
+        
+        <div class="platform-card" data-platform="dalle">
+          <div class="platform-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>DALL-E</h3>
+          <p data-i18n="dalle_desc">Convert DALL-E generated UI concepts to functional game interfaces.</p>
+          <a href="#" class="platform-select-btn" data-i18n="select_platform">Select</a>
+        </div>
+        
+        <div class="platform-card" data-platform="stable-diffusion">
+          <div class="platform-icon">
+            <i class="fas fa-layer-group"></i>
+          </div>
+          <h3>Stable Diffusion</h3>
+          <p data-i18n="stable_diffusion_desc">Transform Stable Diffusion outputs to game-ready UI components.</p>
+          <a href="#" class="platform-select-btn" data-i18n="select_platform">Select</a>
+        </div>
+        
+        <div class="platform-card" data-platform="html-svg">
+          <div class="platform-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>HTML/SVG</h3>
+          <p data-i18n="html_svg_desc">Convert AI-generated HTML/SVG code to native game UI components.</p>
+          <a href="#" class="platform-select-btn" data-i18n="select_platform">Select</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conversion Process Section -->
+  <section class="conversion-process">
+    <div class="container">
+      <h2 data-i18n="conversion_process_title">Four-Step Conversion Process</h2>
+      <p class="section-subtitle" data-i18n="conversion_process_subtitle">Our streamlined workflow takes you from AI output to game-ready components</p>
+      
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <div class="step-icon">
+            <i class="fas fa-upload"></i>
+          </div>
+          <h3 data-i18n="step_1_title">Upload AI Output</h3>
+          <p data-i18n="step_1_desc">Upload your AI-generated image or code from any supported platform.</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <div class="step-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <h3 data-i18n="step_2_title">AI Analysis</h3>
+          <p data-i18n="step_2_desc">Our AI identifies UI components, extracts assets, and determines relationships.</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <div class="step-icon">
+            <i class="fas fa-sliders-h"></i>
+          </div>
+          <h3 data-i18n="step_3_title">Refine & Adjust</h3>
+          <p data-i18n="step_3_desc">Fine-tune the detected components, hierarchy, and properties as needed.</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <div class="step-icon">
+            <i class="fas fa-file-export"></i>
+          </div>
+          <h3 data-i18n="step_4_title">Export to Engine</h3>
+          <p data-i18n="step_4_desc">Generate engine-specific files or universal JSON for implementation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Engine Support Section -->
+  <section class="engine-support">
+    <div class="container">
+      <h2 data-i18n="engine_support_title">Game Engine Integration</h2>
+      <p class="section-subtitle" data-i18n="engine_support_subtitle">Seamlessly implement UI components in your preferred game engine</p>
+      
+      <div class="engine-tabs">
+        <div class="tab-buttons">
+          <button class="tab-btn active" data-tab="cocos">Cocos Creator</button>
+          <button class="tab-btn" data-tab="unity">Unity</button>
+          <button class="tab-btn" data-tab="unreal">Unreal Engine</button>
+        </div>
+        
+        <div class="tab-content">
+          <div class="tab-pane active" id="cocos-tab">
+            <div class="engine-content">
+              <div class="engine-info">
+                <h3 data-i18n="cocos_title">Cocos Creator Integration</h3>
+                <p data-i18n="cocos_desc">Our primary focus with specialized optimizations for Cocos Creator prefabs and components.</p>
+                <ul class="engine-features">
+                  <li data-i18n="cocos_feature_1">Direct prefab generation with proper hierarchy</li>
+                  <li data-i18n="cocos_feature_2">Automatic asset optimization for mobile</li>
+                  <li data-i18n="cocos_feature_3">Component property mapping with Cocos types</li>
+                  <li data-i18n="cocos_feature_4">Plugin integration with your workflow</li>
+                </ul>
+                <a href="#" class="btn secondary-btn" data-i18n="learn_more">Learn More</a>
+              </div>
+              <div class="engine-preview">
+                <img src="../img/cocos-preview.svg" alt="Cocos Creator Integration Preview">
+              </div>
+            </div>
+          </div>
+          
+          <div class="tab-pane" id="unity-tab">
+            <div class="engine-content">
+              <div class="engine-info">
+                <h3 data-i18n="unity_title">Unity Integration</h3>
+                <p data-i18n="unity_desc">Comprehensive support for Unity UI components with customized export options.</p>
+                <ul class="engine-features">
+                  <li data-i18n="unity_feature_1">Support for both uGUI and UI Toolkit</li>
+                  <li data-i18n="unity_feature_2">Canvas and rect transform setup</li>
+                  <li data-i18n="unity_feature_3">Unity-specific component mapping</li>
+                  <li data-i18n="unity_feature_4">Editor extension for seamless workflow</li>
+                </ul>
+                <a href="#" class="btn secondary-btn" data-i18n="learn_more">Learn More</a>
+              </div>
+              <div class="engine-preview">
+                <img src="../img/unity-preview.svg" alt="Unity Integration Preview">
+              </div>
+            </div>
+          </div>
+          
+          <div class="tab-pane" id="unreal-tab">
+            <div class="engine-content">
+              <div class="engine-info">
+                <h3 data-i18n="unreal_title">Unreal Engine Integration</h3>
+                <p data-i18n="unreal_desc">Experimental support for Unreal Engine widgets with growing capabilities.</p>
+                <ul class="engine-features">
+                  <li data-i18n="unreal_feature_1">UMG widget generation</li>
+                  <li data-i18n="unreal_feature_2">Blueprint integration</li>
+                  <li data-i18n="unreal_feature_3">Slate UI support (experimental)</li>
+                  <li data-i18n="unreal_feature_4">Material-based UI elements</li>
+                </ul>
+                <a href="#" class="btn secondary-btn" data-i18n="learn_more">Learn More</a>
+              </div>
+              <div class="engine-preview">
+                <img src="../img/unreal-preview.svg" alt="Unreal Engine Integration Preview">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Example Gallery Section -->
+  <section class="example-gallery">
+    <div class="container">
+      <h2 data-i18n="example_gallery_title">Conversion Examples</h2>
+      <p class="section-subtitle" data-i18n="example_gallery_subtitle">See the before and after of AI designs converted to game engine components</p>
+      
+      <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="midjourney">Midjourney</button>
+        <button class="filter-btn" data-filter="ideogram">Ideogram</button>
+        <button class="filter-btn" data-filter="chatgpt">ChatGPT</button>
+        <button class="filter-btn" data-filter="html">HTML/SVG</button>
+      </div>
+      
+      <div class="gallery-grid">
+        <div class="gallery-item" data-category="midjourney">
+          <div class="gallery-comparison">
+            <div class="comparison-before">
+              <img src="../img/example-midjourney-before.jpg" alt="Midjourney UI Design">
+              <span class="comparison-label">Before</span>
+            </div>
+            <div class="comparison-after">
+              <img src="../img/example-midjourney-after.jpg" alt="Converted Game UI">
+              <span class="comparison-label">After</span>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <h3>Fantasy RPG Inventory</h3>
+            <p>Midjourney to Cocos Creator</p>
+            <a href="#" class="gallery-link">View Details</a>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="ideogram">
+          <div class="gallery-comparison">
+            <div class="comparison-before">
+              <img src="../img/example-ideogram-before.jpg" alt="Ideogram UI Design">
+              <span class="comparison-label">Before</span>
+            </div>
+            <div class="comparison-after">
+              <img src="../img/example-ideogram-after.jpg" alt="Converted Game UI">
+              <span class="comparison-label">After</span>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <h3>Sci-Fi HUD Interface</h3>
+            <p>Ideogram to Unity</p>
+            <a href="#" class="gallery-link">View Details</a>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="chatgpt">
+          <div class="gallery-comparison">
+            <div class="comparison-before">
+              <img src="../img/example-chatgpt-before.jpg" alt="ChatGPT UI Design">
+              <span class="comparison-label">Before</span>
+            </div>
+            <div class="comparison-after">
+              <img src="../img/example-chatgpt-after.jpg" alt="Converted Game UI">
+              <span class="comparison-label">After</span>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <h3>Mobile Game Menu</h3>
+            <p>ChatGPT to Cocos Creator</p>
+            <a href="#" class="gallery-link">View Details</a>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-category="html">
+          <div class="gallery-comparison">
+            <div class="comparison-before">
+              <img src="../img/example-html-before.jpg" alt="HTML/SVG UI Design">
+              <span class="comparison-label">Before</span>
+            </div>
+            <div class="comparison-after">
+              <img src="../img/example-html-after.jpg" alt="Converted Game UI">
+              <span class="comparison-label">After</span>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <h3>Strategy Game Dashboard</h3>
+            <p>HTML/SVG to Unreal Engine</p>
+            <a href="#" class="gallery-link">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <h2 data-i18n="testimonials_title">What Developers Say</h2>
+      <p class="section-subtitle" data-i18n="testimonials_subtitle">Hear from game developers who have transformed their workflow</p>
+      
+      <div class="testimonial-slider">
+        <div class="testimonial-slide">
+          <div class="testimonial-content">
+            <p>"The AI to Game Engine Conversion Hub has completely transformed our UI implementation process. What used to take days now takes minutes, and the quality is consistently high."</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="../img/testimonial-1.jpg" alt="Sarah Chen">
+            <div class="author-info">
+              <h4>Sarah Chen</h4>
+              <p>Lead UI Developer, Cosmic Games</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-slide">
+          <div class="testimonial-content">
+            <p>"Being able to go from Midjourney concepts directly to Cocos Creator prefabs has cut our UI development time by 90%. The component detection is incredibly accurate."</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="../img/testimonial-2.jpg" alt="Marcus Johnson">
+            <div class="author-info">
+              <h4>Marcus Johnson</h4>
+              <p>Indie Game Developer</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-slide">
+          <div class="testimonial-content">
+            <p>"The HTML/SVG to game engine conversion has been a game-changer for our team. We can now prototype in web tools and convert directly to our Unity project."</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="../img/testimonial-3.jpg" alt="Elena Rodriguez">
+            <div class="author-info">
+              <h4>Elena Rodriguez</h4>
+              <p>UI/UX Director, GameCraft Studios</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq">
+    <div class="container">
+      <h2 data-i18n="faq_title">Frequently Asked Questions</h2>
+      <p class="section-subtitle" data-i18n="faq_subtitle">Find answers to common questions about our AI conversion tools</p>
+      
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>How accurate is the component detection?</h3>
+            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Our AI component detection achieves over 94% accuracy across various UI styles and designs. The system is continuously trained on game UI patterns to improve detection quality. For complex or unusual designs, our interactive editor allows you to make adjustments as needed.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Can I customize the generated components?</h3>
+            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, our platform includes a comprehensive editor that allows you to adjust component properties, hierarchy, and relationships before exporting to your game engine. You can also save custom presets for future conversions.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>What file formats are supported for input?</h3>
+            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>We support PNG, JPG, WebP, and SVG for image inputs. For code-based inputs, we support HTML, CSS, SVG, and JSON formats. You can also directly paste URLs from supported AI platforms.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>How do I integrate with my existing workflow?</h3>
+            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>We offer plugins for Cocos Creator and Unity that integrate directly with your development environment. For other engines, you can use our universal JSON format and asset export options. We also provide API access for custom integration with your pipeline.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>How do I get started?</h3>
+            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Simply sign up for a free trial to access all conversion tools. You can immediately start uploading AI designs and converting them to your preferred game engine format. Our guided workflow will help you through each step of the process.</p>
+            <a href="#signup" class="btn primary-btn">Start Free Trial</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 data-i18n="cta_title">Ready to Transform Your Game UI Workflow?</h2>
+        <p data-i18n="cta_subtitle">Join thousands of game developers who are saving time and improving quality with our AI conversion tools.</p>
+        <div class="cta-buttons">
+          <a href="#signup" class="btn primary-btn" data-i18n="cta_primary">Start 14-Day Free Trial</a>
+          <a href="#demo" class="btn secondary-btn" data-i18n="cta_secondary">Schedule Demo</a>
+        </div>
+        <p class="cta-note" data-i18n="cta_note">No credit card required. Full access to all features during trial.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="../img/logo.svg" alt="Game UI Generator Logo">
+          <h2 data-i18n="brand_name">Game UI Generator</h2>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h3 data-i18n="footer_products">Products</h3>
+            <ul>
+              <li><a href="../index.html">Game UI Generator</a></li>
+              <li><a href="index.html">AI Conversion Hub</a></li>
+              <li><a href="../tools/analyze">UI Analysis Tool</a></li>
+              <li><a href="../tools/json-prefab-format">JSON Prefab Format</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3 data-i18n="footer_resources">Resources</h3>
+            <ul>
+              <li><a href="../docs">Documentation</a></li>
+              <li><a href="../blog">Blog</a></li>
+              <li><a href="../tutorials">Tutorials</a></li>
+              <li><a href="../faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3 data-i18n="footer_company">Company</h3>
+            <ul>
+              <li><a href="../about">About Us</a></li>
+              <li><a href="../contact">Contact</a></li>
+              <li><a href="../privacy.html">Privacy Policy</a></li>
+              <li><a href="../terms.html">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Game UI Generator. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-discord"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Login Modal -->
+  <div class="modal" id="login-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Login to Access</h2>
+      <p>Please login or create an account to access this feature.</p>
+      <div class="modal-buttons">
+        <a href="../login" class="btn secondary-btn">Login</a>
+        <a href="../signup" class="btn primary-btn">Create Account</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+  <script>
+    // Show login modal when restricted features are clicked
+    document.addEventListener('DOMContentLoaded', function() {
+      const restrictedElements = document.querySelectorAll('.platform-select-btn, .gallery-link, .btn.primary-btn');
+      const loginModal = document.getElementById('login-modal');
+      const closeModal = document.querySelector('.close-modal');
+      
+      restrictedElements.forEach(element => {
+        element.addEventListener('click', function(e) {
+          if (!element.classList.contains('modal-btn')) {
+            e.preventDefault();
+            loginModal.style.display = 'flex';
+          }
+        });
+      });
+      
+      closeModal.addEventListener('click', function() {
+        loginModal.style.display = 'none';
+      });
+      
+      window.addEventListener('click', function(e) {
+        if (e.target == loginModal) {
+          loginModal.style.display = 'none';
+        }
+      });
+      
+      // Tab functionality
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const tabPanes = document.querySelectorAll('.tab-pane');
+      
+      tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const tabId = this.getAttribute('data-tab');
+          
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          tabPanes.forEach(pane => pane.classList.remove('active'));
+          
+          this.classList.add('active');
+          document.getElementById(tabId + '-tab').classList.add('active');
+        });
+      });
+      
+      // Gallery filter functionality
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const filter = this.getAttribute('data-filter');
+          
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          
+          galleryItems.forEach(item => {
+            if (filter === 'all' || item.getAttribute('data-category') === filter) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+      
+      // FAQ accordion functionality
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', function() {
+          item.classList.toggle('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal JSON Prefab Format - Cross-Engine Bridge for Game UI Implementation</title>
+  <meta name="description" content="Learn how our universal JSON prefab format serves as a bridge between design and multiple game engines, enabling a 'analyze once, deploy everywhere' efficient workflow.">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/tool-landing-pages.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Universal JSON Prefab Format",
+    "description": "Learn how our universal JSON prefab format serves as a bridge between design and multiple game engines, enabling a 'analyze once, deploy everywhere' efficient workflow.",
+    "url": "https://example.com/tools/json-prefab-format",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://example.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tools",
+          "item": "https://example.com/tools"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "JSON Prefab Format",
+          "item": "https://example.com/tools/json-prefab-format"
+        }
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">
+        <a href="../../index.html">
+          <img src="../../img/logo.svg" alt="Game UI Generator Logo">
+        </a>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="../../index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Tools <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="../ai/index.html">AI Tools Hub</a></li>
+              <li><a href="../analyze/index.html">UI Analysis Tool</a></li>
+              <li><a href="../text-to-image/index.html">Text to Image</a></li>
+              <li><a href="index.html">JSON Prefab Format</a></li>
+            </ul>
+          </li>
+          <li><a href="../../pricing.html">Pricing</a></li>
+          <li><a href="../../blog.html">Blog</a></li>
+          <li><a href="../../help.html">Help</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <a href="../../login.html" class="btn btn-outline">Log In</a>
+        <a href="../../signup.html" class="btn btn-primary">Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Universal JSON Prefab Format: Bridge Between Design and Code</h1>
+        <p class="hero-subtitle">Analyze once, deploy everywhere with our standardized format</p>
+        <div class="hero-cta">
+          <a href="../../signup.html" class="btn btn-primary btn-lg">Start Free Trial</a>
+          <a href="#format-documentation" class="btn btn-outline btn-lg">Explore Format</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="../../img/json-prefab-hero.svg" alt="JSON Prefab Format Visualization">
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section class="features-section">
+    <div class="container">
+      <h2 class="section-title">Key Features</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Component Recognition</h3>
+          <p>Intelligent detection of UI components and their properties</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-sitemap"></i>
+          </div>
+          <h3>Hierarchy Generation</h3>
+          <p>Automatic creation of nested component structures</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-palette"></i>
+          </div>
+          <h3>Style Extraction</h3>
+          <p>Capture of colors, fonts, and visual properties</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-exchange-alt"></i>
+          </div>
+          <h3>Multi-Engine Support</h3>
+          <p>Compatible with Cocos Creator, Unity, Unreal, and more</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Format Documentation -->
+  <section id="format-documentation" class="format-documentation">
+    <div class="container">
+      <h2 class="section-title">Format Documentation</h2>
+      <div class="format-overview">
+        <p>Our JSON prefab format provides a standardized way to describe UI components, their properties, and relationships. This format serves as a bridge between design tools and game engines, enabling seamless conversion.</p>
+      </div>
+      
+      <div class="code-example">
+        <h3>Basic Structure</h3>
+        <pre><code>{
+  "name": "LoginPanel",
+  "type": "Panel",
+  "properties": {
+    "width": 800,
+    "height": 600,
+    "backgroundColor": "#1A1A1A",
+    "borderRadius": 8
+  },
+  "children": [
+    {
+      "name": "TitleText",
+      "type": "Text",
+      "properties": {
+        "text": "Login",
+        "fontSize": 24,
+        "color": "#FFFFFF",
+        "alignment": "center"
+      }
+    },
+    {
+      "name": "UsernameInput",
+      "type": "Input",
+      "properties": {
+        "placeholder": "Username",
+        "width": 300,
+        "height": 40
+      }
+    }
+  ]
+}</code></pre>
+      </div>
+      
+      <div class="format-features">
+        <h3>Format Features</h3>
+        <ul>
+          <li><strong>Component Types:</strong> Predefined types for common UI elements</li>
+          <li><strong>Property System:</strong> Flexible property definition for any component</li>
+          <li><strong>Nesting Support:</strong> Hierarchical structure for complex UIs</li>
+          <li><strong>Reference System:</strong> Reference other components for dynamic relationships</li>
+          <li><strong>Extension Points:</strong> Custom properties for engine-specific features</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Supported Game Engines -->
+  <section class="supported-engines">
+    <div class="container">
+      <h2 class="section-title">Supported Game Engines</h2>
+      <div class="engines-grid">
+        <div class="engine-card">
+          <img src="../../img/cocos-creator-logo.svg" alt="Cocos Creator Logo">
+          <h3>Cocos Creator</h3>
+          <p>Full support for 2.x and 3.x versions</p>
+        </div>
+        <div class="engine-card">
+          <img src="../../img/unity-logo.svg" alt="Unity Logo">
+          <h3>Unity</h3>
+          <p>Compatible with UGUI and UI Toolkit</p>
+        </div>
+        <div class="engine-card">
+          <img src="../../img/unreal-logo.svg" alt="Unreal Engine Logo">
+          <h3>Unreal Engine</h3>
+          <p>Support for UMG UI system</p>
+        </div>
+        <div class="engine-card">
+          <img src="../../img/godot-logo.svg" alt="Godot Logo">
+          <h3>Godot</h3>
+          <p>Compatible with built-in UI system</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Integration Steps -->
+  <section class="integration-steps">
+    <div class="container">
+      <h2 class="section-title">Integration Steps</h2>
+      <div class="steps-timeline">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Analyze UI Design</h3>
+            <p>Use our UI Analysis Tool to generate JSON prefab data from your design</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Review & Customize</h3>
+            <p>Review the generated JSON and customize as needed</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Import to Engine</h3>
+            <p>Use our engine-specific plugins to import the JSON into your game engine</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Fine-tune & Deploy</h3>
+            <p>Make final adjustments in your engine and deploy your game</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to streamline your UI implementation?</h2>
+      <p>Start using our JSON prefab format today and save hours of development time</p>
+      <div class="cta-buttons">
+        <a href="../../signup.html" class="btn btn-primary btn-lg">Start Free Trial</a>
+        <a href="../../contact.html" class="btn btn-outline btn-lg">Contact Sales</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Game UI Generator</h3>
+          <p>AI-powered tools for game UI design and implementation</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-discord"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Tools</h3>
+          <ul>
+            <li><a href="../ai/index.html">AI Tools Hub</a></li>
+            <li><a href="../analyze/index.html">UI Analysis Tool</a></li>
+            <li><a href="../text-to-image/index.html">Text to Image</a></li>
+            <li><a href="index.html">JSON Prefab Format</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="../../blog.html">Blog</a></li>
+            <li><a href="../../help.html">Help Center</a></li>
+            <li><a href="../../docs.html">Documentation</a></li>
+            <li><a href="../../api.html">API Reference</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="../../about.html">About Us</a></li>
+            <li><a href="../../pricing.html">Pricing</a></li>
+            <li><a href="../../contact.html">Contact</a></li>
+            <li><a href="../../careers.html">Careers</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Game UI Generator. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="../../privacy.html">Privacy Policy</a>
+          <a href="../../terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html> 

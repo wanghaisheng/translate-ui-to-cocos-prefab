@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="text_to_image_tool_title">Text to Image Tool - Generate Game UI Designs from Descriptions</title>
+  <meta name="description" data-i18n="text_to_image_tool_meta_description" content="Transform text descriptions into professional game UI designs with our AI-powered generator. Optimized for different game genres and UI elements.">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/new-sections.css">
+  <link rel="stylesheet" href="../../css/dual-workflow-styles.css">
+  <link rel="stylesheet" href="../../css/cta-section-styles.css">
+  <link rel="stylesheet" href="../../css/ai-hub-styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- 添加结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Text to Image UI Generator",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "49.00",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.7",
+      "ratingCount": "2500"
+    },
+    "description": "AI-powered tool for generating game UI designs from text descriptions, optimized for different game genres and platforms",
+    "potentialAction": {
+      "@type": "ControlAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://example.com/try"
+      },
+      "actionStatus": "PotentialActionStatus"
+    }
+  }
+  </script>
+
+  <!-- 添加常见问题的结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does the Text to Image UI Generator work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our AI-powered generator uses advanced natural language processing to understand your UI requirements and convert them into visual designs. Simply describe what you want, select a game genre and style, and our system will generate professional UI designs optimized for games."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What types of game UIs can I generate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can generate UI designs for virtually any game genre including RPGs, strategy games, mobile casual games, FPS, MMOs, and more. Our system is trained on thousands of professional game interfaces and can create complete screens or individual components."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I customize the generated designs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, after generation you can refine your results by adjusting parameters like color scheme, style intensity, layout complexity, and more. You can also regenerate specific elements while keeping others, or use our editing tools to make manual adjustments."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I use the generated designs in my game?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Once you're satisfied with your design, you can export it as an image file, or use our integrated Design-to-Code tools to convert it directly into functional UI components for your game engine of choice, including Cocos Creator, Unity, and Unreal Engine."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* Text to Image Tool Specific Styles */
+    .text-to-image-hero {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .text-to-image-hero::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      top: -250px;
+      right: -250px;
+      z-index: 0;
+    }
+    
+    .text-to-image-hero .hero-content h1,
+    .text-to-image-hero .hero-content p {
+      color: white;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .prompt-input {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-lg);
+      margin-top: var(--spacing-lg);
+      transition: all var(--transition-normal);
+    }
+    
+    .prompt-input:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+    
+    .prompt-textarea {
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.2);
+      border: none;
+      border-radius: var(--radius-md);
+      padding: var(--spacing-md);
+      color: white;
+      font-size: var(--text-md);
+      min-height: 100px;
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .prompt-textarea::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .prompt-controls {
+      display: flex;
+      gap: var(--spacing-md);
+      flex-wrap: wrap;
+    }
+    
+    .prompt-select {
+      flex: 1;
+      min-width: 150px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border: none;
+      border-radius: var(--radius-md);
+      padding: var(--spacing-sm) var(--spacing-md);
+      color: white;
+      font-size: var(--text-sm);
+    }
+    
+    .prompt-select option {
+      background-color: var(--bg-dark);
+      color: white;
+    }
+    
+    .generate-btn {
+      background-color: white;
+      color: var(--primary-color);
+      border: none;
+      border-radius: var(--radius-md);
+      padding: var(--spacing-sm) var(--spacing-lg);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-normal);
+    }
+    
+    .generate-btn:hover {
+      background-color: rgba(255, 255, 255, 0.9);
+      transform: translateY(-2px);
+    }
+    
+    .examples-section {
+      padding: var(--spacing-xxl) 0;
+      background-color: var(--bg-white);
+    }
+    
+    .examples-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-xl);
+    }
+    
+    .example-card {
+      background-color: var(--bg-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    }
+    
+    .example-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .example-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .example-content {
+      padding: var(--spacing-md);
+    }
+    
+    .example-content h3 {
+      font-size: var(--text-lg);
+      font-weight: 700;
+      margin-bottom: var(--spacing-xs);
+      color: var(--text-dark);
+    }
+    
+    .example-prompt {
+      font-size: var(--text-sm);
+      color: var(--text-medium);
+      margin-bottom: var(--spacing-md);
+      font-style: italic;
+    }
+    
+    .example-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-xs);
+    }
+    
+    .example-tag {
+      background-color: var(--bg-medium);
+      color: var(--text-dark);
+      font-size: var(--text-xs);
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+    }
+    
+    .features-section {
+      padding: var(--spacing-xxl) 0;
+      background-color: var(--bg-light);
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-xl);
+    }
+    
+    .feature-card {
+      background-color: var(--bg-white);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-lg);
+      box-shadow: var(--shadow-md);
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .feature-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--spacing-md);
+      color: white;
+      font-size: var(--text-2xl);
+    }
+    
+    .feature-card h3 {
+      font-size: var(--text-lg);
+      font-weight: 700;
+      margin-bottom: var(--spacing-sm);
+      color: var(--text-dark);
+    }
+    
+    .feature-card p {
+      color: var(--text-medium);
+    }
+    
+    .prompt-library-section {
+      padding: var(--spacing-xxl) 0;
+      background-color: var(--bg-white);
+    }
+    
+    .prompt-categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-md);
+      margin-top: var(--spacing-xl);
+      margin-bottom: var(--spacing-xl);
+    }
+    
+    .prompt-category {
+      background-color: var(--bg-light);
+      border: 2px solid var(--bg-medium);
+      border-radius: var(--radius-full);
+      padding: var(--spacing-sm) var(--spacing-lg);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--text-dark);
+      cursor: pointer;
+      transition: all var(--transition-normal);
+    }
+    
+    .prompt-category:hover,
+    .prompt-category.active {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      color: white;
+    }
+    
+    .prompt-templates {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--spacing-lg);
+    }
+    
+    .prompt-template {
+      background-color: var(--bg-light);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-md);
+      cursor: pointer;
+      transition: all var(--transition-normal);
+    }
+    
+    .prompt-template:hover {
+      background-color: var(--bg-medium);
+    }
+    
+    .prompt-template h3 {
+      font-size: var(--text-md);
+      font-weight: 600;
+      margin-bottom: var(--spacing-xs);
+      color: var(--text-dark);
+    }
+    
+    .prompt-template p {
+      font-size: var(--text-sm);
+      color: var(--text-medium);
+      font-style: italic;
+    }
+    
+    .workflow-section {
+      padding: var(--spacing-xxl) 0;
+      background-color: var(--bg-light);
+    }
+    
+    .workflow-steps {
+      display: flex;
+      justify-content: space-between;
+      margin-top: var(--spacing-xl);
+    }
+    
+    .workflow-step {
+      flex: 1;
+      padding: 0 var(--spacing-md);
+      text-align: center;
+    }
+    
+    .workflow-step-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: var(--bg-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--spacing-md);
+      color: var(--primary-color);
+      font-size: var(--text-2xl);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .workflow-step h3 {
+      font-size: var(--text-lg);
+      font-weight: 700;
+      margin-bottom: var(--spacing-sm);
+      color: var(--text-dark);
+    }
+    
+    .workflow-step p {
+      color: var(--text-medium);
+    }
+    
+    @media (max-width: 1024px) {
+      .prompt-controls {
+        flex-direction: column;
+      }
+      
+      .prompt-select {
+        width: 100%;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .workflow-steps {
+        flex-direction: column;
+        gap: var(--spacing-xl);
+      }
+      
+      .workflow-step {
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="../../index.html">
+          <img src="../../img/logo.svg" alt="Game UI Generator Logo">
+          <h1 data-i18n="brand_name">Game UI Generator</h1>
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../../index.html#features" data-i18n="nav_features">Features</a></li>
+          <li><a href="../../index.html#workflow" data-i18n="nav_workflow">Workflow</a></li>
+          <li><a href="../../ai/index.html" data-i18n="nav_ai_tools">AI Tools</a></li>
+          <li><a href="../../index.html#pricing" data-i18n="nav_pricing">Pricing</a></li>
+        </ul>
+      </nav>
+      <div class="cta-button">
+        <a href="#signup" class="btn primary-btn" data-i18n="header_cta">Start Free Trial</a>
+      </div>
+      <div class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero text-to-image-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 data-i18n="text_to_image_tool_hero_title">Text to Image UI Generator</h1>
+        <p data-i18n="text_to_image_tool_hero_subtitle">Transform your UI ideas into professional game interface designs with our AI-powered text-to-image generator.</p>
+        <div class="hero-cta">
+          <a href="#signup" class="btn primary-btn" data-i18n="text_to_image_tool_cta_primary">Start Generating</a>
+          <a href="#examples" class="btn secondary-btn" data-i18n="text_to_image_tool_cta_secondary">View Examples</a>
+        </div>
+        
+        <div class="prompt-input">
+          <textarea class="prompt-textarea" placeholder="Describe your game UI... (e.g., 'A fantasy RPG inventory screen with glowing item slots and a character portrait')" disabled></textarea>
+          <div class="prompt-controls">
+            <select class="prompt-select" disabled>
+              <option value="" disabled selected>Game Genre</option>
+              <option value="rpg">RPG</option>
+              <option value="strategy">Strategy</option>
+              <option value="fps">FPS</option>
+              <option value="mobile">Mobile Casual</option>
+              <option value="mmo">MMO</option>
+            </select>
+            <select class="prompt-select" disabled>
+              <option value="" disabled selected>UI Style</option>
+              <option value="fantasy">Fantasy</option>
+              <option value="scifi">Sci-Fi</option>
+              <option value="cartoon">Cartoon</option>
+              <option value="minimalist">Minimalist</option>
+              <option value="retro">Retro</option>
+            </select>
+            <select class="prompt-select" disabled>
+              <option value="" disabled selected>UI Element</option>
+              <option value="full">Full Screen</option>
+              <option value="inventory">Inventory</option>
+              <option value="hud">HUD</option>
+              <option value="menu">Main Menu</option>
+              <option value="dialog">Dialog Box</option>
+            </select>
+            <button class="generate-btn" disabled>Generate UI</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Examples Section -->
+  <section class="examples-section" id="examples">
+    <div class="container">
+      <h2 data-i18n="examples_title">Example Generations</h2>
+      <p class="section-subtitle" data-i18n="examples_subtitle">See what our Text to Image UI Generator can create</p>
+      
+      <div class="examples-grid">
+        <div class="example-card">
+          <img src="../../img/example-rpg-inventory.jpg" alt="RPG Inventory UI" class="example-image">
+          <div class="example-content">
+            <h3>Fantasy RPG Inventory</h3>
+            <p class="example-prompt">"A medieval fantasy RPG inventory screen with glowing item slots, character stats, and gold counter"</p>
+            <div class="example-tags">
+              <span class="example-tag">RPG</span>
+              <span class="example-tag">Fantasy</span>
+              <span class="example-tag">Inventory</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="example-card">
+          <img src="../../img/example-scifi-hud.jpg" alt="Sci-Fi HUD UI" class="example-image">
+          <div class="example-content">
+            <h3>Sci-Fi Game HUD</h3>
+            <p class="example-prompt">"A futuristic sci-fi game HUD with health bar, ammo counter, mini-map, and objective tracker"</p>
+            <div class="example-tags">
+              <span class="example-tag">FPS</span>
+              <span class="example-tag">Sci-Fi</span>
+              <span class="example-tag">HUD</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="example-card">
+          <img src="../../img/example-mobile-menu.jpg" alt="Mobile Game Menu UI" class="example-image">
+          <div class="example-content">
+            <h3>Mobile Game Main Menu</h3>
+            <p class="example-prompt">"A colorful cartoon-style mobile game main menu with play button, shop, settings, and daily rewards"</p>
+            <div class="example-tags">
+              <span class="example-tag">Mobile</span>
+              <span class="example-tag">Cartoon</span>
+              <span class="example-tag">Menu</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="example-card">
+          <img src="../../img/example-strategy-ui.jpg" alt="Strategy Game UI" class="example-image">
+          <div class="example-content">
+            <h3>Strategy Game Interface</h3>
+            <p class="example-prompt">"A detailed strategy game interface with resource counters, mini-map, unit selection panel, and building options"</p>
+            <div class="example-tags">
+              <span class="example-tag">Strategy</span>
+              <span class="example-tag">Full Screen</span>
+              <span class="example-tag">HUD</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <h2 data-i18n="features_title">Key Features</h2>
+      <p class="section-subtitle" data-i18n="features_subtitle">Powerful capabilities to bring your UI ideas to life</p>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-gamepad"></i>
+          </div>
+          <h3 data-i18n="feature1_title">Game-Specific Optimization</h3>
+          <p data-i18n="feature1_desc">Our AI is trained specifically on game UI designs, ensuring results that are appropriate for interactive game interfaces.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-palette"></i>
+          </div>
+          <h3 data-i18n="feature2_title">Style Control</h3>
+          <p data-i18n="feature2_desc">Fine-tune the visual style of your UI with controls for genre, art style, color scheme, and more.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-th-large"></i>
+          </div>
+          <h3 data-i18n="feature3_title">Component Generation</h3>
+          <p data-i18n="feature3_desc">Generate complete UI screens or individual components like buttons, panels, health bars, and more.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3 data-i18n="feature4_title">Platform Adaptation</h3>
+          <p data-i18n="feature4_desc">Create UIs optimized for different platforms including mobile, PC, console, and VR/AR.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-magic"></i>
+          </div>
+          <h3 data-i18n="feature5_title">Prompt Enhancement</h3>
+          <p data-i18n="feature5_desc">Our AI helps improve your prompts with suggestions and auto-completion for better results.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 data-i18n="feature6_title">Direct Implementation</h3>
+          <p data-i18n="feature6_desc">Seamlessly connect with our Design-to-Code tools to convert your generated UI into functional game components.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prompt Library Section -->
+  <section class="prompt-library-section" id="prompt-library">
+    <div class="container">
+      <h2 data-i18n="prompt_library_title">Prompt Library</h2>
+      <p class="section-subtitle" data-i18n="prompt_library_subtitle">Browse our collection of optimized prompts for different game UI needs</p>
+      
+      <div class="prompt-categories">
+        <button class="prompt-category active" data-category="all">All</button>
+        <button class="prompt-category" data-category="rpg">RPG</button>
+        <button class="prompt-category" data-category="strategy">Strategy</button>
+        <button class="prompt-category" data-category="fps">FPS</button>
+        <button class="prompt-category" data-category="mobile">Mobile</button>
+        <button class="prompt-category" data-category="mmo">MMO</button>
+      </div>
+      
+      <div class="prompt-templates">
+        <div class="prompt-template" data-categories="rpg">
+          <h3>RPG Character Sheet</h3>
+          <p>A detailed RPG character sheet with stats, equipment slots, character portrait, and skill tree. Fantasy style with ornate borders and magical effects.</p>
+        </div>
+        
+        <div class="prompt-template" data-categories="rpg">
+          <h3>RPG Quest Journal</h3>
+          <p>A medieval fantasy quest journal with active quests, completed quests, and quest details. Parchment texture with ink illustrations and wax seals.</p>
+        </div>
+        
+        <div class="prompt-template" data-categories="strategy">
+          <h3>Strategy Resource Panel</h3>
+          <p>A resource management panel for a strategy game showing wood, stone, gold, and population. Clean interface with icon indicators and production rates.</p>
+        </div>
+        
+        <div class="prompt-template" data-categories="fps">
+          <h3>FPS Weapon Selection</h3>
+          <p>A modern FPS weapon selection wheel with ammo counts, weapon stats, and attachment options. Sleek, minimal design with holographic elements.</p>
+        </div>
+        
+        <div class="prompt-template" data-categories="mobile">
+          <h3>Mobile Game Shop</h3>
+          <p>A colorful mobile game shop interface with character skins, power-ups, and currency packages. Cartoon style with animated elements and special offer banners.</p>
+        </div>
+        
+        <div class="prompt-template" data-categories="mmo">
+          <h3>MMO Raid UI</h3>
+          <p>A comprehensive MMO raid interface with party frames, boss health, ability cooldowns, and combat log. Fantasy theme with class-colored elements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Workflow Section -->
+  <section class="workflow-section" id="workflow">
+    <div class="container">
+      <h2 data-i18n="workflow_title">How It Works</h2>
+      <p class="section-subtitle" data-i18n="workflow_subtitle">From text description to functional game UI in four simple steps</p>
+      
+      <div class="workflow-steps">
+        <div class="workflow-step">
+          <div class="workflow-step-icon">
+            <i class="fas fa-keyboard"></i>
+          </div>
+          <h3 data-i18n="workflow_step1_title">Describe</h3>
+          <p data-i18n="workflow_step1_desc">Enter a detailed description of your desired UI, specifying game genre, style, and components.</p>
+        </div>
+        
+        <div class="workflow-step">
+          <div class="workflow-step-icon">
+            <i class="fas fa-wand-magic-sparkles"></i>
+          </div>
+          <h3 data-i18n="workflow_step2_title">Generate</h3>
+          <p data-i18n="workflow_step2_desc">Our AI processes your description and generates multiple UI

@@ -1,0 +1,154 @@
+{
+    "nav": {
+        "home": "首页",
+        "tools": "工具",
+        "database": "数据库",
+        "docs": "文档",
+        "login": "登录",
+        "signup": "注册"
+    },
+    "hero": {
+        "title": "从概念到代码",
+        "subtitle": "一键实现游戏UI",
+        "description": "使用AI技术将游戏UI设计转换为可用代码，节省94%的UI实现时间，让设计师和开发者无缝协作。",
+        "cta": {
+            "try": "开始免费试用",
+            "demo": "观看演示"
+        }
+    },
+    "value": {
+        "title": "为什么选择我们？",
+        "cards": {
+            "time": {
+                "title": "节省时间",
+                "desc": "将数天的开发工作缩短至几分钟，让您专注于游戏核心玩法"
+            },
+            "design": {
+                "title": "保持设计完整性",
+                "desc": "100%还原设计意图，无损转换，确保视觉效果完美呈现"
+            },
+            "platform": {
+                "title": "多平台支持",
+                "desc": "支持主流游戏引擎和设计工具，一次设计，多处部署"
+            }
+        }
+    },
+    "features": {
+        "title": "核心功能",
+        "ai": {
+            "title": "AI驱动的设计工具",
+            "desc": "从文本描述生成专业级游戏UI设计，支持多种风格和主题"
+        },
+        "converter": {
+            "title": "智能代码转换",
+            "desc": "将设计稿自动转换为游戏引擎可用的代码，支持多种引擎"
+        },
+        "database": {
+            "title": "丰富的UI数据库",
+            "desc": "海量预制UI组件和模板，加速您的开发流程"
+        }
+    },
+    "tools": {
+        "title": "我们的工具",
+        "ai": {
+            "title": "AI设计工具",
+            "desc": "从文本生成专业游戏UI设计"
+        },
+        "converter": {
+            "title": "设计转换器",
+            "desc": "将设计稿转换为游戏代码"
+        },
+        "database": {
+            "title": "UI数据库",
+            "desc": "丰富的预制组件和模板"
+        },
+        "analyze": {
+            "title": "UI分析工具",
+            "desc": "智能分析UI设计元素"
+        }
+    },
+    "database": {
+        "title": "UI资源库",
+        "screens": {
+            "title": "游戏UI屏幕数据库",
+            "desc": "海量预制游戏UI屏幕，覆盖各种游戏类型"
+        },
+        "components": {
+            "title": "游戏UI组件数据库",
+            "desc": "可复用的UI组件库，加速开发流程"
+        },
+        "prompts": {
+            "title": "游戏UI提示词数据库",
+            "desc": "AI生成UI的提示词集合，提升设计效率"
+        }
+    },
+    "testimonials": {
+        "title": "听听用户怎么说",
+        "1": {
+            "content": "这个工具彻底改变了我们的UI开发流程，节省了大量时间。",
+            "author": "张明",
+            "position": "游戏开发总监"
+        },
+        "2": {
+            "content": "AI生成的设计质量令人惊喜，完全超出了我的预期。",
+            "author": "李华",
+            "position": "UI设计师"
+        },
+        "3": {
+            "content": "多平台支持让我们的跨平台开发变得异常简单。",
+            "author": "王强",
+            "position": "技术负责人"
+        }
+    },
+    "competitor": {
+        "title": "为什么我们是更好的选择？",
+        "feature1": "开发速度",
+        "feature2": "设计还原度",
+        "feature3": "引擎适配",
+        "value1": {
+            "ours": "分钟级完成",
+            "traditional": "数天到数周",
+            "others": "小时级完成"
+        },
+        "value2": {
+            "ours": "100%精确还原",
+            "traditional": "完全还原",
+            "others": "80%相似度"
+        },
+        "value3": {
+            "ours": "全平台支持",
+            "traditional": "单一引擎",
+            "others": "有限支持"
+        }
+    },
+    "painPoints": {
+        "title": "解决您的开发痛点",
+        "card1": {
+            "title": "开发周期长",
+            "pain": "传统UI开发需要数周时间，延误项目进度",
+            "solution": "使用AI加速，将开发时间缩短至分钟级别"
+        },
+        "card2": {
+            "title": "设计还原难",
+            "pain": "开发结果与设计稿存在差异，需要反复调整",
+            "solution": "AI精确识别设计元素，确保100%还原度"
+        },
+        "card3": {
+            "title": "跨平台适配难",
+            "pain": "不同引擎需要重复开发，人力成本高",
+            "solution": "一键生成多引擎代码，节省适配时间"
+        }
+    },
+    "cta": {
+        "title": "准备好开始了吗？",
+        "description": "立即开始免费试用，体验AI驱动的游戏UI开发新方式",
+        "try": "开始免费试用",
+        "contact": "联系我们"
+    },
+    "footer": {
+        "product": "产品",
+        "resources": "资源",
+        "company": "公司",
+        "copyright": "© 2024 Game UI Generator. All rights reserved."
+    }
+} 

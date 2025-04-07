@@ -389,5 +389,158 @@
   "glossary_tool2_link": "Explore Library",
   "glossary_tool3_title": "UI Academy",
   "glossary_tool3_description": "Learn UI design fundamentals through our free online courses",
-  "glossary_tool3_link": "Start Learning"
+  "glossary_tool3_link": "Start Learning",
+  
+  "nav": {
+    "home": "Home",
+    "tools": "Tools",
+    "database": "Database",
+    "docs": "Docs",
+    "login": "Login",
+    "signup": "Sign Up"
+  },
+  "hero": {
+    "title": "From Concept to Code",
+    "subtitle": "Game UI in One Click",
+    "description": "Use AI technology to convert game UI designs into usable code, save 94% of UI implementation time, and enable seamless collaboration between designers and developers.",
+    "cta": {
+      "try": "Start Free Trial",
+      "demo": "Watch Demo"
+    }
+  },
+  "value": {
+    "title": "Why Choose Us?",
+    "cards": {
+      "time": {
+        "title": "Save Time",
+        "desc": "Reduce development work from days to minutes, letting you focus on core gameplay"
+      },
+      "design": {
+        "title": "Maintain Design Integrity",
+        "desc": "100% design intent preservation, lossless conversion, ensuring perfect visual presentation"
+      },
+      "platform": {
+        "title": "Multi-Platform Support",
+        "desc": "Support major game engines and design tools, design once, deploy everywhere"
+      }
+    }
+  },
+  "features": {
+    "title": "Core Features",
+    "ai": {
+      "title": "AI-Powered Design Tools",
+      "desc": "Generate professional game UI designs from text descriptions, supporting various styles and themes"
+    },
+    "converter": {
+      "title": "Smart Code Conversion",
+      "desc": "Automatically convert designs into game engine-ready code, supporting multiple engines"
+    },
+    "database": {
+      "title": "Rich UI Database",
+      "desc": "Massive collection of pre-made UI components and templates to accelerate your development"
+    }
+  },
+  "tools": {
+    "title": "Our Tools",
+    "ai": {
+      "title": "AI Design Tool",
+      "desc": "Generate professional game UI from text"
+    },
+    "converter": {
+      "title": "Design Converter",
+      "desc": "Convert designs to game code"
+    },
+    "database": {
+      "title": "UI Database",
+      "desc": "Rich pre-made components and templates"
+    },
+    "analyze": {
+      "title": "UI Analysis Tool",
+      "desc": "Smart UI design element analysis"
+    }
+  },
+  "database": {
+    "title": "UI Resources",
+    "screens": {
+      "title": "Game UI Screen Database",
+      "desc": "Massive collection of pre-made game UI screens covering various game types"
+    },
+    "components": {
+      "title": "Game UI Component Database",
+      "desc": "Reusable UI component library to accelerate development"
+    },
+    "prompts": {
+      "title": "Game UI Prompt Database",
+      "desc": "Collection of prompts for AI UI generation, improving design efficiency"
+    }
+  },
+  "testimonials": {
+    "title": "What Users Say",
+    "1": {
+      "content": "This tool has completely transformed our UI development process, saving us tons of time.",
+      "author": "Ming Zhang",
+      "position": "Game Development Director"
+    },
+    "2": {
+      "content": "The quality of AI-generated designs is surprisingly good, exceeding my expectations.",
+      "author": "Hua Li",
+      "position": "UI Designer"
+    },
+    "3": {
+      "content": "Multi-platform support makes our cross-platform development incredibly simple.",
+      "author": "Qiang Wang",
+      "position": "Technical Lead"
+    }
+  },
+  "competitor": {
+    "title": "Why We're the Better Choice",
+    "feature1": "Development Speed",
+    "feature2": "Design Fidelity",
+    "feature3": "Engine Support",
+    "value1": {
+      "ours": "Minutes",
+      "traditional": "Days to Weeks",
+      "others": "Hours"
+    },
+    "value2": {
+      "ours": "100% Accurate",
+      "traditional": "Complete",
+      "others": "80% Similar"
+    },
+    "value3": {
+      "ours": "All Platforms",
+      "traditional": "Single Engine",
+      "others": "Limited Support"
+    }
+  },
+  "painPoints": {
+    "title": "Solving Your Development Pain Points",
+    "card1": {
+      "title": "Long Development Cycles",
+      "pain": "Traditional UI development takes weeks, delaying project progress",
+      "solution": "Use AI to reduce development time to minutes"
+    },
+    "card2": {
+      "title": "Design Reproduction Issues",
+      "pain": "Development results differ from designs, requiring repeated adjustments",
+      "solution": "AI precisely identifies design elements, ensuring 100% fidelity"
+    },
+    "card3": {
+      "title": "Cross-Platform Adaptation",
+      "pain": "Different engines require repeated development, high labor costs",
+      "solution": "Generate multi-engine code with one click, save adaptation time"
+    }
+  },
+  "cta": {
+    "title": "Ready to Get Started?",
+    "description": "Start your free trial now and experience the AI-powered way of game UI development",
+    "try": "Start Free Trial",
+    "contact": "Contact Us"
+  },
+  "footer": {
+    "product": "Product",
+    "resources": "Resources",
+    "company": "Company",
+    "copyright": "© 2024 Game UI Generator. All rights reserved."
+  }
 }

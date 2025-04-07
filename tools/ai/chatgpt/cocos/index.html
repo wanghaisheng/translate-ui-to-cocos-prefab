@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatGPT to Cocos Creator Converter - AI UI to Game Prefab</title>
+  <meta name="description" content="Convert ChatGPT UI descriptions directly to Cocos Creator prefabs. Transform AI-generated UI concepts into functional game UI components in minutes.">
+  <link rel="stylesheet" href="../../../css/styles.css">
+  <link rel="stylesheet" href="../../../css/tool-landing-pages.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ChatGPT to Cocos Creator Converter",
+    "applicationCategory": "GameDevelopmentApplication",
+    "operatingSystem": "Web-based",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.6",
+      "ratingCount": "87"
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">
+        <a href="../../../index.html">
+          <img src="../../../img/logo.svg" alt="Game UI Generator Logo">
+        </a>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="../../../index.html">Home</a></li>
+          <li><a href="../../analyze/index.html">Analysis Tool</a></li>
+          <li class="active"><a href="../../index.html">AI Tools Hub</a></li>
+          <li><a href="../../../pricing.html">Pricing</a></li>
+          <li><a href="../../../docs/index.html">Documentation</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <a href="../../../login.html" class="btn btn-outline">Log In</a>
+        <a href="../../../signup.html" class="btn btn-primary">Start Free Trial</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <h1>ChatGPT to Cocos Creator Converter</h1>
+        <p class="subtitle">Transform ChatGPT UI descriptions into functional Cocos Creator prefabs in minutes</p>
+        <div class="hero-cta">
+          <a href="#converter" class="btn btn-primary btn-lg">Try Converter Now</a>
+          <a href="#demo" class="btn btn-outline btn-lg">Watch Demo</a>
+        </div>
+        <div class="hero-features">
+          <div class="feature">
+            <i class="fas fa-bolt"></i>
+            <span>90%+ accuracy</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-clock"></i>
+            <span>Save 6+ hours per UI</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-code"></i>
+            <span>Production-ready code</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="../../../img/tools/chatgpt-cocos-hero.svg" alt="ChatGPT to Cocos Creator Conversion Process">
+      </div>
+    </div>
+  </section>
+
+  <!-- Converter Tool Section -->
+  <section class="converter-section" id="converter">
+    <div class="container">
+      <h2>Convert Your ChatGPT UI Description</h2>
+      <p class="section-subtitle">Paste your ChatGPT UI description and get a Cocos Creator prefab in minutes</p>
+      
+      <div class="converter-tool">
+        <div class="converter-steps">
+          <div class="converter-step active" data-step="1">
+            <div class="step-number">1</div>
+            <h3>Paste ChatGPT Description</h3>
+            <p>Paste your ChatGPT-generated UI description or type it directly</p>
+            <div class="text-input-area">
+              <textarea placeholder="Paste your ChatGPT UI description here..."></textarea>
+              <div class="input-actions">
+                <button class="btn btn-outline">Clear</button>
+                <button class="btn btn-primary">Analyze</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="converter-step" data-step="2">
+            <div class="step-number">2</div>
+            <h3>AI Analysis</h3>
+            <p>Our AI analyzes and interprets the UI description</p>
+            <div class="analysis-progress">
+              <div class="progress-bar">
+                <div class="progress-fill"></div>
+              </div>
+              <p class="progress-text">Analyzing UI description...</p>
+            </div>
+          </div>
+          
+          <div class="converter-step" data-step="3">
+            <div class="step-number">3</div>
+            <h3>Adjust & Refine</h3>
+            <p>Fine-tune component interpretation and properties</p>
+            <div class="refinement-tools">
+              <div class="tool-group">
+                <h4>Component Interpretation</h4>
+                <div class="slider-control">
+                  <label>Detail Level</label>
+                  <input type="range" min="1" max="10" value="5" class="slider">
+                </div>
+                <div class="checkbox-group">
+                  <label><input type="checkbox" checked> Interpret Buttons</label>
+                  <label><input type="checkbox" checked> Interpret Text Fields</label>
+                  <label><input type="checkbox" checked> Interpret Images</label>
+                  <label><input type="checkbox" checked> Interpret Containers</label>
+                </div>
+              </div>
+              <div class="tool-group">
+                <h4>Export Options</h4>
+                <div class="checkbox-group">
+                  <label><input type="checkbox" checked> Include Layout Constraints</label>
+                  <label><input type="checkbox" checked> Generate Event Handlers</label>
+                  <label><input type="checkbox" checked> Optimize Assets</label>
+                  <label><input type="checkbox"> Include Animation Data</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="converter-step" data-step="4">
+            <div class="step-number">4</div>
+            <h3>Export to Cocos Creator</h3>
+            <p>Download your prefab ready for Cocos Creator</p>
+            <div class="export-options">
+              <div class="export-preview">
+                <img src="../../../img/tools/prefab-preview.svg" alt="Prefab Preview">
+              </div>
+              <div class="export-actions">
+                <a href="#" class="btn btn-primary btn-lg">Download Prefab</a>
+                <a href="#" class="btn btn-outline">View Documentation</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="converter-navigation">
+          <button class="btn btn-outline" id="prev-step" disabled>Previous</button>
+          <button class="btn btn-primary" id="next-step">Next</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="container">
+      <h2>Why Choose Our ChatGPT Converter</h2>
+      <p class="section-subtitle">Specialized tools for converting ChatGPT descriptions to Cocos Creator</p>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-magic"></i>
+          </div>
+          <h3>Natural Language Understanding</h3>
+          <p>Our AI understands and interprets ChatGPT's natural language UI descriptions</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-layer-group"></i>
+          </div>
+          <h3>Smart Component Mapping</h3>
+          <p>Automatically maps described UI elements to appropriate Cocos Creator components</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3>Style Interpretation</h3>
+          <p>Interprets style descriptions and applies them to the generated UI components</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Clean, Optimized Code</h3>
+          <p>Generates production-ready TypeScript code with proper component structure</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-sliders-h"></i>
+          </div>
+          <h3>Customizable Export</h3>
+          <p>Fine-tune interpretation and export options to match your workflow</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-sync-alt"></i>
+          </div>
+          <h3>Iterative Refinement</h3>
+          <p>Easily update your prefab as you refine your ChatGPT description</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="how-it-works-section">
+    <div class="container">
+      <h2>How It Works</h2>
+      <p class="section-subtitle">From ChatGPT description to Cocos Creator prefab in 4 simple steps</p>
+      
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <div class="step-icon">
+            <i class="fas fa-keyboard"></i>
+          </div>
+          <h3>Paste ChatGPT Description</h3>
+          <p>Paste your ChatGPT-generated UI description or type it directly</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <div class="step-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>AI Interpretation</h3>
+          <p>Our specialized AI interprets the UI description</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <div class="step-icon">
+            <i class="fas fa-sliders-h"></i>
+          </div>
+          <h3>Adjust & Refine</h3>
+          <p>Fine-tune interpretation and customize export options</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <div class="step-icon">
+            <i class="fas fa-download"></i>
+          </div>
+          <h3>Export to Cocos Creator</h3>
+          <p>Download your prefab ready to use in Cocos Creator</p>
+        </div>
+      </div>
+      
+      <div class="process-demo">
+        <div class="demo-video">
+          <img src="../../../img/tools/chatgpt-cocos-demo.svg" alt="ChatGPT to Cocos Creator Demo">
+          <a href="#" class="play-button" id="demo">
+            <i class="fas fa-play"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Examples Section -->
+  <section class="examples-section">
+    <div class="container">
+      <h2>See It In Action</h2>
+      <p class="section-subtitle">Real examples of ChatGPT descriptions converted to Cocos Creator prefabs</p>
+      
+      <div class="examples-grid">
+        <div class="example-card">
+          <div class="example-before">
+            <div class="text-example">
+              <h4>ChatGPT Description:</h4>
+              <p>"Create a futuristic HUD for a space game with a circular health bar in the bottom left, a minimap in the top right, and weapon information in the center. Use a dark blue color scheme with neon accents."</p>
+            </div>
+            <span class="label">ChatGPT Description</span>
+          </div>
+          <div class="example-after">
+            <img src="../../../img/examples/chatgpt-after-1.jpg" alt="Cocos Creator Implementation">
+            <span class="label">Cocos Creator Implementation</span>
+          </div>
+          <div class="example-info">
+            <h3>Space Game HUD</h3>
+            <p>ChatGPT description converted to Cocos Creator prefab</p>
+            <a href="#" class="btn btn-outline">View Case Study</a>
+          </div>
+        </div>
+        
+        <div class="example-card">
+          <div class="example-before">
+            <div class="text-example">
+              <h4>ChatGPT Description:</h4>
+              <p>"Design a medieval fantasy inventory system with a grid layout, item slots with rarity borders, and a detailed item info panel on the right. Include a gold counter at the top and category filters at the bottom."</p>
+            </div>
+            <span class="label">ChatGPT Description</span>
+          </div>
+          <div class="example-after">
+            <img src="../../../img/examples/chatgpt-after-2.jpg" alt="Cocos Creator Implementation">
+            <span class="label">Cocos Creator Implementation</span>
+          </div>
+          <div class="example-info">
+            <h3>Fantasy Inventory UI</h3>
+            <p>ChatGPT description converted to Cocos Creator prefab</p>
+            <a href="#" class="btn btn-outline">View Case Study</a>
+          </div>
+        </div>
+        
+        <div class="example-card">
+          <div class="example-before">
+            <div class="text-example">
+              <h4>ChatGPT Description:</h4>
+              <p>"Create a modern settings menu with a sidebar navigation, content area with tabs for graphics, audio, controls, and gameplay. Include sliders, toggles, and dropdown menus with a clean, minimalist design."</p>
+            </div>
+            <span class="label">ChatGPT Description</span>
+          </div>
+          <div class="example-after">
+            <img src="../../../img/examples/chatgpt-after-3.jpg" alt="Cocos Creator Implementation">
+            <span class="label">Cocos Creator Implementation</span>
+          </div>
+          <div class="example-info">
+            <h3>Settings Menu</h3>
+            <p>ChatGPT description converted to Cocos Creator prefab</p>
+            <a href="#" class="btn btn-outline">View Case Study</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="examples-cta">
+        <a href="../../../case-studies.html" class="btn btn-primary">View All Examples</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="container">
+      <h2>What Game Developers Say</h2>
+      <p class="section-subtitle">Hear from developers who use our ChatGPT to Cocos Creator converter</p>
+      
+      <div class="testimonials-slider">
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"The ChatGPT to Cocos converter is incredible. I can describe UI concepts in plain language and have them implemented in minutes. It's like having a UI developer who understands exactly what I want."</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="../../../img/testimonials/author-7.jpg" alt="James Wilson">
+            <div class="author-info">
+              <h4>James Wilson</h4>
+              <p>Game Designer, Creative Studios</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"As a non-technical game designer, this tool has been a game-changer. I can focus on the creative aspects while the AI handles the technical implementation of my UI ideas."</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="../../../img/testimonials/author-8.jpg" alt="Olivia Chen">
+            <div class="author-info">
+              <h4>Olivia Chen</h4>
+              <p>Creative Director, Indie Game Lab</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"The natural language understanding is impressive. It correctly interpreted even complex UI descriptions and generated prefabs that matched my vision perfectly."</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="../../../img/testimonials/author-9.jpg" alt="Marcus Johnson">
+            <div class="author-info">
+              <h4>Marcus Johnson</h4>
+              <p>Lead Designer, Future Games</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <p class="section-subtitle">Common questions about our ChatGPT to Cocos Creator converter</p>
+      
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>What versions of Cocos Creator are supported?</h3>
+            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>We currently support Cocos Creator 3.x. The generated prefabs are compatible with the latest versions of Cocos Creator.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>How accurate is the interpretation of ChatGPT descriptions?</h3>
+            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Our AI achieves 90%+ accuracy in interpreting UI descriptions from ChatGPT. The interpretation is specifically optimized for natural language understanding of UI concepts.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Can I customize the generated prefabs?</h3>
+            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, all generated prefabs are fully customizable. You can adjust properties, add functionality, and modify the hierarchy to suit your specific needs.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>How detailed should my ChatGPT descriptions be?</h3>
+            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>The more detailed your description, the better the results. Include information about layout, components, colors, styles, and any specific functionality you want.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Do you offer a free trial?</h3>
+            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, we offer a 14-day free trial with access to all features. No credit card required to start your trial.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Is there an API available for integration?</h3>
+            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, we offer a RESTful API for integrating our ChatGPT to Cocos Creator converter into your existing workflow. API documentation is available for registered users.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Transform Your ChatGPT Descriptions?</h2>
+      <p>Start your free trial today and see how our converter can revolutionize your game development workflow.</p>
+      <div class="cta-buttons">
+        <a href="../../../signup.html" class="btn btn-primary btn-lg">Start Free Trial</a>
+        <a href="../../../contact.html" class="btn btn-outline btn-lg">Contact Sales</a>
+      </div>
+      <p class="cta-note">No credit card required • 14-day free trial • Cancel anytime</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Product</h3>
+          <ul>
+            <li><a href="../../../features.html">Features</a></li>
+            <li><a href="../../../pricing.html">Pricing</a></li>
+            <li><a href="../../../case-studies.html">Case Studies</a></li>
+            <li><a href="../../../integrations.html">Integrations</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="../../../docs/index.html">Documentation</a></li>
+            <li><a href="../../../blog.html">Blog</a></li>
+            <li><a href="../../../tutorials.html">Tutorials</a></li>
+            <li><a href="../../../api-docs.html">API Reference</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="../../../about.html">About Us</a></li>
+            <li><a href="../../../careers.html">Careers</a></li>
+            <li><a href="../../../contact.html">Contact</a></li>
+            <li><a href="../../../partners.html">Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="../../../privacy.html">Privacy Policy</a></li>
+            <li><a href="../../../terms.html">Terms of Service</a></li>
+            <li><a href="../../../security.html">Security</a></li>
+            <li><a href="../../../cookies.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="copyright">
+          <p>&copy; 2023 Game UI Generator. All rights reserved.</p>
+        </div>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-discord"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../../js/main.js"></script>
+  <script src="../../../js/tool-landing-pages.js"></script>
+  <script>
+    // Additional JavaScript for the converter tool
+    document.addEventListener('DOMContentLoaded', function() {
+      // Text input handling
+      const textArea = document.querySelector('textarea');
+      const clearButton = document.querySelector('.input-actions .btn-outline');
+      const analyzeButton = document.querySelector('.input-actions .btn-primary');
+      
+      if (textArea && clearButton && analyzeButton) {
+        clearButton.addEventListener('click', () => {
+          textArea.value = '';
+        });
+        
+        analyzeButton.addEventListener('click', () => {
+          if (textArea.value.trim()) {
+            // Simulate analysis
+            const progressBar = document.querySelector('.progress-fill');
+            const progressText = document.querySelector('.progress-text');
+            
+            if (progressBar && progressText) {
+              let progress = 0;
+              const interval = setInterval(() => {
+                progress += 5;
+                progressBar.style.width = `${progress}%`;
+                
+                if (progress >= 100) {
+                  clearInterval(interval);
+                  progressText.textContent = 'Analysis complete!';
+                  
+                  // Move to next step after a short delay
+                  setTimeout(() => {
+                    document.getElementById('next-step').click();
+                  }, 1000);
+                }
+              }, 100);
+            }
+          }
+        });
+      }
+      
+      // Converter navigation
+      const prevButton = document.getElementById('prev-step');
+      const nextButton = document.getElementById('next-step');
+      const steps = document.querySelectorAll('.converter-step');
+      let currentStep = 1;
+      
+      if (prevButton && nextButton && steps.length) {
+        prevButton.addEventListener('click', () => {
+          if (currentStep > 1) {
+            steps[currentStep - 1].classList.remove('active');
+            currentStep--;
+            steps[currentStep - 1].classList.add('active');
+            
+            if (currentStep === 1) {
+              prevButton.disabled = true;
+            }
+          }
+        });
+        
+        nextButton.addEventListener('click', () => {
+          if (currentStep < steps.length) {
+            steps[currentStep - 1].classList.remove('active');
+            currentStep++;
+            steps[currentStep - 1].classList.add('active');
+            
+            prevButton.disabled = false;
+            
+            if (currentStep === steps.length) {
+              nextButton.textContent = 'Finish';
+            }
+          } else {
+            // Reset to first step
+            steps[currentStep - 1].classList.remove('active');
+            currentStep = 1;
+            steps[currentStep - 1].classList.add('active');
+            prevButton.disabled = true;
+            nextButton.textContent = 'Next';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html> 

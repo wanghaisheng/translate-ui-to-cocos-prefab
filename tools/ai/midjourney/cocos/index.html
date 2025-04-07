@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Midjourney to Cocos Creator Converter - AI UI to Game Prefab</title>
+  <meta name="description" content="Convert Midjourney-generated UI designs directly to Cocos Creator prefabs. Transform AI visualizations into functional game UI components in minutes.">
+  <link rel="stylesheet" href="../../../css/styles.css">
+  <link rel="stylesheet" href="../../../css/tool-landing-pages.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Midjourney to Cocos Creator Converter",
+    "applicationCategory": "GameDevelopmentApplication",
+    "operatingSystem": "Web-based",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "124"
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">
+        <a href="../../../index.html">
+          <img src="../../../img/logo.svg" alt="Game UI Generator Logo">
+        </a>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="../../../index.html">Home</a></li>
+          <li><a href="../../analyze/index.html">Analysis Tool</a></li>
+          <li class="active"><a href="../../index.html">AI Tools Hub</a></li>
+          <li><a href="../../../pricing.html">Pricing</a></li>
+          <li><a href="../../../docs/index.html">Documentation</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <a href="../../../login.html" class="btn btn-outline">Log In</a>
+        <a href="../../../signup.html" class="btn btn-primary">Start Free Trial</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Midjourney to Cocos Creator Converter</h1>
+        <p class="subtitle">Transform Midjourney UI designs into functional Cocos Creator prefabs in minutes</p>
+        <div class="hero-cta">
+          <a href="#converter" class="btn btn-primary btn-lg">Try Converter Now</a>
+          <a href="#demo" class="btn btn-outline btn-lg">Watch Demo</a>
+        </div>
+        <div class="hero-features">
+          <div class="feature">
+            <i class="fas fa-bolt"></i>
+            <span>95%+ accuracy</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-clock"></i>
+            <span>Save 10+ hours per UI</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-code"></i>
+            <span>Production-ready code</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="../../../img/tools/midjourney-cocos-hero.svg" alt="Midjourney to Cocos Creator Conversion Process">
+      </div>
+    </div>
+  </section>
+
+  <!-- Converter Tool Section -->
+  <section class="converter-section" id="converter">
+    <div class="container">
+      <h2>Convert Your Midjourney Design</h2>
+      <p class="section-subtitle">Upload your Midjourney UI design and get a Cocos Creator prefab in minutes</p>
+      
+      <div class="converter-tool">
+        <div class="converter-steps">
+          <div class="converter-step active" data-step="1">
+            <div class="step-number">1</div>
+            <h3>Upload Midjourney Design</h3>
+            <p>Upload your Midjourney-generated UI design or paste a URL</p>
+            <div class="upload-area">
+              <i class="fas fa-cloud-upload-alt"></i>
+              <p>Drag & drop your image here or <a href="#" class="browse-link">browse files</a></p>
+              <p class="upload-note">Supports JPG, PNG, WebP (max 10MB)</p>
+              <input type="file" id="file-upload" accept="image/jpeg,image/png,image/webp" hidden>
+            </div>
+          </div>
+          
+          <div class="converter-step" data-step="2">
+            <div class="step-number">2</div>
+            <h3>AI Analysis</h3>
+            <p>Our AI analyzes and identifies UI components</p>
+            <div class="analysis-progress">
+              <div class="progress-bar">
+                <div class="progress-fill"></div>
+              </div>
+              <p class="progress-text">Analyzing UI components...</p>
+            </div>
+          </div>
+          
+          <div class="converter-step" data-step="3">
+            <div class="step-number">3</div>
+            <h3>Adjust & Refine</h3>
+            <p>Fine-tune component detection and properties</p>
+            <div class="refinement-tools">
+              <div class="tool-group">
+                <h4>Component Detection</h4>
+                <div class="slider-control">
+                  <label>Sensitivity</label>
+                  <input type="range" min="1" max="10" value="5" class="slider">
+                </div>
+                <div class="checkbox-group">
+                  <label><input type="checkbox" checked> Detect Buttons</label>
+                  <label><input type="checkbox" checked> Detect Text Fields</label>
+                  <label><input type="checkbox" checked> Detect Images</label>
+                  <label><input type="checkbox" checked> Detect Containers</label>
+                </div>
+              </div>
+              <div class="tool-group">
+                <h4>Export Options</h4>
+                <div class="checkbox-group">
+                  <label><input type="checkbox" checked> Include Layout Constraints</label>
+                  <label><input type="checkbox" checked> Generate Event Handlers</label>
+                  <label><input type="checkbox" checked> Optimize Assets</label>
+                  <label><input type="checkbox"> Include Animation Data</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="converter-step" data-step="4">
+            <div class="step-number">4</div>
+            <h3>Export to Cocos Creator</h3>
+            <p>Download your prefab ready for Cocos Creator</p>
+            <div class="export-options">
+              <div class="export-preview">
+                <img src="../../../img/tools/prefab-preview.svg" alt="Prefab Preview">
+              </div>
+              <div class="export-actions">
+                <a href="#" class="btn btn-primary btn-lg">Download Prefab</a>
+                <a href="#" class="btn btn-outline">View Documentation</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="converter-navigation">
+          <button class="btn btn-outline" id="prev-step" disabled>Previous</button>
+          <button class="btn btn-primary" id="next-step">Next</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="container">
+      <h2>Why Choose Our Midjourney Converter</h2>
+      <p class="section-subtitle">Specialized tools for converting Midjourney designs to Cocos Creator</p>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-magic"></i>
+          </div>
+          <h3>Midjourney-Optimized Detection</h3>
+          <p>Our AI is specifically trained on Midjourney's unique visual style and output characteristics</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-layer-group"></i>
+          </div>
+          <h3>Smart Component Mapping</h3>
+          <p>Automatically maps Midjourney elements to appropriate Cocos Creator UI components</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3>Style Preservation</h3>
+          <p>Maintains Midjourney's visual styling while converting to functional UI components</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Clean, Optimized Code</h3>
+          <p>Generates production-ready TypeScript code with proper component structure</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-sliders-h"></i>
+          </div>
+          <h3>Customizable Export</h3>
+          <p>Fine-tune component detection and export options to match your workflow</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-sync-alt"></i>
+          </div>
+          <h3>Iterative Refinement</h3>
+          <p>Easily update your prefab as you refine your Midjourney design</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="how-it-works-section">
+    <div class="container">
+      <h2>How It Works</h2>
+      <p class="section-subtitle">From Midjourney design to Cocos Creator prefab in 4 simple steps</p>
+      
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <div class="step-icon">
+            <i class="fas fa-upload"></i>
+          </div>
+          <h3>Upload Midjourney Design</h3>
+          <p>Upload your Midjourney-generated UI design or paste a URL</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <div class="step-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>AI Component Detection</h3>
+          <p>Our specialized AI identifies UI components in your Midjourney design</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <div class="step-icon">
+            <i class="fas fa-sliders-h"></i>
+          </div>
+          <h3>Adjust & Refine</h3>
+          <p>Fine-tune component detection and customize export options</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <div class="step-icon">
+            <i class="fas fa-download"></i>
+          </div>
+          <h3>Export to Cocos Creator</h3>
+          <p>Download your prefab ready to use in Cocos Creator</p>
+        </div>
+      </div>
+      
+      <div class="process-demo">
+        <div class="demo-video">
+          <img src="../../../img/tools/midjourney-cocos-demo.svg" alt="Midjourney to Cocos Creator Demo">
+          <a href="#" class="play-button" id="demo">
+            <i class="fas fa-play"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Examples Section -->
+  <section class="examples-section">
+    <div class="container">
+      <h2>See It In Action</h2>
+      <p class="section-subtitle">Real examples of Midjourney designs converted to Cocos Creator prefabs</p>
+      
+      <div class="examples-grid">
+        <div class="example-card">
+          <div class="example-before">
+            <img src="../../../img/examples/midjourney-before-1.jpg" alt="Midjourney UI Design">
+            <span class="label">Midjourney Design</span>
+          </div>
+          <div class="example-after">
+            <img src="../../../img/examples/midjourney-after-1.jpg" alt="Cocos Creator Implementation">
+            <span class="label">Cocos Creator Implementation</span>
+          </div>
+          <div class="example-info">
+            <h3>Space RPG HUD</h3>
+            <p>Midjourney design converted to Cocos Creator prefab</p>
+            <a href="#" class="btn btn-outline">View Case Study</a>
+          </div>
+        </div>
+        
+        <div class="example-card">
+          <div class="example-before">
+            <img src="../../../img/examples/midjourney-before-2.jpg" alt="Midjourney UI Design">
+            <span class="label">Midjourney Design</span>
+          </div>
+          <div class="example-after">
+            <img src="../../../img/examples/midjourney-after-2.jpg" alt="Cocos Creator Implementation">
+            <span class="label">Cocos Creator Implementation</span>
+          </div>
+          <div class="example-info">
+            <h3>Racing Game HUD</h3>
+            <p>Midjourney design converted to Cocos Creator prefab</p>
+            <a href="#" class="btn btn-outline">View Case Study</a>
+          </div>
+        </div>
+        
+        <div class="example-card">
+          <div class="example-before">
+            <img src="../../../img/examples/midjourney-before-3.jpg" alt="Midjourney UI Design">
+            <span class="label">Midjourney Design</span>
+          </div>
+          <div class="example-after">
+            <img src="../../../img/examples/midjourney-after-3.jpg" alt="Cocos Creator Implementation">
+            <span class="label">Cocos Creator Implementation</span>
+          </div>
+          <div class="example-info">
+            <h3>Fantasy Game Menu</h3>
+            <p>Midjourney design converted to Cocos Creator prefab</p>
+            <a href="#" class="btn btn-outline">View Case Study</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="examples-cta">
+        <a href="../../../case-studies.html" class="btn btn-primary">View All Examples</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="container">
+      <h2>What Game Developers Say</h2>
+      <p class="section-subtitle">Hear from developers who use our Midjourney to Cocos Creator converter</p>
+      
+      <div class="testimonials-slider">
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"The Midjourney to Cocos converter is a game-changer. We can now iterate on UI designs in Midjourney and have them ready for our game in minutes."</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="../../../img/testimonials/author-2.jpg" alt="Sarah Johnson">
+            <div class="author-info">
+              <h4>Sarah Johnson</h4>
+              <p>UI Designer, Pixel Forge Studio</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"As a solo developer, this tool has been invaluable. I can focus on gameplay while the AI handles UI implementation from my Midjourney designs."</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="../../../img/testimonials/author-3.jpg" alt="Michael Rodriguez">
+            <div class="author-info">
+              <h4>Michael Rodriguez</h4>
+              <p>Indie Developer, Lone Wolf Games</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial">
+          <div class="testimonial-content">
+            <p>"The accuracy of component detection for Midjourney designs is impressive. It correctly identified even complex UI elements in our space game HUD."</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="../../../img/testimonials/author-1.jpg" alt="Alex Chen">
+            <div class="author-info">
+              <h4>Alex Chen</h4>
+              <p>CTO, SpaceQuest Games</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <p class="section-subtitle">Common questions about our Midjourney to Cocos Creator converter</p>
+      
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>What versions of Cocos Creator are supported?</h3>
+            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>We currently support Cocos Creator 3.x. The generated prefabs are compatible with the latest versions of Cocos Creator.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>How accurate is the component detection for Midjourney designs?</h3>
+            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Our AI achieves 95%+ accuracy in detecting UI components in Midjourney designs. The detection is specifically optimized for Midjourney's unique visual style and output characteristics.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Can I customize the generated prefabs?</h3>
+            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, all generated prefabs are fully customizable. You can adjust properties, add functionality, and modify the hierarchy to suit your specific needs.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>What file formats are supported for upload?</h3>
+            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>We support JPG, PNG, and WebP image formats. You can upload files directly or provide a URL to your Midjourney design.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Do you offer a free trial?</h3>
+            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, we offer a 14-day free trial with access to all features. No credit card required to start your trial.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Is there an API available for integration?</h3>
+            <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, we offer a RESTful API for integrating our Midjourney to Cocos Creator converter into your existing workflow. API documentation is available for registered users.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Transform Your Midjourney Designs?</h2>
+      <p>Start your free trial today and see how our converter can revolutionize your game development workflow.</p>
+      <div class="cta-buttons">
+        <a href="../../../signup.html" class="btn btn-primary btn-lg">Start Free Trial</a>
+        <a href="../../../contact.html" class="btn btn-outline btn-lg">Contact Sales</a>
+      </div>
+      <p class="cta-note">No credit card required • 14-day free trial • Cancel anytime</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Product</h3>
+          <ul>
+            <li><a href="../../../features.html">Features</a></li>
+            <li><a href="../../../pricing.html">Pricing</a></li>
+            <li><a href="../../../case-studies.html">Case Studies</a></li>
+            <li><a href="../../../integrations.html">Integrations</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="../../../docs/index.html">Documentation</a></li>
+            <li><a href="../../../blog.html">Blog</a></li>
+            <li><a href="../../../tutorials.html">Tutorials</a></li>
+            <li><a href="../../../api-docs.html">API Reference</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="../../../about.html">About Us</a></li>
+            <li><a href="../../../careers.html">Careers</a></li>
+            <li><a href="../../../contact.html">Contact</a></li>
+            <li><a href="../../../partners.html">Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="../../../privacy.html">Privacy Policy</a></li>
+            <li><a href="../../../terms.html">Terms of Service</a></li>
+            <li><a href="../../../security.html">Security</a></li>
+            <li><a href="../../../cookies.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="copyright">
+          <p>&copy; 2023 Game UI Generator. All rights reserved.</p>
+        </div>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-discord"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../../js/main.js"></script>
+  <script src="../../../js/tool-landing-pages.js"></script>
+  <script>
+    // Additional JavaScript for the converter tool
+    document.addEventListener('DOMContentLoaded', function() {
+      // File upload handling
+      const uploadArea = document.querySelector('.upload-area');
+      const fileInput = document.getElementById('file-upload');
+      const browseLink = document.querySelector('.browse-link');
+      
+      if (uploadArea && fileInput && browseLink) {
+        browseLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          fileInput.click();
+        });
+        
+        uploadArea.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          uploadArea.classList.add('dragover');
+        });
+        
+        uploadArea.addEventListener('dragleave', () => {
+          uploadArea.classList.remove('dragover');
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+          e.preventDefault();
+          uploadArea.classList.remove('dragover');
+          
+          if (e.dataTransfer.files.length) {
+            handleFileUpload(e.dataTransfer.files[0]);
+          }
+        });
+        
+        fileInput.addEventListener('change', () => {
+          if (fileInput.files.length) {
+            handleFileUpload(fileInput.files[0]);
+          }
+        });
+      }
+      
+      function handleFileUpload(file) {
+        // Simulate file processing
+        const progressBar = document.querySelector('.progress-fill');
+        const progressText = document.querySelector('.progress-text');
+        
+        if (progressBar && progressText) {
+          let progress = 0;
+          const interval = setInterval(() => {
+            progress += 5;
+            progressBar.style.width = `${progress}%`;
+            
+            if (progress >= 100) {
+              clearInterval(interval);
+              progressText.textContent = 'Analysis complete!';
+              
+              // Move to next step after a short delay
+              setTimeout(() => {
+                document.getElementById('next-step').click();
+              }, 1000);
+            }
+          }, 100);
+        }
+      }
+      
+      // Converter navigation
+      const prevButton = document.getElementById('prev-step');
+      const nextButton = document.getElementById('next-step');
+      const steps = document.querySelectorAll('.converter-step');
+      let currentStep = 1;
+      
+      if (prevButton && nextButton && steps.length) {
+        prevButton.addEventListener('click', () => {
+          if (currentStep > 1) {
+            steps[currentStep - 1].classList.remove('active');
+            currentStep--;
+            steps[currentStep - 1].classList.add('active');
+            
+            if (currentStep === 1) {
+              prevButton.disabled = true;
+            }
+          }
+        });
+        
+        nextButton.addEventListener('click', () => {
+          if (currentStep < steps.length) {
+            steps[currentStep - 1].classList.remove('active');
+            currentStep++;
+            steps[currentStep - 1].classList.add('active');
+            
+            prevButton.disabled = false;
+            
+            if (currentStep === steps.length) {
+              nextButton.textContent = 'Finish';
+            }
+          } else {
+            // Reset to first step
+            steps[currentStep - 1].classList.remove('active');
+            currentStep = 1;
+            steps[currentStep - 1].classList.add('active');
+            prevButton.disabled = true;
+            nextButton.textContent = 'Next';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html> 

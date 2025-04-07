@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#F8F9FA" />
+  
+  <!-- Editor Interface -->
+  <g transform="translate(50, 50)">
+    <rect width="700" height="500" rx="8" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="2" />
+    
+    <!-- Toolbar -->
+    <rect x="0" y="0" width="700" height="50" rx="8 8 0 0" fill="#6C5CE7" />
+    <text x="350" y="30" font-family="Arial" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Visual Editor</text>
+    
+    <!-- Tools Panel -->
+    <rect x="0" y="50" width="150" height="450" fill="#F0F0F0" />
+    <rect x="10" y="60" width="130" height="30" rx="4" fill="#FFFFFF" stroke="#D0D0D0" stroke-width="1" />
+    <text x="75" y="80" font-family="Arial" font-size="14" fill="#333333" text-anchor="middle">Tools</text>
+    
+    <!-- Tool Icons -->
+    <circle cx="30" cy="120" r="15" fill="#FFFFFF" stroke="#D0D0D0" stroke-width="1" />
+    <path d="M25 120 L35 120 M30 115 L30 125" stroke="#333333" stroke-width="2" />
+    
+    <circle cx="30" cy="160" r="15" fill="#FFFFFF" stroke="#D0D0D0" stroke-width="1" />
+    <rect x="22" y="152" width="16" height="16" rx="2" fill="#333333" />
+    
+    <circle cx="30" cy="200" r="15" fill="#FFFFFF" stroke="#D0D0D0" stroke-width="1" />
+    <path d="M25 200 L35 200 M30 195 L30 205" stroke="#333333" stroke-width="2" />
+    
+    <circle cx="30" cy="240" r="15" fill="#FFFFFF" stroke="#D0D0D0" stroke-width="1" />
+    <path d="M25 235 L35 235 L30 245 Z" fill="#333333" />
+    
+    <!-- Canvas -->
+    <rect x="150" y="50" width="550" height="450" fill="#FFFFFF" />
+    
+    <!-- UI Elements on Canvas -->
+    <rect x="170" y="70" width="510" height="100" rx="4" fill="#F0F0F0" stroke="#D0D0D0" stroke-width="1" />
+    <text x="425" y="120" font-family="Arial" font-size="16" font-weight="bold" fill="#333333" text-anchor="middle">Header</text>
+    
+    <rect x="170" y="180" width="510" height="250" rx="4" fill="#F0F0F0" stroke="#D0D0D0" stroke-width="1" />
+    <text x="425" y="305" font-family="Arial" font-size="16" font-weight="bold" fill="#333333" text-anchor="middle">Content</text>
+    
+    <!-- Properties Panel -->
+    <rect x="150" y="50" width="550" height="450" fill="#FFFFFF" opacity="0.8" />
+    <rect x="170" y="70" width="510" height="100" rx="4" fill="#F0F0F0" stroke="#D0D0D0" stroke-width="1" />
+    <text x="425" y="120" font-family="Arial" font-size="16" font-weight="bold" fill="#333333" text-anchor="middle">Properties</text>
+    
+    <!-- Property Fields -->
+    <rect x="190" y="140" width="470" height="30" rx="4" fill="#FFFFFF" stroke="#D0D0D0" stroke-width="1" />
+    <text x="210" y="160" font-family="Arial" font-size="14" fill="#333333">Width: 800</text>
+    
+    <rect x="190" y="180" width="470" height="30" rx="4" fill="#FFFFFF" stroke="#D0D0D0" stroke-width="1" />
+    <text x="210" y="200" font-family="Arial" font-size="14" fill="#333333">Height: 600</text>
+    
+    <rect x="190" y="220" width="470" height="30" rx="4" fill="#FFFFFF" stroke="#D0D0D0" stroke-width="1" />
+    <text x="210" y="240" font-family="Arial" font-size="14" fill="#333333">Background Color: #FFFFFF</text>
+    
+    <rect x="190" y="260" width="470" height="30" rx="4" fill="#FFFFFF" stroke="#D0D0D0" stroke-width="1" />
+    <text x="210" y="280" font-family="Arial" font-size="14" fill="#333333">Border Radius: 8px</text>
+    
+    <rect x="190" y="300" width="470" height="30" rx="4" fill="#FFFFFF" stroke="#D0D0D0" stroke-width="1" />
+    <text x="210" y="320" font-family="Arial" font-size="14" fill="#333333">Padding: 20px</text>
+  </g>
+</svg> 

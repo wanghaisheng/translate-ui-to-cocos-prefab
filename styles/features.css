@@ -1,0 +1,213 @@
+/* 价值主张区样式 */
+.value-proposition {
+    padding: var(--section-padding);
+    background: linear-gradient(135deg, var(--darker-color), var(--dark-color));
+    position: relative;
+    overflow: hidden;
+}
+
+.value-proposition::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(var(--primary-color), 0.1), transparent 70%);
+    pointer-events: none;
+}
+
+.section-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    position: relative;
+}
+
+.section-title {
+    font-size: var(--text-4xl);
+    font-weight: var(--font-bold);
+    text-align: center;
+    margin-bottom: 4rem;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+
+.value-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.value-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.value-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(var(--primary-color), 0.1), rgba(var(--secondary-color), 0.1));
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.value-card:hover::before {
+    opacity: 1;
+}
+
+.card-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.value-card:hover .card-icon {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.card-icon .icon {
+    width: 32px;
+    height: 32px;
+    fill: var(--light-color);
+}
+
+.value-card h3 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    margin-bottom: 1rem;
+    color: var(--light-color);
+}
+
+.value-card p {
+    color: var(--gray-color);
+    line-height: 1.6;
+}
+
+/* 核心功能展示区样式 */
+.core-features {
+    padding: var(--section-padding);
+    background: var(--dark-color);
+    position: relative;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition);
+    position: relative;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(var(--primary-color), 0.1), rgba(var(--secondary-color), 0.1));
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+.feature-visual {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 宽高比 */
+    overflow: hidden;
+}
+
+.feature-visual img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.feature-card:hover .feature-visual img {
+    transform: scale(1.05);
+}
+
+.feature-content {
+    padding: 2rem;
+}
+
+.feature-content h3 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    margin-bottom: 1rem;
+    color: var(--light-color);
+}
+
+.feature-content p {
+    color: var(--gray-color);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    .value-cards,
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .value-cards,
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+        font-size: var(--text-3xl);
+        margin-bottom: 3rem;
+    }
+    
+    .value-card,
+    .feature-card {
+        padding: 1.5rem;
+    }
+} 
