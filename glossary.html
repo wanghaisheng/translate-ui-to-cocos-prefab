@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game UI Terminology Glossary | Game UI Generator</title>
+    <meta name="description" content="Comprehensive glossary of game UI terminology, design patterns, and technical concepts for game developers and designers.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- 结构化数据 - 词汇表 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DefinedTermSet",
+      "name": "Game UI Terminology Glossary",
+      "description": "A comprehensive glossary of game UI terminology, design patterns, and technical concepts for game developers and designers.",
+      "hasPart": [
+        {
+          "@type": "DefinedTerm",
+          "name": "UI Canvas",
+          "description": "The base container element for all UI components in a game, typically serving as the foundational layer for user interface elements."
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Sprite Atlas",
+          "description": "A collection of smaller images combined into a single larger image to improve rendering performance and reduce draw calls in games."
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Head-Up Display (HUD)",
+          "description": "The method by which information is visually relayed to the player as part of a game's UI, typically overlaid on the main gameplay visuals."
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="img/logo.svg" alt="Game UI Generator Logo">
+                <h1 data-i18n="brand_name">Game UI Generator</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#playground">Try It Now</a></li>
+                    <li><a href="index.html#comparison">Comparison</a></li>
+                    <li><a href="index.html#pricing">Pricing</a></li>
+                    <li><a href="glossary.html" class="active">Glossary</a></li>
+                </ul>
+            </nav>
+            <div class="cta-button">
+                <a href="index.html#signup" class="btn primary-btn">Start Free Trial</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Game UI Terminology Glossary</h1>
+            <p>A comprehensive reference of UI design terminology, patterns, and concepts for game developers</p>
+        </div>
+    </section>
+
+    <!-- Glossary Content -->
+    <section class="glossary-content">
+        <div class="container">
+            <div class="glossary-intro">
+                <p>Understanding the specialized terminology of game UI design is essential for effective development and communication. This glossary provides definitions for common terms used in game UI design, development, and implementation, with a focus on concepts relevant to the Game UI Generator tool and Cocos Creator integration.</p>
+            </div>
+            
+            <div class="glossary-filter">
+                <label for="glossary-search">Search Terms:</label>
+                <input type="text" id="glossary-search" placeholder="Type to search...">
+                
+                <div class="glossary-alphabet">
+                    <a href="#section-a" class="letter-link">A</a>
+                    <a href="#section-b" class="letter-link">B</a>
+                    <a href="#section-c" class="letter-link">C</a>
+                    <a href="#section-d" class="letter-link">D</a>
+                    <a href="#section-e" class="letter-link">E</a>
+                    <a href="#section-f" class="letter-link">F</a>
+                    <a href="#section-g" class="letter-link">G</a>
+                    <a href="#section-h" class="letter-link">H</a>
+                    <a href="#section-i" class="letter-link">I</a>
+                    <a href="#section-j" class="letter-link">J</a>
+                    <a href="#section-k" class="letter-link">K</a>
+                    <a href="#section-l" class="letter-link">L</a>
+                    <a href="#section-m" class="letter-link">M</a>
+                    <a href="#section-n" class="letter-link">N</a>
+                    <a href="#section-o" class="letter-link">O</a>
+                    <a href="#section-p" class="letter-link">P</a>
+                    <a href="#section-q" class="letter-link">Q</a>
+                    <a href="#section-r" class="letter-link">R</a>
+                    <a href="#section-s" class="letter-link">S</a>
+                    <a href="#section-t" class="letter-link">T</a>
+                    <a href="#section-u" class="letter-link">U</a>
+                    <a href="#section-v" class="letter-link">V</a>
+                    <a href="#section-w" class="letter-link">W</a>
+                    <a href="#section-x" class="letter-link">X</a>
+                    <a href="#section-y" class="letter-link">Y</a>
+                    <a href="#section-z" class="letter-link">Z</a>
+                </div>
+            </div>
+            
+            <!-- A Section -->
+            <div class="glossary-section" id="section-a">
+                <h2>A</h2>
+                
+                <div class="glossary-term">
+                    <h3>Anchor Point</h3>
+                    <div class="term-content">
+                        <p>A reference point in a UI element that determines how it is positioned relative to its parent container. Anchor points commonly include center, top-left, bottom-right, etc.</p>
+                        <p><strong>In Cocos Creator:</strong> Anchor points are represented by normalized coordinates between 0 and 1, where (0,0) is bottom-left and (1,1) is top-right.</p>
+                    </div>
+                </div>
+                
+                <div class="glossary-term">
+                    <h3>Asset Management</h3>
+                    <div class="term-content">
+                        <p>The process of organizing, cataloging, and optimizing visual assets (images, textures, sprites) used in game UI development.</p>
+                        <p><strong>Game UI Generator feature:</strong> Our tool handles asset extraction and organization automatically when processing UI designs.</p>
+                    </div>
+                </div>
+                
+                <div class="glossary-term">
+                    <h3>Auto Layout</h3>
+                    <div class="term-content">
+                        <p>A system that automatically positions and sizes UI elements based on their content and container constraints, often used for responsive designs.</p>
+                        <p><strong>In game development:</strong> Implemented through layout components that control how child elements are arranged.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- B Section -->
+            <div class="glossary-section" id="section-b">
+                <h2>B</h2>
+                
+                <div class="glossary-term">
+                    <h3>Button</h3>
+                    <div class="term-content">
+                        <p>An interactive UI element that triggers an action when clicked or tapped.</p>
+                        <p><strong>In game UI:</strong> Buttons often have multiple visual states: normal, hover, pressed, and disabled.</p>
+                    </div>
+                </div>
+                
+                <div class="glossary-term">
+                    <h3>Bounding Box</h3>
+                    <div class="term-content">
+                        <p>The rectangular area that fully encloses a UI element or component. Used for layout calculations and collision detection.</p>
+                        <p><strong>Game UI Generator feature:</strong> AI detection automatically determines the bounding boxes for different UI components in uploaded designs.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- C Section -->
+            <div class="glossary-section" id="section-c">
+                <h2>C</h2>
+                
+                <div class="glossary-term">
+                    <h3>Canvas</h3>
+                    <div class="term-content">
+                        <p>The root container for all UI elements in a game. The canvas establishes the coordinate system and rendering order for UI components.</p>
+                        <p><strong>In Cocos Creator:</strong> The Canvas component provides properties for controlling render mode, design resolution, and adaptation to different screen sizes.</p>
+                    </div>
+                </div>
+                
+                <div class="glossary-term">
+                    <h3>Component</h3>
+                    <div class="term-content">
+                        <p>A reusable piece of UI functionality that can be attached to nodes or game objects. Components encapsulate specific behaviors or visual elements.</p>
+                        <p><strong>In Game UI Generator:</strong> Our tool identifies common components from designs and generates the appropriate component configurations in the JSON output.</p>
+                    </div>
+                </div>
+                
+                <div class="glossary-term">
+                    <h3>Cocos Creator</h3>
+                    <div class="term-content">
+                        <p>A cross-platform game engine developed by Cocos, focused on 2D game development with strong UI capabilities.</p>
+                        <p><strong>Game UI Generator integration:</strong> Our tool generates JSON configurations specifically optimized for Cocos Creator 3.8, which can be imported as prefabs with our plugin.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional sections would continue here -->
+            
+            <!-- ... -->
+            
+            <!-- U Section -->
+            <div class="glossary-section" id="section-u">
+                <h2>U</h2>
+                
+                <div class="glossary-term">
+                    <h3>UI (User Interface)</h3>
+                    <div class="term-content">
+                        <p>The visual and interactive elements through which a user interacts with a game or application.</p>
+                        <p><strong>In gaming:</strong> UI includes menus, health bars, inventory screens, dialogue boxes, and other visual elements that convey information to the player or accept input.</p>
+                    </div>
+                </div>
+                
+                <div class="glossary-term">
+                    <h3>UI Atlas</h3>
+                    <div class="term-content">
+                        <p>A texture atlas specifically designed for UI elements, combining multiple interface graphics into a single texture to improve rendering performance.</p>
+                        <p><strong>Game UI Generator feature:</strong> Our asset optimization automatically generates appropriate UI atlases from detected components.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Resources Section -->
+            <div class="glossary-resources">
+                <h2>Further Resources</h2>
+                <ul>
+                    <li><a href="#">Cocos Creator UI System Documentation</a></li>
+                    <li><a href="#">Game UI Design Principles Guide</a></li>
+                    <li><a href="#">Component-Based UI Architecture Tutorial</a></li>
+                    <li><a href="#">Layout Systems in Modern Game Engines</a></li>
+                </ul>
+            </div>
+            
+            <!-- Related Tools -->
+            <div class="related-tools">
+                <h2>Related Tools &amp; Features</h2>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>JSON Generator</h3>
+                        <p>Convert analyzed UI designs into structured JSON for Cocos Creator</p>
+                        <a href="index.html#features" class="btn text-btn">Learn More</a>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <h3>Component Library</h3>
+                        <p>Browse common game UI components and their implementation patterns</p>
+                        <a href="#" class="btn text-btn">Explore Library</a>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>UI Academy</h3>
+                        <p>Learn UI design fundamentals through our free online courses</p>
+                        <a href="#" class="btn text-btn">Start Learning</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h4>Game UI Generator</h4>
+                    <p>AI-powered game UI analysis and implementation tool</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Features</h4>
+                    <ul>
+                        <li><a href="index.html#features">UI Analysis</a></li>
+                        <li><a href="index.html#features">JSON Generation</a></li>
+                        <li><a href="index.html#features">Cocos Creator Plugin</a></li>
+                        <li><a href="index.html#features">Asset Extraction</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="glossary.html">Glossary</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                    
+                    <!-- Language Switcher -->
+                    <div class="language-switcher">
+                        <h4>Language</h4>
+                        <select id="language-select">
+                            <option value="en">English</option>
+                            <option value="zh">中文</option>
+                            <option value="ja">日本語</option>
+                            <option value="ko">한국어</option>
+                            <option value="es">Español</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2023 Game UI Generator. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/glossary.js"></script>
+</body>
+</html> 

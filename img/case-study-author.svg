@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+  <defs>
+    <linearGradient id="avatar-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3498db" />
+      <stop offset="100%" stop-color="#8e44ad" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <circle cx="30" cy="30" r="30" fill="url(#avatar-bg)" />
+  
+  <!-- Face -->
+  <circle cx="30" cy="26" r="14" fill="#f5d7b5" />
+  
+  <!-- Hair -->
+  <path d="M16 26 C16 16 44 16 44 26 L42 18 C42 12 38 10 30 10 C22 10 18 12 18.5 18 Z" fill="#2c3e50" />
+  <path d="M16 26 C16 16 44 16 44 26 C44 26 46 30 44 32 L43 28 C43 28 41 34 38 32 L40 28 C40 28 36 34 31 32 L33 28 C33 28 29 34 25 32 L27 28 C27 28 23 34 20 32 L22 28 C22 28 18 32 16 29 Z" fill="#2c3e50" />
+  
+  <!-- Eyes -->
+  <ellipse cx="24" cy="24" rx="2" ry="2.5" fill="#2c3e50" />
+  <ellipse cx="36" cy="24" rx="2" ry="2.5" fill="#2c3e50" />
+  
+  <!-- Eyebrows -->
+  <path d="M22 21 C22 21 24 19 27 21" stroke="#2c3e50" stroke-width="1" fill="none" />
+  <path d="M33 21 C33 21 35 19 38 21" stroke="#2c3e50" stroke-width="1" fill="none" />
+  
+  <!-- Glasses -->
+  <rect x="20" y="23" width="8" height="3" rx="1" fill="none" stroke="#2c3e50" stroke-width="0.75" />
+  <rect x="32" y="23" width="8" height="3" rx="1" fill="none" stroke="#2c3e50" stroke-width="0.75" />
+  <line x1="28" y1="24.5" x2="32" y2="24.5" stroke="#2c3e50" stroke-width="0.75" />
+  
+  <!-- Nose -->
+  <path d="M30 26 C30 26 31 29 30 30" stroke="#e7b99e" stroke-width="1" fill="none" />
+  
+  <!-- Mouth -->
+  <path d="M26 33 C26 34 34 34 34 33" stroke="#c0392b" stroke-width="1" fill="none" />
+  
+  <!-- Collar -->
+  <path d="M20 40 L16 48 C16 48 30 53 44 48 L40 40" fill="#2c3e50" />
+  
+  <!-- Shirt -->
+  <path d="M20 40 C20 40 22 44 30 44 C38 44 40 40 40 40 L40 50 L20 50 Z" fill="#3498db" />
+</svg> 

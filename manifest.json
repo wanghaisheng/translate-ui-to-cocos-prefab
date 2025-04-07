@@ -1,6 +1,6 @@
 {
-  "name": "Mobile Simulator",
-  "short_name": "Simulator",
+  "name": "Game UI Generator",
+  "short_name": "uiguru",
   "description": "A mobile simulator designed to demonstrate mobile interface design.",
   "start_url": "/",
   "display": "standalone",

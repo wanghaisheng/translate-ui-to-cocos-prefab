@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+  <defs>
+    <linearGradient id="api-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3498db" />
+      <stop offset="100%" stop-color="#2ecc71" />
+    </linearGradient>
+  </defs>
+  <circle cx="40" cy="40" r="38" fill="white" stroke="url(#api-gradient)" stroke-width="3" />
+  <!-- Code brackets -->
+  <path d="M30 30 L22 40 L30 50" stroke="#3498db" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M50 30 L58 40 L50 50" stroke="#3498db" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- API slash -->
+  <path d="M36 28 L44 52" stroke="#3498db" stroke-width="3" fill="none" stroke-linecap="round" />
+  <!-- Text label -->
+  <text x="40" y="71" fill="#3498db" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">API</text>
+</svg> 

@@ -1,0 +1,8 @@
+<svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="80" rx="8" fill="#1E293B"/>
+  <text x="60" y="35" font-family="Arial, sans-serif" font-weight="bold" font-size="14" fill="white" text-anchor="middle">SPACE</text>
+  <text x="60" y="55" font-family="Arial, sans-serif" font-weight="bold" font-size="14" fill="white" text-anchor="middle">QUEST</text>
+  <path d="M30 20L40 40L50 20" stroke="#6366F1" stroke-width="2"/>
+  <path d="M70 20L80 40L90 20" stroke="#6366F1" stroke-width="2"/>
+  <path d="M20 60H100" stroke="#6366F1" stroke-width="2"/>
+</svg> 

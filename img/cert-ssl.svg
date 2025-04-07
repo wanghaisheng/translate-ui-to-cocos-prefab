@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+  <defs>
+    <linearGradient id="ssl-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3498db" />
+      <stop offset="100%" stop-color="#2ecc71" />
+    </linearGradient>
+  </defs>
+  <circle cx="40" cy="40" r="38" fill="white" stroke="url(#ssl-gradient)" stroke-width="3" />
+  <!-- Lock Body -->
+  <rect x="26" y="36" width="28" height="22" rx="3" fill="#f0f0f0" stroke="#3498db" stroke-width="2" />
+  <!-- Lock Shackle -->
+  <path d="M32 36 L32 28 C32 22 48 22 48 28 L48 36" stroke="#3498db" stroke-width="2" fill="none" />
+  <!-- Keyhole -->
+  <circle cx="40" cy="44" r="4" fill="#3498db" />
+  <rect x="38.5" y="44" width="3" height="6" fill="#3498db" />
+  <!-- Text label -->
+  <text x="40" y="71" fill="#3498db" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">SSL</text>
+</svg> 

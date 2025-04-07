@@ -1,0 +1,54 @@
+{
+  "title": "ゲームUI生成ツール - AI駆動のゲームUI分析と実装",
+  "meta_description": "AI駆動ツールでゲームUIデザインを分析・生成。スタイル、タイプ、テーマ、機能で絞り込み。",
+  "brand_name": "ゲームUI生成ツール",
+  
+  "nav_features": "機能",
+  "nav_playground": "今すぐ試す",
+  "nav_comparison": "比較",
+  "nav_pricing": "料金プラン",
+  
+  "header_cta": "無料トライアル開始",
+  
+  "hero_title": "AI分析でゲームUIデザインを変革",
+  "hero_subtitle": "UI画面を分析し、コンポーネントを抽出し、JSON設定を生成し、ゲームエンジンに直接インポート。",
+  "hero_cta_primary": "14日間無料トライアル開始",
+  "hero_cta_secondary": "デモを試す",
+  
+  "language": "言語",
+  "lang_english": "English",
+  "lang_chinese": "中文",
+  "lang_japanese": "日本語",
+  "lang_korean": "한국어",
+  "lang_spanish": "Español",
+  
+  "copyright": "© 2023 ゲームUI生成ツール。全著作権所有。",
+  
+  "trust_title": "世界中のゲーム開発者に信頼されています",
+  "certifications_title": "認証とコンプライアンス",
+  "cert_gdpr": "GDPR準拠",
+  "cert_ssl": "SSL保護",
+  "cert_api": "API認証済み",
+  
+  "community_title": "開発者コミュニティに参加",
+  "community_subtitle": "他のゲーム開発者とつながりサポートを受ける",
+  
+  "forum_title": "開発者フォーラム",
+  "forum_desc": "ディスカッションに参加し、プロジェクトを共有し、他のゲームUI生成ツール利用者から学びましょう。",
+  "forum_cta": "フォーラムを訪問",
+  
+  "transparency_title": "パフォーマンスと透明性",
+  "transparency_subtitle": "サービス品質とパフォーマンスに関する実際のデータ",
+  
+  "faq_title": "よくある質問",
+  "faq_subtitle": "一般的な質問に対する迅速な回答",
+  "faq_general": "一般的な質問",
+  "faq_technical": "技術的な質問",
+  "faq_pricing": "料金とサポート",
+  
+  "faq_q1": "ゲームUI生成ツールとは何ですか？",
+  "faq_a1": "ゲームUI生成ツールは、UIデザイン画像を分析し、コンポーネントを抽出し、構造化されたJSONデータを生成し、Cocos Creator 3.8などのゲームエンジンに直接デザインを実装するのを支援するAI駆動のツールです。開発時間を大幅に節約します。",
+  
+  "faq_more_questions": "他にご質問がありますか？",
+  "contact_us": "お問い合わせ"
+} 

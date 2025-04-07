@@ -1,25 +1,25 @@
 {
-  "title": "游戏UI屏幕收集与分析工具",
+  "title": "游戏UI生成器 - AI驱动的游戏UI分析与实现",
   "meta_description": "使用我们的AI驱动工具分析和生成游戏UI设计。按风格、类型、主题和功能进行筛选。",
-  "brand_name": "UIScreenAI",
+  "brand_name": "游戏UI生成器",
   
-  "nav_features": "功能",
+  "nav_features": "功能特性",
   "nav_playground": "立即体验",
-  "nav_comparison": "对比",
-  "nav_pricing": "价格",
+  "nav_comparison": "对比评测",
+  "nav_pricing": "价格方案",
   
   "header_cta": "开始免费试用",
   
-  "hero_title": "用AI分析改变游戏UI设计流程",
-  "hero_subtitle": "分析UI屏幕，提取组件，生成JSON配置，并直接导入到您的游戏引擎中。",
+  "hero_title": "AI分析技术变革游戏UI设计",
+  "hero_subtitle": "分析UI界面，提取组件，生成JSON配置，并直接导入到您的游戏引擎。",
   "hero_cta_primary": "开始14天免费试用",
   "hero_cta_secondary": "试用演示",
-  "hero_stat_1": "已分析的游戏UI",
+  "hero_stat_1": "已分析游戏UI",
   "hero_stat_2": "节省时间",
-  "hero_stat_3": "满意的开发者",
+  "hero_stat_3": "满意开发者",
   
   "features_title": "强大的游戏UI开发功能",
-  "features_subtitle": "通过我们专业的UI分析工具节省数百小时的开发时间",
+  "features_subtitle": "通过我们专业的UI分析工具节省数百小时开发时间",
   "feature_1_title": "智能屏幕分析",
   "feature_1_desc": "上传任何游戏UI截图，获取详细的组件分解、样式分析和布局信息。",
   "feature_2_title": "JSON生成",
@@ -33,7 +33,7 @@
   "feature_6_title": "AI驱动的建议",
   "feature_6_desc": "基于类型最佳实践和玩家偏好获取UI改进建议。",
   "feature_ai_title": "AI辅助游戏UI开发",
-  "feature_ai_desc": "我们的工具自动分析由Midjourney、Ideogram或ImageFX生成的游戏UI图像，提取组件，并生成可立即使用的配置。",
+  "feature_ai_desc": "我们的工具自动分析由Midjourney、Ideogram或ImageFX生成的游戏UI图像，提取组件，并生成可直接使用的配置。",
   
   "playground_title": "体验UI分析的强大功能",
   "playground_subtitle": "直接在浏览器中尝试我们的核心功能",
@@ -124,7 +124,7 @@
   "step_4_desc_updated": "通过我们的插件直接导入到Cocos Creator 3.8 - 无需手动组装",
   
   "comparison_title": "与替代方案的比较",
-  "comparison_subtitle": "了解开发者为何选择UIScreenAI而非其他解决方案",
+  "comparison_subtitle": "了解开发者为何选择游戏UI生成器而非其他解决方案",
   "feature": "功能",
   "competitor_1": "手动UI开发",
   "competitor_2": "通用UI库",
@@ -172,18 +172,18 @@
   "pain_ai_2_solution": "我们的解决方案：我们的Cocos Creator插件支持直接导入分析后的UI及其所有组件，保持一致的风格，无需手动组装。",
   
   "testimonials_title": "游戏开发者怎么说",
-  "testimonials_subtitle": "加入数千名已简化UI工作流程的满意开发者",
-  "testimonial_1": "UIScreenAI为我们团队节省了数周的工作时间。我们将UI设计直接导入Cocos Creator，几小时而不是几天就完成了菜单制作。JSON生成完美无缺。",
+  "testimonials_subtitle": "加入数千名已优化UI工作流程的满意开发者行列",
+  "testimonial_1": "游戏UI生成器为我们团队节省了数周的工作时间。我们将UI设计直接导入Cocos Creator，几小时内就完成了菜单制作，而不是几天。JSON生成完美无缺。",
   "testimonial_1_name": "张伟",
   "testimonial_1_role": "首席开发者，蜻蜓游戏",
-  "testimonial_2": "作为一名独立开发者，UI实现一直是我的瓶颈。有了UIScreenAI，我可以专注于游戏玩法，让工具处理所有UI繁重工作。这彻底改变了我的工作流程。",
+  "testimonial_2": "作为一名独立开发者，UI实现一直是我的瓶颈。有了游戏UI生成器，我可以专注于游戏玩法，让工具处理所有UI繁重工作。这彻底改变了我的工作流程。",
   "testimonial_2_name": "莎拉·约翰逊",
   "testimonial_2_role": "独立游戏开发者",
   "testimonial_3": "组件识别非常精准。它识别了我们Figma设计中的所有UI元素，并生成了可直接导入的完美JSON。不再需要手动重建！",
   "testimonial_3_name": "田中浩",
   "testimonial_3_role": "UI设计师，像素梦工作室",
   
-  "pricing_title": "选择您的计划",
+  "pricing_title": "选择您的方案",
   "pricing_subtitle": "适合各种团队规模和项目的灵活选项",
   "monthly": "月付",
   "annual": "年付",
@@ -241,7 +241,7 @@
   "footer_careers": "招聘",
   "footer_contact": "联系我们",
   
-  "footer_legal": "法律",
+  "footer_legal": "法律条款",
   "footer_terms": "服务条款",
   "footer_privacy": "隐私政策",
   "footer_cookies": "Cookie政策",
@@ -253,7 +253,112 @@
   "lang_korean": "한국어",
   "lang_spanish": "Español",
   
-  "copyright": " 2023 UIScreenAI。保留所有权利。",
+  "copyright": "© 2023 游戏UI生成器。保留所有权利。",
   "showcase_title": "AI生成游戏UI展示",
-  "showcase_subtitle": "浏览我们的AI生成游戏UI库，了解它们如何转变为可用的游戏界面"
+  "showcase_subtitle": "浏览我们的AI生成游戏UI库，了解它们如何转变为可用的游戏界面",
+  
+  "trust_title": "全球游戏开发者的信赖之选",
+  "certifications_title": "认证与合规",
+  "cert_gdpr": "GDPR合规",
+  "cert_ssl": "SSL安全认证",
+  "cert_api": "API认证",
+  
+  "timeline_title": "我们的历程",
+  "timeline_1_title": "项目启动",
+  "timeline_1_content": "开发第一个UI设计分析原型",
+  "timeline_2_title": "测试版发布",
+  "timeline_2_content": "首批500名用户帮助塑造核心功能",
+  "timeline_3_title": "正式发布",
+  "timeline_3_content": "完整功能集和引擎集成",
+  
+  "community_title": "加入我们的开发者社区",
+  "community_subtitle": "与其他游戏开发者连接并获得支持",
+  
+  "forum_title": "开发者论坛",
+  "forum_desc": "加入讨论，分享您的项目，向其他使用游戏UI生成器的开发者学习。",
+  "forum_cta": "访问论坛",
+  
+  "github_title": "GitHub集成",
+  "github_desc": "为我们的开源组件做贡献并访问社区创建的模板。",
+  "github_cta": "查看代码库",
+  
+  "academy_title": "UI学院",
+  "academy_desc": "关于游戏UI设计和实现的免费教程、网络研讨会和课程。",
+  "academy_cta": "开始学习",
+  
+  "support_title": "专家支持",
+  "support_desc": "获得我们游戏UI专家团队的全天候优先支持。",
+  "support_cta": "联系支持",
+  
+  "transparency_title": "性能与透明度",
+  "transparency_subtitle": "关于我们服务质量和性能的真实数据",
+  
+  "uptime_label": "服务正常运行时间",
+  "uptime_desc": "我们的平台持续可用，停机时间极少",
+  
+  "response_label": "平均响应时间",
+  "response_desc": "快速处理您的UI分析请求",
+  
+  "accuracy_label": "组件检测准确率",
+  "accuracy_desc": "基于对10,000多个UI的盲测",
+  
+  "screens_label": "每周处理界面数",
+  "screens_desc": "不断增长的分析UI数据库",
+  
+  "status_title": "系统状态",
+  "api_status": "API服务：正常运行",
+  "analysis_status": "分析引擎：正常运行",
+  "export_status": "导出服务：正常运行",
+  "status_cta": "查看详细状态",
+  
+  "updates_title": "最新更新",
+  "update_1": "添加Unity 2023集成支持",
+  "update_2": "组件检测准确率提高了7%",
+  "update_3": "发布API v2.0，性能增强",
+  "updates_cta": "查看完整更新日志",
+  
+  "cases_title": "成功案例",
+  "cases_subtitle": "游戏UI生成器如何改变开发工作流程",
+  "case_1_title": "太空探索：RPG开发",
+  "time_saved": "节省时间",
+  "screens_processed": "处理界面数",
+  "case_1_quote": "游戏UI生成器彻底改变了我们的工作流程。以前需要团队数周完成的工作现在只需几天。UI质量和一致性显著提高。",
+  "case_1_position": "首席UI设计师，太空探索",
+  "read_case": "阅读完整案例研究",
+  
+  "faq_title": "常见问题",
+  "faq_subtitle": "获取常见问题的快速解答",
+  "faq_general": "一般问题",
+  "faq_technical": "技术问题",
+  "faq_pricing": "价格与支持",
+  
+  "faq_q1": "什么是游戏UI生成器？",
+  "faq_a1": "游戏UI生成器是一款AI驱动的工具，可以分析UI设计图像，提取组件，生成结构化JSON数据，并帮助将设计直接实现到Cocos Creator 3.8等游戏引擎中，节省大量开发时间。",
+  
+  "faq_q2": "组件检测有多准确？",
+  "faq_a2": "基于对10,000多个UI界面的广泛测试，我们的AI模型达到了97.5%的组件检测准确率。随着模型在更多数据上的训练，准确率还在持续提高。",
+  
+  "faq_q3": "支持哪些游戏引擎？",
+  "faq_a3": "我们目前通过插件直接支持Cocos Creator 3.8。Unity和虚幻引擎集成正在开发中，不久将推出。我们的JSON输出可以适配用于任何引擎。",
+  
+  "faq_q4": "可以上传哪些文件格式进行分析？",
+  "faq_a4": "我们的工具支持直接上传PNG、JPG、JPEG、WebP和SVG格式。您还可以分析来自URL、Figma设计（通过API）、视频帧和HTML界面的UI。",
+  
+  "faq_q5": "是否提供可集成的API？",
+  "faq_a5": "是的，我们提供全面的REST API，允许您将UI分析功能直接集成到您的工作流程或工具中。API文档可在我们的开发者门户中获取。",
+  
+  "faq_q6": "JSON到Cocos Creator的转换如何工作？",
+  "faq_a6": "我们的Cocos Creator插件导入JSON数据并自动创建带有所有必要组件、属性和样式的预制体层次结构。它还帮助管理资源和依赖关系。该过程经过精简，只需最少的手动调整。",
+  
+  "faq_q7": "免费试用包括什么？",
+  "faq_a7": "我们的14天免费试用包括所有功能的完全访问权限，限制为20次UI分析和导出。这给您提供了充分的机会在订阅前测试该工具是否满足您特定的游戏UI需求。",
+  
+  "faq_q8": "有哪些支持选项？",
+  "faq_a8": "所有方案都包括访问我们的文档、社区论坛和电子邮件支持。高级和企业计划包括保证响应时间的优先支持，以及访问我们UI设计专家的咨询服务。",
+  
+  "faq_q9": "您提供定制企业解决方案吗？",
+  "faq_a9": "是的，我们的企业计划可以定制以满足您组织的特定需求，包括自定义集成、专属支持和批量定价。请联系我们的销售团队讨论您的需求。",
+  
+  "faq_more_questions": "还有其他问题？",
+  "contact_us": "联系我们"
 }

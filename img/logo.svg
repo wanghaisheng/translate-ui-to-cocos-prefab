@@ -1,18 +1,15 @@
 <svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background rectangle -->
   <rect width="40" height="40" rx="8" fill="#6366F1" />
+  
+  <!-- UI icon elements -->
   <path d="M10 10H30V30H10V10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
   <path d="M15 15H25V25H15V15Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
   <path d="M8 18V22" stroke="white" stroke-width="2" stroke-linecap="round" />
   <path d="M32 18V22" stroke="white" stroke-width="2" stroke-linecap="round" />
   <path d="M18 8H22" stroke="white" stroke-width="2" stroke-linecap="round" />
   <path d="M18 32H22" stroke="white" stroke-width="2" stroke-linecap="round" />
-  <path d="M45 15H48V29H45V15Z" fill="#1E293B" />
-  <path d="M50 15H53V29H50V15Z" fill="#1E293B" />
-  <path d="M59 15C57.8954 15 57 15.8954 57 17V27C57 28.1046 57.8954 29 59 29H64C65.1046 29 66 28.1046 66 27V17C66 15.8954 65.1046 15 64 15H59ZM63 18V26H60V18H63Z" fill="#1E293B" />
-  <path d="M71 15C69.8954 15 69 15.8954 69 17V29H72V23H75V29H78V17C78 15.8954 77.1046 15 76 15H71ZM75 18V20H72V18H75Z" fill="#1E293B" />
-  <path d="M80 15H83V26H89V29H80V15Z" fill="#1E293B" />
-  <path d="M91 15H94V26H100V29H91V15Z" fill="#1E293B" />
-  <path d="M102 15H108C109.105 15 110 15.8954 110 17V19C110 19.7403 109.598 20.3866 109 20.7324V20.7676C109.598 21.1134 110 21.7597 110 22.5V27C110 28.1046 109.105 29 108 29H102V15ZM105 20H107V18H105V20ZM105 26H107V23H105V26Z" fill="#1E293B" />
-  <path d="M112 15H120V18H115V20H119V23H115V26H120V29H112V15Z" fill="#1E293B" />
-</svg>
-
+  
+  <!-- uiguru text using actual text element instead of paths -->
+  <text x="45" y="27" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="#1E293B">uiguru</text>
+</svg> 

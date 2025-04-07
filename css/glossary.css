@@ -1,0 +1,357 @@
+/* 词汇表页面样式 */
+
+/* 页面标题部分 */
+.page-hero {
+    background-color: #f8f9fa;
+    padding: 80px 0 60px;
+    text-align: center;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.page-hero h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.page-hero p {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* 词汇表内容 */
+.glossary-content {
+    padding: 60px 0;
+}
+
+.glossary-intro {
+    margin-bottom: 40px;
+    max-width: 800px;
+}
+
+.glossary-intro p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* 搜索和字母过滤器 */
+.glossary-filter {
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.glossary-filter label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #444;
+}
+
+#glossary-search {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    transition: border-color 0.3s;
+}
+
+#glossary-search:focus {
+    border-color: #4d7bf3;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(77, 123, 243, 0.1);
+}
+
+.glossary-alphabet {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 0;
+}
+
+.letter-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #555;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.letter-link:hover, 
+.letter-link.active {
+    background-color: #4d7bf3;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* 词汇表部分 */
+.glossary-section {
+    margin-bottom: 60px;
+}
+
+.glossary-section h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #4d7bf3;
+    display: inline-block;
+}
+
+.glossary-term {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+}
+
+.glossary-term:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transform: translateY(-3px);
+}
+
+.glossary-term h3 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 15px;
+    cursor: pointer;
+    position: relative;
+    padding-right: 30px;
+}
+
+.glossary-term h3::after {
+    content: '\f107';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+    color: #4d7bf3;
+}
+
+.glossary-term.expanded h3::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.term-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
+}
+
+.glossary-term.expanded .term-content {
+    max-height: 1000px; /* 将由JavaScript动态设置 */
+}
+
+.term-content p {
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.term-content p strong {
+    color: #333;
+    font-weight: 600;
+}
+
+.term-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* 资源和相关工具部分 */
+.glossary-resources, 
+.related-tools {
+    margin-top: 60px;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.glossary-resources h2, 
+.related-tools h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.glossary-resources ul {
+    padding-left: 20px;
+}
+
+.glossary-resources ul li {
+    margin-bottom: 10px;
+}
+
+.glossary-resources ul li a {
+    color: #4d7bf3;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.glossary-resources ul li a:hover {
+    color: #3a66d4;
+    text-decoration: underline;
+}
+
+/* 相关工具卡片 */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.tool-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tool-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: rgba(77, 123, 243, 0.1);
+    margin-bottom: 20px;
+}
+
+.tool-icon i {
+    font-size: 1.5rem;
+    color: #4d7bf3;
+}
+
+.tool-card h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.tool-card p {
+    color: #666;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.tool-card .btn {
+    align-self: flex-start;
+}
+
+.btn.text-btn {
+    background: none;
+    border: none;
+    color: #4d7bf3;
+    padding: 0;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.2s;
+}
+
+.btn.text-btn:hover {
+    color: #3a66d4;
+}
+
+.btn.text-btn::after {
+    content: '\f054';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 0.7rem;
+    margin-left: 5px;
+    transition: transform 0.2s;
+}
+
+.btn.text-btn:hover::after {
+    transform: translateX(3px);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .page-hero {
+        padding: 60px 0 40px;
+    }
+    
+    .page-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .glossary-content {
+        padding: 40px 0;
+    }
+    
+    .glossary-alphabet {
+        gap: 5px;
+    }
+    
+    .letter-link {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+    
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .page-hero p {
+        font-size: 1rem;
+    }
+    
+    .glossary-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .glossary-term h3 {
+        font-size: 1.1rem;
+    }
+    
+    .glossary-alphabet {
+        gap: 3px;
+    }
+    
+    .letter-link {
+        width: 26px;
+        height: 26px;
+        font-size: 0.8rem;
+    }
+} 

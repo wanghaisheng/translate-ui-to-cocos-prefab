@@ -70,9 +70,9 @@ The playground demonstrates the tool's value proposition directly, letting users
 
 ### 2. Competitor Comparison Section
 
-The comparison section objectively presents how UIScreenAI compares to alternative approaches:
+The comparison section objectively presents how Game UI Generator compares to alternative approaches:
 
-| Feature | UIScreenAI | Manual UI Development | Generic UI Libraries | UI Generators |
+| Feature | Game UI Generator | Manual UI Development | Generic UI Libraries | UI Generators |
 |---------|------------|----------------------|---------------------|---------------|
 | Game UI Specialization | Excellent | Good | Poor | Average |
 | Development Speed | Excellent | Poor | Good | Average |
@@ -82,7 +82,7 @@ The comparison section objectively presents how UIScreenAI compares to alternati
 | Customization | Excellent | Excellent | Average | Average |
 | Learning Curve | Easy | Difficult | Moderate | Moderate |
 
-This comparison highlights UIScreenAI's key advantages:
+This comparison highlights Game UI Generator's key advantages:
 - Specialized for game UIs (unlike generic solutions)
 - Much faster than manual development
 - Superior engine integration (especially with Cocos Creator 3.8)
