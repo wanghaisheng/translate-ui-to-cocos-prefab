@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Preview Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .content {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+        .sidebar {
+            width: 300px;
+            background-color: #fff;
+            border-right: 1px solid #ddd;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        .preview {
+            flex: 1;
+            background-color: #fff;
+            overflow: auto;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .ui-container {
+            position: relative;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .ui-element {
+            position: absolute;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            color: #333;
+            background-color: rgba(255,255,255,0.8);
+            transition: all 0.3s;
+        }
+        .ui-element:hover {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0,123,255,0.5);
+            z-index: 10;
+        }
+        .ui-panel {
+            background-color: #f9f9f9;
+        }
+        .ui-label {
+            background-color: transparent;
+        }
+        .ui-button {
+            background-color: #e9ecef;
+            cursor: pointer;
+        }
+        .ui-element.selected {
+            border: 2px solid #28a745;
+            box-shadow: 0 0 5px rgba(40,167,69,0.5);
+        }
+        .file-tree {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .file-tree ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        .file-tree li {
+            margin: 5px 0;
+        }
+        .file-tree a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            padding: 3px 5px;
+            border-radius: 3px;
+        }
+        .file-tree a:hover {
+            background-color: #f0f0f0;
+        }
+        .file-tree a.selected {
+            background-color: #e3f2fd;
+            color: #0d47a1;
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .controls button {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .controls button:hover {
+            background-color: #0069d9;
+        }
+        .controls select {
+            padding: 5px;
+            border-radius: 3px;
+        }
+        .properties {
+            margin-top: 10px;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+        .properties h3 {
+            margin-top: 0;
+        }
+        .property {
+            margin-bottom: 5px;
+        }
+        .property label {
+            display: inline-block;
+            width: 100px;
+            font-weight: bold;
+        }
+        .json-viewer {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 10px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .tab {
+            padding: 5px 10px;
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-bottom: none;
+            border-radius: 3px 3px 0 0;
+        }
+        .tab.active {
+            background-color: #fff;
+            border-color: #ddd;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>UI Preview Tool</h1>
+            <div class="controls">
+                <select id="style-select">
+                    <option value="">Select Style</option>
+                </select>
+                <select id="game-type-select">
+                    <option value="">Select Game Type</option>
+                </select>
+                <select id="interface-select">
+                    <option value="">Select Interface</option>
+                </select>
+                <select id="layout-select">
+                    <option value="16-9">16:9</option>
+                    <option value="9-16">9:16</option>
+                </select>
+                <select id="example-select">
+                    <option value="example1">Example 1</option>
+                    <option value="example2">Example 2</option>
+                </select>
+                <button id="load-btn">Load</button>
+            </div>
+        </div>
+        <div class="content">
+            <div class="sidebar">
+                <h2>File Structure</h2>
+                <ul id="file-tree" class="file-tree">
+                    <!-- File tree will be populated here -->
+                </ul>
+                
+                <div class="properties">
+                    <h3>Properties</h3>
+                    <div id="element-properties">
+                        <p>Select an element to view its properties</p>
+                    </div>
+                </div>
+                
+                <div class="tabs">
+                    <div class="tab active" data-tab="json">JSON</div>
+                    <div class="tab" data-tab="theme">Theme</div>
+                </div>
+                
+                <div class="tab-content active" id="json-tab">
+                    <h3>JSON Data</h3>
+                    <div id="json-viewer" class="json-viewer">
+                        <!-- JSON data will be displayed here -->
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="theme-tab">
+                    <h3>Theme</h3>
+                    <div id="theme-viewer">
+                        <!-- Theme data will be displayed here -->
+                    </div>
+                </div>
+            </div>
+            <div class="preview">
+                <div id="ui-container" class="ui-container">
+                    <!-- UI elements will be rendered here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentData = null;
+        let selectedElement = null;
+        
+        // DOM elements
+        const styleSelect = document.getElementById('style-select');
+        const gameTypeSelect = document.getElementById('game-type-select');
+        const interfaceSelect = document.getElementById('interface-select');
+        const layoutSelect = document.getElementById('layout-select');
+        const exampleSelect = document.getElementById('example-select');
+        const loadBtn = document.getElementById('load-btn');
+        const fileTree = document.getElementById('file-tree');
+        const uiContainer = document.getElementById('ui-container');
+        const elementProperties = document.getElementById('element-properties');
+        const jsonViewer = document.getElementById('json-viewer');
+        const themeViewer = document.getElementById('theme-viewer');
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        // Initialize the application
+        function init() {
+            // Load file structure
+            loadFileStructure();
+            
+            // Set up event listeners
+            loadBtn.addEventListener('click', loadSelectedUI);
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabName = tab.getAttribute('data-tab');
+                    switchTab(tabName);
+                });
+            });
+            
+            // Set up UI container click handler
+            uiContainer.addEventListener('click', (e) => {
+                if (e.target.classList.contains('ui-element')) {
+                    selectElement(e.target);
+                } else {
+                    deselectElement();
+                }
+            });
+        }
+        
+        // Load file structure
+        function loadFileStructure() {
+            // This would normally fetch the file structure from the server
+            // For now, we'll use a mock structure
+            const mockStructure = {
+                'examples': {
+                    'guofeng': {
+                        'rpg': {
+                            'login': {
+                                '16-9': {
+                                    'example1': 'data.json',
+                                    'example2': 'data.json'
+                                },
+                                '9-16': {
+                                    'example1': 'data.json',
+                                    'example2': 'data.json'
+                                }
+                            },
+                            'main-menu': {
+                                '16-9': {
+                                    'example1': 'data.json',
+                                    'example2': 'data.json'
+                                },
+                                '9-16': {
+                                    'example1': 'data.json',
+                                    'example2': 'data.json'
+                                }
+                            }
+                        },
+                        'action': {
+                            'login': {
+                                '16-9': {
+                                    'example1': 'data.json',
+                                    'example2': 'data.json'
+                                },
+                                '9-16': {
+                                    'example1': 'data.json',
+                                    'example2': 'data.json'
+                                }
+                            }
+                        }
+                    },
+                    'oumei': {
+                        'rpg': {
+                            'login': {
+                                '16-9': {
+                                    'example1': 'data.json',
+                                    'example2': 'data.json'
+                                },
+                                '9-16': {
+                                    'example1': 'data.json',
+                                    'example2': 'data.json'
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            
+            // Populate file tree
+            renderFileTree(mockStructure);
+            
+            // Populate style select
+            populateStyleSelect(mockStructure);
+        }
+        
+        // Render file tree
+        function renderFileTree(structure, parent = fileTree, path = '') {
+            for (const [key, value] of Object.entries(structure)) {
+                const li = document.createElement('li');
+                
+                if (typeof value === 'object') {
+                    const span = document.createElement('span');
+                    span.textContent = key;
+                    li.appendChild(span);
+                    
+                    const ul = document.createElement('ul');
+                    renderFileTree(value, ul, path ? `${path}/${key}` : key);
+                    li.appendChild(ul);
+                } else {
+                    const a = document.createElement('a');
+                    a.textContent = key;
+                    a.href = '#';
+                    a.setAttribute('data-path', path ? `${path}/${key}` : key);
+                    a.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        loadUIFromPath(e.target.getAttribute('data-path'));
+                    });
+                    li.appendChild(a);
+                }
+                
+                parent.appendChild(li);
+            }
+        }
+        
+        // Populate style select
+        function populateStyleSelect(structure) {
+            for (const style of Object.keys(structure.examples)) {
+                const option = document.createElement('option');
+                option.value = style;
+                option.textContent = style.charAt(0).toUpperCase() + style.slice(1);
+                styleSelect.appendChild(option);
+            }
+            
+            // Set up change event
+            styleSelect.addEventListener('change', () => {
+                populateGameTypeSelect(structure.examples[styleSelect.value] || {});
+            });
+        }
+        
+        // Populate game type select
+        function populateGameTypeSelect(gameTypes) {
+            gameTypeSelect.innerHTML = '<option value="">Select Game Type</option>';
+            
+            for (const gameType of Object.keys(gameTypes)) {
+                const option = document.createElement('option');
+                option.value = gameType;
+                option.textContent = gameType.charAt(0).toUpperCase() + gameType.slice(1);
+                gameTypeSelect.appendChild(option);
+            }
+            
+            // Set up change event
+            gameTypeSelect.addEventListener('change', () => {
+                populateInterfaceSelect(gameTypes[gameTypeSelect.value] || {});
+            });
+        }
+        
+        // Populate interface select
+        function populateInterfaceSelect(interfaces) {
+            interfaceSelect.innerHTML = '<option value="">Select Interface</option>';
+            
+            for (const interface_ of Object.keys(interfaces)) {
+                const option = document.createElement('option');
+                option.value = interface_;
+                option.textContent = interface_.split('-').map(word => 
+                    word.charAt(0).toUpperCase() + word.slice(1)
+                ).join(' ');
+                interfaceSelect.appendChild(option);
+            }
+        }
+        
+        // Load selected UI
+        function loadSelectedUI() {
+            const style = styleSelect.value;
+            const gameType = gameTypeSelect.value;
+            const interface_ = interfaceSelect.value;
+            const layout = layoutSelect.value;
+            const example = exampleSelect.value;
+            
+            if (!style || !gameType || !interface_ || !layout || !example) {
+                alert('Please select all options');
+                return;
+            }
+            
+            // In a real application, this would fetch the JSON file from the server
+            // For now, we'll use a mock data
+            const mockData = {
+                "name": interface_,
+                "style": style,
+                "gameType": gameType,
+                "layout": layout,
+                "version": "1.0.0",
+                "description": `This is a ${style} style ${gameType} game ${interface_} example with ${layout} layout.`,
+                "theme": {
+                    "colors": {
+                        "primary": style === 'guofeng' ? '#8B4513' : '#2F4F4F',
+                        "secondary": style === 'guofeng' ? '#D2691E' : '#4682B4',
+                        "accent": style === 'guofeng' ? '#F4A460' : '#708090',
+                        "background": style === 'guofeng' ? '#DEB887' : '#B0C4DE',
+                        "text": style === 'guofeng' ? '#FFF8DC' : '#F0F8FF'
+                    },
+                    "fonts": {
+                        "primary": style === 'guofeng' ? 'STKaiti' : 'Arial',
+                        "secondary": style === 'guofeng' ? 'STSong' : 'Helvetica'
+                    },
+                    "buttonStyle": style === 'guofeng' ? 'rounded' : 'sharp',
+                    "iconStyle": style === 'guofeng' ? 'outline' : 'filled',
+                    "backgroundStyle": style === 'guofeng' ? 'texture' : 'solid',
+                    "animationEffect": style === 'guofeng' ? 'fade' : 'slide'
+                },
+                "components": [
+                    {
+                        "type": "Panel",
+                        "name": "MainPanel",
+                        "position": {"x": 0, "y": 0, "z": 0},
+                        "size": {"width": layout === '16-9' ? 1920 : 1080, "height": layout === '16-9' ? 1080 : 1920},
+                        "color": style === 'guofeng' ? '#DEB887' : '#B0C4DE',
+                        "opacity": 255,
+                        "children": [
+                            {
+                                "type": "Label",
+                                "name": "TitleLabel",
+                                "position": {"x": layout === '16-9' ? 960 : 540, "y": layout === '16-9' ? 100 : 100, "z": 0},
+                                "size": {"width": 400, "height": 60},
+                                "text": interface_.split('-').map(word => 
+                                    word.charAt(0).toUpperCase() + word.slice(1)
+                                ).join(' '),
+                                "fontSize": 36,
+                                "fontFamily": style === 'guofeng' ? 'STKaiti' : 'Arial',
+                                "color": style === 'guofeng' ? '#FFF8DC' : '#F0F8FF',
+                                "alignment": "center",
+                                "outline": true,
+                                "outlineColor": style === 'guofeng' ? '#8B4513' : '#2F4F4F',
+                                "outlineWidth": 2
+                            },
+                            {
+                                "type": "Button",
+                                "name": "CloseButton",
+                                "position": {"x": layout === '16-9' ? 1820 : 1020, "y": layout === '16-9' ? 1060 : 1860, "z": 0},
+                                "size": {"width": 60, "height": 60},
+                                "text": "X",
+                                "fontSize": 24,
+                                "fontFamily": style === 'guofeng' ? 'STKaiti' : 'Arial',
+                                "color": style === 'guofeng' ? '#FFF8DC' : '#F0F8FF',
+                                "backgroundColor": style === 'guofeng' ? '#8B4513' : '#2F4F4F',
+                                "hoverColor": style === 'guofeng' ? '#D2691E' : '#4682B4',
+                                "pressedColor": style === 'guofeng' ? '#F4A460' : '#708090',
+                                "borderRadius": 5
+                            }
+                        ]
+                    }
+                ],
+                "elements": [
+                    {
+                        "type": "Element",
+                        "name": "UsernameElement",
+                        "position": {"x": 100, "y": 200, "z": 0},
+                        "size": {"width": 200, "height": 50},
+                        "text": "Username",
+                        "fontSize": 18,
+                        "fontFamily": style === 'guofeng' ? 'STSong' : 'Helvetica',
+                        "color": style === 'guofeng' ? '#FFF8DC' : '#F0F8FF',
+                        "backgroundColor": style === 'guofeng' ? '#D2691E' : '#4682B4',
+                        "borderRadius": 5
+                    },
+                    {
+                        "type": "Element",
+                        "name": "PasswordElement",
+                        "position": {"x": 100, "y": 270, "z": 0},
+                        "size": {"width": 200, "height": 50},
+                        "text": "Password",
+                        "fontSize": 18,
+                        "fontFamily": style === 'guofeng' ? 'STSong' : 'Helvetica',
+                        "color": style === 'guofeng' ? '#FFF8DC' : '#F0F8FF',
+                        "backgroundColor": style === 'guofeng' ? '#D2691E' : '#4682B4',
+                        "borderRadius": 5
+                    },
+                    {
+                        "type": "Element",
+                        "name": "LoginButtonElement",
+                        "position": {"x": 100, "y": 340, "z": 0},
+                        "size": {"width": 200, "height": 50},
+                        "text": "Login",
+                        "fontSize": 18,
+                        "fontFamily": style === 'guofeng' ? 'STSong' : 'Helvetica',
+                        "color": style === 'guofeng' ? '#FFF8DC' : '#F0F8FF',
+                        "backgroundColor": style === 'guofeng' ? '#F4A460' : '#708090',
+                        "borderRadius": 5
+                    },
+                    {
+                        "type": "Element",
+                        "name": "RegisterLinkElement",
+                        "position": {"x": 100, "y": 410, "z": 0},
+                        "size": {"width": 200, "height": 30},
+                        "text": "Register",
+                        "fontSize": 14,
+                        "fontFamily": style === 'guofeng' ? 'STSong' : 'Helvetica',
+                        "color": style === 'guofeng' ? '#8B4513' : '#2F4F4F',
+                        "backgroundColor": "transparent",
+                        "borderRadius": 0
+                    },
+                    {
+                        "type": "Element",
+                        "name": "ForgotPasswordElement",
+                        "position": {"x": 100, "y": 450, "z": 0},
+                        "size": {"width": 200, "height": 30},
+                        "text": "Forgot Password",
+                        "fontSize": 14,
+                        "fontFamily": style === 'guofeng' ? 'STSong' : 'Helvetica',
+                        "color": style === 'guofeng' ? '#8B4513' : '#2F4F4F',
+                        "backgroundColor": "transparent",
+                        "borderRadius": 0
+                    }
+                ],
+                "animations": [
+                    {
+                        "name": "ShowAnimation",
+                        "type": style === 'guofeng' ? 'fade' : 'slide',
+                        "duration": 0.5,
+                        "delay": 0,
+                        "targets": ["MainPanel", "TitleLabel"]
+                    },
+                    {
+                        "name": "HideAnimation",
+                        "type": style === 'guofeng' ? 'slide' : 'fade',
+                        "duration": 0.3,
+                        "delay": 0,
+                        "targets": ["MainPanel", "TitleLabel"]
+                    }
+                ],
+                "interactions": [
+                    {
+                        "name": "CloseButtonClick",
+                        "type": "click",
+                        "target": "CloseButton",
+                        "action": "HideAnimation"
+                    }
+                ]
+            };
+            
+            // Store current data
+            currentData = mockData;
+            
+            // Render UI
+            renderUI(mockData);
+            
+            // Display JSON
+            jsonViewer.textContent = JSON.stringify(mockData, null, 2);
+            
+            // Display theme
+            renderTheme(mockData.theme);
+        }
+        
+        // Load UI from path
+        function loadUIFromPath(path) {
+            // In a real application, this would fetch the JSON file from the server
+            // For now, we'll just alert the path
+            alert(`Loading UI from path: ${path}`);
+            
+            // Parse the path to get the style, game type, interface, layout, and example
+            const parts = path.split('/');
+            if (parts.length >= 5) {
+                const style = parts[1];
+                const gameType = parts[2];
+                const interface_ = parts[3];
+                const layout = parts[4];
+                const example = parts[5];
+                
+                // Set the selects
+                styleSelect.value = style;
+                populateGameTypeSelect({ [gameType]: {} });
+                gameTypeSelect.value = gameType;
+                populateInterfaceSelect({ [interface_]: {} });
+                interfaceSelect.value = interface_;
+                layoutSelect.value = layout;
+                exampleSelect.value = example;
+                
+                // Load the UI
+                loadSelectedUI();
+            }
+        }
+        
+        // Render UI
+        function renderUI(data) {
+            // Clear container
+            uiContainer.innerHTML = '';
+            
+            // Set container size
+            const layout = data.layout;
+            const width = layout === '16-9' ? 1920 : 1080;
+            const height = layout === '16-9' ? 1080 : 1920;
+            
+            // Scale the container to fit the preview
+            const scale = Math.min(
+                (uiContainer.parentElement.clientWidth - 40) / width,
+                (uiContainer.parentElement.clientHeight - 40) / height
+            );
+            
+            uiContainer.style.width = `${width * scale}px`;
+            uiContainer.style.height = `${height * scale}px`;
+            
+            // Render components
+            data.components.forEach(component => {
+                renderComponent(component, scale);
+            });
+            
+            // Render elements
+            data.elements.forEach(element => {
+                renderElement(element, scale);
+            });
+        }
+        
+        // Render component
+        function renderComponent(component, scale) {
+            const element = document.createElement('div');
+            element.classList.add('ui-element', `ui-${component.type.toLowerCase()}`);
+            element.setAttribute('data-name', component.name);
+            element.setAttribute('data-type', component.type);
+            
+            // Set position and size
+            element.style.left = `${component.position.x * scale}px`;
+            element.style.top = `${component.position.y * scale}px`;
+            element.style.width = `${component.size.width * scale}px`;
+            element.style.height = `${component.size.height * scale}px`;
+            
+            // Set background color
+            if (component.color) {
+                element.style.backgroundColor = component.color;
+            }
+            
+            // Set text
+            if (component.text) {
+                element.textContent = component.text;
+            }
+            
+            // Add to container
+            uiContainer.appendChild(element);
+            
+            // Render children
+            if (component.children && component.children.length > 0) {
+                component.children.forEach(child => {
+                    renderComponent(child, scale);
+                });
+            }
+        }
+        
+        // Render element
+        function renderElement(element, scale) {
+            const el = document.createElement('div');
+            el.classList.add('ui-element', `ui-${element.type.toLowerCase()}`);
+            el.setAttribute('data-name', element.name);
+            el.setAttribute('data-type', element.type);
+            
+            // Set position and size
+            el.style.left = `${element.position.x * scale}px`;
+            el.style.top = `${element.position.y * scale}px`;
+            el.style.width = `${element.size.width * scale}px`;
+            el.style.height = `${element.size.height * scale}px`;
+            
+            // Set background color
+            if (element.backgroundColor) {
+                el.style.backgroundColor = element.backgroundColor;
+            }
+            
+            // Set text
+            if (element.text) {
+                el.textContent = element.text;
+            }
+            
+            // Add to container
+            uiContainer.appendChild(el);
+        }
+        
+        // Select element
+        function selectElement(element) {
+            // Deselect previous element
+            deselectElement();
+            
+            // Select new element
+            element.classList.add('selected');
+            selectedElement = element;
+            
+            // Display properties
+            const name = element.getAttribute('data-name');
+            const type = element.getAttribute('data-type');
+            
+            elementProperties.innerHTML = `
+                <div class="property">
+                    <label>Name:</label> ${name}
+                </div>
+                <div class="property">
+                    <label>Type:</label> ${type}
+                </div>
+                <div class="property">
+                    <label>Position:</label> ${element.style.left}, ${element.style.top}
+                </div>
+                <div class="property">
+                    <label>Size:</label> ${element.style.width}, ${element.style.height}
+                </div>
+            `;
+        }
+        
+        // Deselect element
+        function deselectElement() {
+            if (selectedElement) {
+                selectedElement.classList.remove('selected');
+                selectedElement = null;
+                
+                elementProperties.innerHTML = '<p>Select an element to view its properties</p>';
+            }
+        }
+        
+        // Switch tab
+        function switchTab(tabName) {
+            tabs.forEach(tab => {
+                if (tab.getAttribute('data-tab') === tabName) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+            
+            tabContents.forEach(content => {
+                if (content.id === `${tabName}-tab`) {
+                    content.classList.add('active');
+                } else {
+                    content.classList.remove('active');
+                }
+            });
+        }
+        
+        // Render theme
+        function renderTheme(theme) {
+            themeViewer.innerHTML = `
+                <div class="property">
+                    <label>Primary Color:</label> 
+                    <span style="display: inline-block; width: 20px; height: 20px; background-color: ${theme.colors.primary}; vertical-align: middle; margin-left: 5px;"></span>
+                    ${theme.colors.primary}
+                </div>
+                <div class="property">
+                    <label>Secondary Color:</label> 
+                    <span style="display: inline-block; width: 20px; height: 20px; background-color: ${theme.colors.secondary}; vertical-align: middle; margin-left: 5px;"></span>
+                    ${theme.colors.secondary}
+                </div>
+                <div class="property">
+                    <label>Accent Color:</label> 
+                    <span style="display: inline-block; width: 20px; height: 20px; background-color: ${theme.colors.accent}; vertical-align: middle; margin-left: 5px;"></span>
+                    ${theme.colors.accent}
+                </div>
+                <div class="property">
+                    <label>Background Color:</label> 
+                    <span style="display: inline-block; width: 20px; height: 20px; background-color: ${theme.colors.background}; vertical-align: middle; margin-left: 5px;"></span>
+                    ${theme.colors.background}
+                </div>
+                <div class="property">
+                    <label>Text Color:</label> 
+                    <span style="display: inline-block; width: 20px; height: 20px; background-color: ${theme.colors.text}; vertical-align: middle; margin-left: 5px;"></span>
+                    ${theme.colors.text}
+                </div>
+                <div class="property">
+                    <label>Primary Font:</label> ${theme.fonts.primary}
+                </div>
+                <div class="property">
+                    <label>Secondary Font:</label> ${theme.fonts.secondary}
+                </div>
+                <div class="property">
+                    <label>Button Style:</label> ${theme.buttonStyle}
+                </div>
+                <div class="property">
+                    <label>Icon Style:</label> ${theme.iconStyle}
+                </div>
+                <div class="property">
+                    <label>Background Style:</label> ${theme.backgroundStyle}
+                </div>
+                <div class="property">
+                    <label>Animation Effect:</label> ${theme.animationEffect}
+                </div>
+            `;
+        }
+        
+        // Initialize the application
+        init();
+    </script>
+</body>
+</html> 

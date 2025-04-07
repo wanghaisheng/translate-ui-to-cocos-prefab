@@ -1,132 +1,815 @@
-<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="A mobile simulator designed to demonstrate mobile interface design.">
-  <meta name="keywords" content="mobile, simulator, mobile design, mobile app">
-  <meta name="author" content="Your Name or Company">
-  <meta http-equiv="Content-Language" content="en">
-
-  <!-- Canonical Link -->
-  <link rel="canonical" href="https://www.yourwebsite.com/pc-simulator" />
-
-  <!-- Open Graph for Social Media -->
-  <meta property="og:title" content="PC Simulator">
-  <meta property="og:description" content="A mobile simulator designed to demonstrate mobile interface design.">
-  <meta property="og:image" content="https://www.yourwebsite.com/pc-simulator-image.jpg">
-  <meta property="og:url" content="https://www.yourwebsite.com/pc-simulator">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PC Simulator">
-  <meta name="twitter:description" content="A mobile simulator designed to demonstrate mobile interface design.">
-  <meta name="twitter:image" content="https://www.yourwebsite.com/pc-simulator-image.jpg">
-  <meta name="twitter:creator" content="@yourtwitterhandle">
-
-  <!-- Favicon -->
-  <link rel="icon" href="https://www.yourwebsite.com/favicon.ico" type="image/x-icon">
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'UA-XXXXX-Y');
-  </script>
-
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y) {
-      window.clarity=window.clarity||function(){(clarity.q=clarity.q||[]).push(arguments)};
-      clarity('set', 'anonymizeIP', true);
-      i=l.createElement('script');i.async=1;i.src=r;i.type='text/javascript';
-      t=l.getElementsByTagName('script')[0];t.parentNode.insertBefore(i,t);
-    })(document,window,'script','https://www.clarity.ms/tag/XXXXXX');
-  </script>
-
-  <title>PC Simulator</title>
-
-  <style>
-    /* Global Styles */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
-
-    .mobile-container {
-      width: 360px;
-      height: 640px;
-      border: 16px solid black;
-      border-radius: 16px;
-      background-color: #fff;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .content {
-      font-size: 1.2rem;
-      color: #333;
-    }
-
-    /* Adjustments for PC */
-    @media (min-width: 768px) {
-      .mobile-container {
-        width: 600px;
-        height: 1000px;
-      }
-
-      .content {
-        font-size: 1.5rem;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .mobile-container {
-        width: 800px;
-        height: 1400px;
-      }
-
-      .content {
-        font-size: 1.8rem;
-      }
-    }
-
-    /* Additional responsiveness for larger screens */
-    @media (min-width: 1200px) {
-      body {
-        justify-content: flex-start;
-      }
-
-      .mobile-container {
-        margin-top: 50px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="title">UI Screen Collection & Analysis Tool</title>
+    <meta name="description" data-i18n="meta_description" content="Analyze and generate UI designs for games with our AI-powered tool. Filter by style, type, theme, and function.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
-  <div class="mobile-container">
-    <div class="content">
-      <p>Mobile Simulator Screen</p>
-      <p>PC Version: Adjusted for larger screens.</p>
-    </div>
-  </div>
-</body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="img/logo.svg" alt="UI Screen Analysis Tool Logo">
+                <h1 data-i18n="brand_name">UIScreenAI</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#features" data-i18n="nav_features">Features</a></li>
+                    <li><a href="#playground" data-i18n="nav_playground">Try It Now</a></li>
+                    <li><a href="#comparison" data-i18n="nav_comparison">Comparison</a></li>
+                    <li><a href="#pricing" data-i18n="nav_pricing">Pricing</a></li>
+                </ul>
+            </nav>
+            <div class="cta-button">
+                <a href="#signup" class="btn primary-btn" data-i18n="header_cta">Start Free Trial</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
 
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 data-i18n="hero_title">Transform Game UI Design with AI Analysis</h1>
+                <p data-i18n="hero_subtitle">Analyze UI screens, extract components, generate JSON configurations, and import directly into your game engine.</p>
+                <div class="hero-cta">
+                    <a href="#signup" class="btn primary-btn" data-i18n="hero_cta_primary">Start 14-Day Free Trial</a>
+                    <a href="#playground" class="btn secondary-btn" data-i18n="hero_cta_secondary">Try Demo</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">5,000+</span>
+                        <span class="stat-label" data-i18n="hero_stat_1">Game UIs Analyzed</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">94%</span>
+                        <span class="stat-label" data-i18n="hero_stat_2">Time Saved</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">3,200+</span>
+                        <span class="stat-label" data-i18n="hero_stat_3">Happy Developers</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="img/hero-image.svg" alt="UI Screen Analysis in action">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 data-i18n="features_title">Powerful Features for Game UI Development</h2>
+            <p class="section-subtitle" data-i18n="features_subtitle">Save hundreds of development hours with our specialized UI analysis tools</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 data-i18n="feature_ai_title">AI-Assisted Game UI Development</h3>
+                    <p data-i18n="feature_ai_desc">Our tool automatically analyzes game UI images generated by Midjourney, Ideogram, or ImageFX, extracts components, and generates ready-to-use configurations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-magnifying-glass"></i>
+                    </div>
+                    <h3 data-i18n="feature_1_title">Intelligent Screen Analysis</h3>
+                    <p data-i18n="feature_1_desc">Upload any game UI screenshot and get detailed component breakdown, style analysis, and layout information.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 data-i18n="feature_2_title">JSON Generation</h3>
+                    <p data-i18n="feature_2_desc">Convert analyzed screens into structured JSON that can be imported directly into Cocos Creator 3.8 and other game engines.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h3 data-i18n="feature_3_title">Comprehensive Filtering</h3>
+                    <p data-i18n="feature_3_desc">Browse and filter over 10,000 UI screens by style, type, theme, function, platform, layout, and release year.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-import"></i>
+                    </div>
+                    <h3 data-i18n="feature_4_title">Multiple Input Sources</h3>
+                    <p data-i18n="feature_4_desc">Analyze screens from images, videos, URLs, Figma designs, and HTML interfaces with equal precision.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3 data-i18n="feature_5_title">Engine Plugins</h3>
+                    <p data-i18n="feature_5_desc">Built-in plugins for Cocos Creator 3.8 and other engines to import UI configurations directly into your projects.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 data-i18n="feature_6_title">AI-Powered Recommendations</h3>
+                    <p data-i18n="feature_6_desc">Get suggestions for UI improvements based on genre best practices and player preferences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Game UI Showcase Section -->
+    <section class="ai-showcase">
+        <div class="container">
+            <h2 data-i18n="showcase_title">AI-Generated Game UI Showcase</h2>
+            <p class="section-subtitle" data-i18n="showcase_subtitle">Browse our library of analyzed AI-generated game UIs and see how they transform into usable game interfaces</p>
+            
+            <div class="showcase-filters">
+                <div class="filter-group">
+                    <label data-i18n="filter_by">Filter by:</label>
+                    <select id="ai-source-filter">
+                        <option value="all" data-i18n="all_sources">All Sources</option>
+                        <option value="midjourney" data-i18n="midjourney">Midjourney</option>
+                        <option value="ideogram" data-i18n="ideogram">Ideogram</option>
+                        <option value="imagefx" data-i18n="imagefx">ImageFX</option>
+                    </select>
+                    <select id="game-genre-filter">
+                        <option value="all" data-i18n="all_genres">All Genres</option>
+                        <option value="rpg" data-i18n="genre_rpg">RPG</option>
+                        <option value="strategy" data-i18n="genre_strategy">Strategy</option>
+                        <option value="casual" data-i18n="genre_casual">Casual</option>
+                        <option value="action" data-i18n="genre_action">Action</option>
+                    </select>
+                    <select id="ui-type-filter">
+                        <option value="all" data-i18n="all_types">All UI Types</option>
+                        <option value="main-menu" data-i18n="type_main_menu">Main Menu</option>
+                        <option value="inventory" data-i18n="type_inventory">Inventory</option>
+                        <option value="battle" data-i18n="type_battle">Battle Screen</option>
+                        <option value="shop" data-i18n="type_shop">Shop</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="showcase-gallery" id="showcase-gallery">
+                <!-- Gallery items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Playground Section -->
+    <section class="playground" id="playground">
+        <div class="container">
+            <h2 data-i18n="playground_title">Experience the Power of UI Analysis</h2>
+            <p class="section-subtitle" data-i18n="playground_subtitle">Try our core features directly in your browser</p>
+            
+            <div class="playground-container">
+                <div class="playground-tabs">
+                    <button class="tab-btn active" data-tab="upload" data-i18n="tab_upload">Upload</button>
+                    <button class="tab-btn" data-tab="url" data-i18n="tab_url">URL</button>
+                    <button class="tab-btn" data-tab="figma" data-i18n="tab_figma">Figma</button>
+                    <button class="tab-btn" data-tab="html" data-i18n="tab_html">HTML</button>
+                    <button class="tab-btn" data-tab="filter" data-i18n="tab_filter">Filter Library</button>
+                </div>
+                
+                <div class="playground-content">
+                    <!-- Upload Tab -->
+                    <div class="tab-content active" id="upload">
+                        <div class="upload-area">
+                            <div class="upload-dropzone" id="upload-dropzone">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p data-i18n="upload_instruction">Drag & drop a UI image or click to browse</p>
+                                <input type="file" id="file-upload" accept="image/*" hidden>
+                            </div>
+                            <div class="or-divider" data-i18n="or_divider">OR</div>
+                            <button class="btn secondary-btn demo-image-btn" data-i18n="use_demo">Use Demo Image</button>
+                        </div>
+                    </div>
+                    
+                    <!-- URL Tab -->
+                    <div class="tab-content" id="url">
+                        <div class="url-input-container">
+                            <input type="text" id="url-input" placeholder="Enter image URL here..." data-i18n-placeholder="url_placeholder">
+                            <button class="btn primary-btn" id="url-analyze-btn" data-i18n="analyze_btn">Analyze</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Figma Tab -->
+                    <div class="tab-content" id="figma">
+                        <div class="figma-input-container">
+                            <input type="text" id="figma-url-input" placeholder="Enter Figma file URL..." data-i18n-placeholder="figma_placeholder">
+                            <input type="text" id="figma-token-input" placeholder="Enter Figma access token (optional)..." data-i18n-placeholder="figma_token_placeholder">
+                            <button class="btn primary-btn" id="figma-analyze-btn" data-i18n="analyze_btn">Analyze</button>
+                        </div>
+                    </div>
+                    
+                    <!-- HTML Tab -->
+                    <div class="tab-content" id="html">
+                        <div class="html-input-container">
+                            <textarea id="html-input" placeholder="Paste HTML code here..." data-i18n-placeholder="html_placeholder"></textarea>
+                            <button class="btn primary-btn" id="html-analyze-btn" data-i18n="analyze_btn">Analyze</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Filter Library Tab -->
+                    <div class="tab-content" id="filter">
+                        <div class="filter-container">
+                            <div class="filter-sidebar">
+                                <div class="filter-group">
+                                    <h4 data-i18n="filter_style">Style</h4>
+                                    <div class="filter-options">
+                                        <label><input type="checkbox" name="style" value="chinese"> <span data-i18n="style_chinese">Chinese Style</span> <span class="count">(305006)</span></label>
+                                        <label><input type="checkbox" name="style" value="western"> <span data-i18n="style_western">Western Style</span> <span class="count">(238751)</span></label>
+                                        <label><input type="checkbox" name="style" value="anime"> <span data-i18n="style_anime">Anime Style</span> <span class="count">(305925)</span></label>
+                                        <label><input type="checkbox" name="style" value="japanese"> <span data-i18n="style_japanese">Japanese & Korean</span> <span class="count">(105021)</span></label>
+                                        <label><input type="checkbox" name="style" value="cartoon"> <span data-i18n="style_cartoon">Cartoon</span> <span class="count">(404174)</span></label>
+                                    </div>
+                                </div>
+                                <div class="filter-group">
+                                    <h4 data-i18n="filter_type">Type</h4>
+                                    <div class="filter-options">
+                                        <label><input type="checkbox" name="type" value="shooting"> <span data-i18n="type_shooting">Shooting Game</span> <span class="count">(562)</span></label>
+                                        <label><input type="checkbox" name="type" value="action"> <span data-i18n="type_action">Action Game</span> <span class="count">(544)</span></label>
+                                        <label><input type="checkbox" name="type" value="rpg"> <span data-i18n="type_rpg">RPG</span> <span class="count">(2476)</span></label>
+                                        <label><input type="checkbox" name="type" value="adventure"> <span data-i18n="type_adventure">Adventure</span> <span class="count">(892)</span></label>
+                                        <label><input type="checkbox" name="type" value="strategy"> <span data-i18n="type_strategy">Strategy</span> <span class="count">(1260)</span></label>
+                                    </div>
+                                </div>
+                                <div class="filter-group">
+                                    <h4 data-i18n="filter_theme">Theme</h4>
+                                    <div class="filter-options">
+                                        <label><input type="checkbox" name="theme" value="fantasy"> <span data-i18n="theme_fantasy">Fantasy</span> <span class="count">(1049)</span></label>
+                                        <label><input type="checkbox" name="theme" value="scifi"> <span data-i18n="theme_scifi">Sci-Fi</span> <span class="count">(778)</span></label>
+                                        <label><input type="checkbox" name="theme" value="medieval"> <span data-i18n="theme_medieval">Medieval</span> <span class="count">(505)</span></label>
+                                        <label><input type="checkbox" name="theme" value="modern"> <span data-i18n="theme_modern">Modern</span> <span class="count">(784)</span></label>
+                                        <label><input type="checkbox" name="theme" value="cyberpunk"> <span data-i18n="theme_cyberpunk">Cyberpunk</span> <span class="count">(273)</span></label>
+                                    </div>
+                                </div>
+                                <div class="filter-group">
+                                    <h4 data-i18n="filter_function">Function</h4>
+                                    <div class="filter-options">
+                                        <label><input type="checkbox" name="function" value="login"> <span data-i18n="function_login">Login Screen</span> <span class="count">(1067)</span></label>
+                                        <label><input type="checkbox" name="function" value="main"> <span data-i18n="function_main">Main Interface</span> <span class="count">(797)</span></label>
+                                        <label><input type="checkbox" name="function" value="combat"> <span data-i18n="function_combat">Combat Interface</span> <span class="count">(1132)</span></label>
+                                        <label><input type="checkbox" name="function" value="inventory"> <span data-i18n="function_inventory">Inventory</span> <span class="count">(901)</span></label>
+                                        <label><input type="checkbox" name="function" value="shop"> <span data-i18n="function_shop">Shop</span> <span class="count">(880)</span></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-results">
+                                <div class="filter-controls">
+                                    <div class="search-bar">
+                                        <input type="text" placeholder="Search UI screens..." data-i18n-placeholder="search_placeholder">
+                                        <button><i class="fas fa-search"></i></button>
+                                    </div>
+                                    <div class="view-options">
+                                        <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
+                                        <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+                                    </div>
+                                </div>
+                                <div class="result-grid" id="result-grid">
+                                    <!-- Results will be populated by JavaScript -->
+                                </div>
+                                <div class="pagination">
+                                    <button class="pagination-btn prev" disabled><i class="fas fa-chevron-left"></i></button>
+                                    <span class="page-info" data-i18n="page_info">Page 1 of 120</span>
+                                    <button class="pagination-btn next"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Analysis Results Section (Hidden by default) -->
+                <div class="analysis-results" id="analysis-results" style="display: none;">
+                    <div class="results-header">
+                        <h3 data-i18n="analysis_results">Analysis Results</h3>
+                        <button class="btn icon-btn" id="close-results"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="results-container">
+                        <div class="source-preview">
+                            <img id="analyzed-image" src="" alt="Analyzed UI">
+                        </div>
+                        <div class="analysis-data">
+                            <div class="results-tabs">
+                                <button class="results-tab-btn active" data-result-tab="components" data-i18n="tab_components">Components</button>
+                                <button class="results-tab-btn" data-result-tab="json" data-i18n="tab_json">JSON</button>
+                                <button class="results-tab-btn" data-result-tab="styles" data-i18n="tab_styles">Styles</button>
+                                <button class="results-tab-btn" data-result-tab="recommendations" data-i18n="tab_recommendations">Recommendations</button>
+                            </div>
+                            <div class="results-content">
+                                <div class="result-tab-content active" id="components-content">
+                                    <div class="component-list" id="component-list">
+                                        <!-- Components will be populated by JavaScript -->
+                                    </div>
+                                </div>
+                                <div class="result-tab-content" id="json-content">
+                                    <div class="json-container">
+                                        <div class="json-controls">
+                                            <button class="btn small-btn" id="copy-json" data-i18n="copy_json">Copy JSON</button>
+                                            <button class="btn small-btn" id="download-json" data-i18n="download_json">Download</button>
+                                        </div>
+                                        <pre id="json-output"></pre>
+                                    </div>
+                                </div>
+                                <div class="result-tab-content" id="styles-content">
+                                    <div class="styles-container" id="styles-container">
+                                        <!-- Styles will be populated by JavaScript -->
+                                    </div>
+                                </div>
+                                <div class="result-tab-content" id="recommendations-content">
+                                    <div class="recommendations-container" id="recommendations-container">
+                                        <!-- Recommendations will be populated by JavaScript -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="results-footer">
+                        <button class="btn primary-btn" id="export-to-cocos" data-i18n="export_cocos">Export to Cocos Creator 3.8</button>
+                        <div class="note" data-i18n="premium_note">Full export functionality available in premium plans</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow Section -->
+    <section class="workflow">
+        <div class="container">
+            <h2 data-i18n="workflow_title">Streamline Your UI Development Workflow</h2>
+            <p class="section-subtitle" data-i18n="workflow_subtitle">From AI-generated concept to implementation in minutes, not days</p>
+            
+            <div class="workflow-steps">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h3 data-i18n="step_1_title_updated">Generate or Upload UI Design</h3>
+                    <p data-i18n="step_1_desc_updated">Use Midjourney/Ideogram/ImageFX to generate a UI design, or upload an existing design image</p>
+                </div>
+                <div class="workflow-connector">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 data-i18n="step_2_title">AI Analysis</h3>
+                    <p data-i18n="step_2_desc_updated">Our AI automatically analyzes the image, identifies all UI components, and extracts them</p>
+                </div>
+                <div class="workflow-connector">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 data-i18n="step_3_title">Generate JSON</h3>
+                    <p data-i18n="step_3_desc_updated">Get structured JSON configuration with all extracted components ready for game engine implementation</p>
+                </div>
+                <div class="workflow-connector">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-file-import"></i>
+                    </div>
+                    <h3 data-i18n="step_4_title">Import to Engine</h3>
+                    <p data-i18n="step_4_desc_updated">Import directly to Cocos Creator 3.8 with our plugin - no manual assembly required</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison" id="comparison">
+        <div class="container">
+            <h2 data-i18n="comparison_title">How We Compare to Alternatives</h2>
+            <p class="section-subtitle" data-i18n="comparison_subtitle">See why developers choose UIScreenAI over other solutions</p>
+            
+            <div class="comparison-table-container">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="feature">Feature</th>
+                            <th>UIScreenAI</th>
+                            <th data-i18n="competitor_1">Manual UI Development</th>
+                            <th data-i18n="competitor_2">Generic UI Libraries</th>
+                            <th data-i18n="competitor_3">UI Generators</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-i18n="comp_feature_1">Game UI Specialization</td>
+                            <td class="highlight"><i class="fas fa-check"></i> <span data-i18n="excellent">Excellent</span></td>
+                            <td><i class="fas fa-check"></i> <span data-i18n="good">Good</span></td>
+                            <td><i class="fas fa-xmark"></i> <span data-i18n="poor">Poor</span></td>
+                            <td><i class="fas fa-minus"></i> <span data-i18n="average">Average</span></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="comp_feature_2">Development Speed</td>
+                            <td class="highlight"><i class="fas fa-check"></i> <span data-i18n="excellent">Excellent</span></td>
+                            <td><i class="fas fa-xmark"></i> <span data-i18n="poor">Poor</span></td>
+                            <td><i class="fas fa-check"></i> <span data-i18n="good">Good</span></td>
+                            <td><i class="fas fa-minus"></i> <span data-i18n="average">Average</span></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="comp_feature_3">Engine Integration</td>
+                            <td class="highlight"><i class="fas fa-check"></i> <span data-i18n="excellent">Excellent</span></td>
+                            <td><i class="fas fa-minus"></i> <span data-i18n="average">Average</span></td>
+                            <td><i class="fas fa-minus"></i> <span data-i18n="average">Average</span></td>
+                            <td><i class="fas fa-xmark"></i> <span data-i18n="poor">Poor</span></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="comp_feature_4">Multi-Source Input</td>
+                            <td class="highlight"><i class="fas fa-check"></i> <span data-i18n="excellent">Excellent</span></td>
+                            <td><i class="fas fa-minus"></i> <span data-i18n="average">Average</span></td>
+                            <td><i class="fas fa-xmark"></i> <span data-i18n="poor">Poor</span></td>
+                            <td><i class="fas fa-minus"></i> <span data-i18n="average">Average</span></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="comp_feature_5">AI Recommendations</td>
+                            <td class="highlight"><i class="fas fa-check"></i> <span data-i18n="excellent">Excellent</span></td>
+                            <td><i class="fas fa-xmark"></i> <span data-i18n="poor">Poor</span></td>
+                            <td><i class="fas fa-xmark"></i> <span data-i18n="poor">Poor</span></td>
+                            <td><i class="fas fa-xmark"></i> <span data-i18n="poor">Poor</span></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="comp_feature_6">Customization</td>
+                            <td class="highlight"><i class="fas fa-check"></i> <span data-i18n="excellent">Excellent</span></td>
+                            <td><i class="fas fa-check"></i> <span data-i18n="excellent">Excellent</span></td>
+                            <td><i class="fas fa-minus"></i> <span data-i18n="average">Average</span></td>
+                            <td><i class="fas fa-minus"></i> <span data-i18n="average">Average</span></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="comp_feature_7">Learning Curve</td>
+                            <td class="highlight"><i class="fas fa-check"></i> <span data-i18n="easy">Easy</span></td>
+                            <td><i class="fas fa-xmark"></i> <span data-i18n="difficult">Difficult</span></td>
+                            <td><i class="fas fa-minus"></i> <span data-i18n="moderate">Moderate</span></td>
+                            <td><i class="fas fa-minus"></i> <span data-i18n="moderate">Moderate</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points Section -->
+    <section class="pain-points">
+        <div class="container">
+            <h2 data-i18n="pain_points_title">Game UI Development Challenges Solved</h2>
+            <p class="section-subtitle" data-i18n="pain_points_subtitle">We've identified and addressed the biggest pain points in both traditional and AI-assisted game UI implementation</p>
+            
+            <div class="pain-points-grid">
+                <div class="pain-point-card">
+                    <div class="pain-point-header">
+                        <div class="pain-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3 data-i18n="pain_1_title">Time-Consuming Implementation</h3>
+                    </div>
+                    <div class="pain-description">
+                        <p data-i18n="pain_1_problem"><strong>Problem:</strong> Manually recreating UI designs in game engines is tedious and can take days or weeks.</p>
+                        <p data-i18n="pain_1_solution"><strong>Our Solution:</strong> Automatic analysis and JSON generation reduces implementation time by up to 94%, turning days of work into minutes.</p>
+                    </div>
+                </div>
+                
+                <div class="pain-point-card">
+                    <div class="pain-point-header">
+                        <div class="pain-icon">
+                            <i class="fas fa-not-equal"></i>
+                        </div>
+                        <h3 data-i18n="pain_2_title">Inconsistency Between Design and Implementation</h3>
+                    </div>
+                    <div class="pain-description">
+                        <p data-i18n="pain_2_problem"><strong>Problem:</strong> Final game UI often doesn't match the original design due to manual implementation errors.</p>
+                        <p data-i18n="pain_2_solution"><strong>Our Solution:</strong> Pixel-perfect analysis ensures the final implementation matches the design exactly as intended.</p>
+                    </div>
+                </div>
+                
+                <div class="pain-point-card">
+                    <div class="pain-point-header">
+                        <div class="pain-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <h3 data-i18n="pain_3_title">Component Identification</h3>
+                    </div>
+                    <div class="pain-description">
+                        <p data-i18n="pain_3_problem"><strong>Problem:</strong> Identifying UI components and their properties from flat designs is challenging.</p>
+                        <p data-i18n="pain_3_solution"><strong>Our Solution:</strong> AI-powered component recognition instantly identifies buttons, panels, text fields, and other UI elements with high accuracy.</p>
+                    </div>
+                </div>
+                
+                <div class="pain-point-card">
+                    <div class="pain-point-header">
+                        <div class="pain-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <h3 data-i18n="pain_4_title">Engine Compatibility</h3>
+                    </div>
+                    <div class="pain-description">
+                        <p data-i18n="pain_4_problem"><strong>Problem:</strong> Translating designs to different game engine formats requires specialized knowledge.</p>
+                        <p data-i18n="pain_4_solution"><strong>Our Solution:</strong> Built-in plugins for popular engines like Cocos Creator 3.8 allow one-click imports with proper formatting and structure.</p>
+                    </div>
+                </div>
+                
+                <div class="pain-point-card">
+                    <div class="pain-point-header">
+                        <div class="pain-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3 data-i18n="pain_5_title">Reference and Inspiration</h3>
+                    </div>
+                    <div class="pain-description">
+                        <p data-i18n="pain_5_problem"><strong>Problem:</strong> Finding appropriate UI references for specific game types or functions is difficult.</p>
+                        <p data-i18n="pain_5_solution"><strong>Our Solution:</strong> Our categorized library of over 10,000 game UI screens provides instant inspiration and reference for any project.</p>
+                    </div>
+                </div>
+                
+                <div class="pain-point-card">
+                    <div class="pain-point-header">
+                        <div class="pain-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <h3 data-i18n="pain_6_title">Cross-Platform Adaptation</h3>
+                    </div>
+                    <div class="pain-description">
+                        <p data-i18n="pain_6_problem"><strong>Problem:</strong> Adapting UI from one platform to another requires significant rework.</p>
+                        <p data-i18n="pain_6_solution"><strong>Our Solution:</strong> Automatic detection of platform-specific patterns and intelligent suggestions for cross-platform adaptations.</p>
+                    </div>
+                </div>
+                
+                <div class="pain-point-card">
+                    <div class="pain-point-header">
+                        <div class="pain-icon">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <h3 data-i18n="pain_ai_1_title">AI Generation Slicing Issues</h3>
+                    </div>
+                    <div class="pain-description">
+                        <p data-i18n="pain_ai_1_problem"><strong>Problem:</strong> Tools like Midjourney, Ideogram, and ImageFX generate complete UI images that still require manual slicing and reassembly in game engines.</p>
+                        <p data-i18n="pain_ai_1_solution"><strong>Our Solution:</strong> Our tool automatically analyzes AI-generated images, extracts components, and creates ready-to-use assets and configurations.</p>
+                    </div>
+                </div>
+                
+                <div class="pain-point-card">
+                    <div class="pain-point-header">
+                        <div class="pain-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 data-i18n="pain_ai_2_title">Limited Engine Integration</h3>
+                    </div>
+                    <div class="pain-description">
+                        <p data-i18n="pain_ai_2_problem"><strong>Problem:</strong> ChatGPT and similar tools can generate HTML prototypes, but sprites need to be manually created, styles are inconsistent, and they can't be directly used in Unity or Cocos Creator.</p>
+                        <p data-i18n="pain_ai_2_solution"><strong>Our Solution:</strong> Our Cocos Creator plugin enables direct import of analyzed UI with all components, maintaining consistent style without manual assembly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 data-i18n="testimonials_title">What Game Developers Say</h2>
+            <p class="section-subtitle" data-i18n="testimonials_subtitle">Join thousands of satisfied developers who have streamlined their UI workflow</p>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p data-i18n="testimonial_1">"UIScreenAI saved our team weeks of work. We imported our UI designs directly into Cocos Creator and had working menus in hours instead of days. The JSON generation is flawless."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="img/testimonial-1.svg" alt="Testimonial Author">
+                        <div class="author-info">
+                            <h4 data-i18n="testimonial_1_name">Zhang Wei</h4>
+                            <p data-i18n="testimonial_1_role">Lead Developer, DragonFly Games</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p data-i18n="testimonial_2">"As a solo developer, UI implementation was always my bottleneck. With UIScreenAI, I can focus on gameplay and let the tool handle all the UI heavy lifting. It's been a game-changer for my workflow."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="img/testimonial-2.svg" alt="Testimonial Author">
+                        <div class="author-info">
+                            <h4 data-i18n="testimonial_2_name">Sarah Johnson</h4>
+                            <p data-i18n="testimonial_2_role">Independent Game Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p data-i18n="testimonial_3">"The component recognition is incredibly accurate. It identified all UI elements from our Figma designs and generated perfect JSON that we could import directly. No more manual recreation!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="img/testimonial-3.svg" alt="Testimonial Author">
+                        <div class="author-info">
+                            <h4 data-i18n="testimonial_3_name">Hiroshi Tanaka</h4>
+                            <p data-i18n="testimonial_3_role">UI Designer, Pixel Dreams Studio</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-controls">
+                <button class="testimonial-control prev" id="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="testimonial-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <button class="testimonial-control next" id="testimonial-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 data-i18n="pricing_title">Choose Your Plan</h2>
+            <p class="section-subtitle" data-i18n="pricing_subtitle">Flexible options for every team size and project</p>
+            
+            <div class="pricing-toggle">
+                <span data-i18n="monthly">Monthly</span>
+                <label class="switch">
+                    <input type="checkbox" id="billing-toggle">
+                    <span class="slider round"></span>
+                </label>
+                <span data-i18n="annual">Annual</span>
+                <span class="save-badge" data-i18n="save_percentage">Save 20%</span>
+            </div>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 data-i18n="plan_free">Free</h3>
+                        <div class="price">
+                            <span class="amount">$0</span>
+                            <span class="period" data-i18n="forever">Forever</span>
+                        </div>
+                        <p class="description" data-i18n="free_description">Try the basic features and see how it works</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li data-i18n="free_feature_1"><i class="fas fa-check"></i> 5 UI analyses per month</li>
+                            <li data-i18n="free_feature_2"><i class="fas fa-check"></i> Basic component recognition</li>
+                            <li data-i18n="free_feature_3"><i class="fas fa-check"></i> JSON generation (limited fields)</li>
+                            <li data-i18n="free_feature_4"><i class="fas fa-check"></i> Browse UI library (limited filters)</li>
+                            <li data-i18n="free_feature_5"><i class="fas fa-times"></i> Engine plugin exports</li>
+                            <li data-i18n="free_feature_6"><i class="fas fa-times"></i> Advanced AI recommendations</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-cta">
+                        <a href="#signup" class="btn secondary-btn" data-i18n="sign_up_free">Sign Up Free</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-badge" data-i18n="most_popular">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3 data-i18n="plan_pro">Pro</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount monthly">49</span>
+                            <span class="amount annual" style="display: none;">39</span>
+                            <span class="period" data-i18n="per_month">/month</span>
+                        </div>
+                        <p class="description" data-i18n="pro_description">Perfect for indie developers and small teams</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li data-i18n="pro_feature_1"><i class="fas fa-check"></i> 100 UI analyses per month</li>
+                            <li data-i18n="pro_feature_2"><i class="fas fa-check"></i> Advanced component recognition</li>
+                            <li data-i18n="pro_feature_3"><i class="fas fa-check"></i> Full JSON generation</li>
+                            <li data-i18n="pro_feature_4"><i class="fas fa-check"></i> Complete UI library access</li>
+                            <li data-i18n="pro_feature_5"><i class="fas fa-check"></i> Cocos Creator 3.8 plugin</li>
+                            <li data-i18n="pro_feature_6"><i class="fas fa-check"></i> Basic AI recommendations</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-cta">
+                        <a href="#signup" class="btn primary-btn" data-i18n="start_pro_trial">Start Free Trial</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 data-i18n="plan_enterprise">Enterprise</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount monthly">149</span>
+                            <span class="amount annual" style="display: none;">119</span>
+                            <span class="period" data-i18n="per_month">/month</span>
+                        </div>
+                        <p class="description" data-i18n="enterprise_description">For professional studios and large teams</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li data-i18n="enterprise_feature_1"><i class="fas fa-check"></i> Unlimited UI analyses</li>
+                            <li data-i18n="enterprise_feature_2"><i class="fas fa-check"></i> Premium component recognition</li>
+                            <li data-i18n="enterprise_feature_3"><i class="fas fa-check"></i> Full JSON with custom mapping</li>
+                            <li data-i18n="enterprise_feature_4"><i class="fas fa-check"></i> Priority access to new UI libraries</li>
+                            <li data-i18n="enterprise_feature_5"><i class="fas fa-check"></i> All engine plugins (Unity, Unreal, Cocos)</li>
+                            <li data-i18n="enterprise_feature_6"><i class="fas fa-check"></i> Premium AI recommendations & analytics</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-cta">
+                        <a href="#signup" class="btn secondary-btn" data-i18n="contact_sales">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta" id="signup">
+        <div class="container">
+            <h2 data-i18n="final_cta_title">Ready to Transform Your Game UI Workflow?</h2>
+            <p data-i18n="final_cta_subtitle">Join thousands of game developers who have accelerated their UI development process</p>
+            <div class="cta-form">
+                <input type="email" placeholder="Enter your email" data-i18n-placeholder="email_placeholder">
+                <button class="btn primary-btn" data-i18n="get_started">Get Started Free</button>
+            </div>
+            <p class="cta-note" data-i18n="no_credit_card">No credit card required. Start with our free plan today.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column branding">
+                    <div class="footer-logo">
+                        <img src="img/logo.svg" alt="UI Screen Analysis Tool Logo">
+                        <h3 data-i18n="brand_name">UIScreenAI</h3>
+                    </div>
+                    <p data-i18n="footer_description">Advanced AI-powered game UI analysis and implementation tool for developers and designers.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 data-i18n="footer_product">Product</h4>
+                    <ul>
+                        <li><a href="#features" data-i18n="footer_features">Features</a></li>
+                        <li><a href="#pricing" data-i18n="footer_pricing">Pricing</a></li>
+                        <li><a href="#" data-i18n="footer_roadmap">Roadmap</a></li>
+                        <li><a href="#" data-i18n="footer_changelog">Changelog</a></li>
+                        <li><a href="#" data-i18n="footer_documentation">Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 data-i18n="footer_company">Company</h4>
+                    <ul>
+                        <li><a href="#" data-i18n="footer_about">About Us</a></li>
+                        <li><a href="#" data-i18n="footer_blog">Blog</a></li>
+                        <li><a href="#" data-i18n="footer_careers">Careers</a></li>
+                        <li><a href="#" data-i18n="footer_contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 data-i18n="footer_legal">Legal</h4>
+                    <ul>
+                        <li><a href="#" data-i18n="footer_terms">Terms of Service</a></li>
+                        <li><a href="#" data-i18n="footer_privacy">Privacy Policy</a></li>
+                        <li><a href="#" data-i18n="footer_cookies">Cookie Policy</a></li>
+                    </ul>
+                    
+                    <!-- Language Switcher -->
+                    <div class="language-switcher">
+                        <h4 data-i18n="language">Language</h4>
+                        <select id="language-select">
+                            <option value="en" data-i18n="lang_english">English</option>
+                            <option value="zh" data-i18n="lang_chinese">中文</option>
+                            <option value="ja" data-i18n="lang_japanese">日本語</option>
+                            <option value="ko" data-i18n="lang_korean">한국어</option>
+                            <option value="es" data-i18n="lang_spanish">Español</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p data-i18n="copyright"> 2023 UIScreenAI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
 </html>

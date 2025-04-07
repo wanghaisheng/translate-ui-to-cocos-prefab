@@ -1,0 +1,70 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" fill="#F8FAFC" />
+  
+  <!-- Background Elements -->
+  <circle cx="100" cy="350" r="80" fill="#E2E8F0" />
+  <circle cx="500" cy="50" r="100" fill="#E2E8F0" />
+  <rect x="350" y="300" width="200" height="80" rx="10" fill="#E2E8F0" />
+  
+  <!-- UI Screen Frame -->
+  <rect x="100" y="50" width="400" height="300" rx="10" fill="white" stroke="#1E293B" stroke-width="2" />
+  <rect x="100" y="50" width="400" height="30" rx="10 10 0 0" fill="#6366F1" />
+  <circle cx="120" cy="65" r="5" fill="white" />
+  <circle cx="140" cy="65" r="5" fill="white" />
+  <circle cx="160" cy="65" r="5" fill="white" />
+  
+  <!-- UI Elements -->
+  <rect x="120" y="100" width="120" height="30" rx="5" fill="#818CF8" />
+  <text x="148" y="120" font-family="Arial" font-size="12" fill="white">Home</text>
+  
+  <rect x="120" y="150" width="120" height="30" rx="5" fill="#6366F1" />
+  <text x="150" y="170" font-family="Arial" font-size="12" fill="white">Shop</text>
+  
+  <rect x="120" y="200" width="120" height="30" rx="5" fill="#6366F1" />
+  <text x="142" y="220" font-family="Arial" font-size="12" fill="white">Inventory</text>
+  
+  <rect x="120" y="250" width="120" height="30" rx="5" fill="#6366F1" />
+  <text x="138" y="270" font-family="Arial" font-size="12" fill="white">Settings</text>
+  
+  <rect x="260" y="100" width="220" height="180" rx="5" fill="#F8FAFC" />
+  
+  <rect x="280" y="120" width="180" height="40" rx="5" fill="white" stroke="#E2E8F0" stroke-width="1" />
+  <circle cx="300" cy="140" r="15" fill="#6366F1" />
+  <text x="325" y="145" font-family="Arial" font-size="14" fill="#1E293B">Item Name</text>
+  
+  <rect x="280" y="170" width="180" height="40" rx="5" fill="white" stroke="#E2E8F0" stroke-width="1" />
+  <circle cx="300" cy="190" r="15" fill="#818CF8" />
+  <text x="325" y="195" font-family="Arial" font-size="14" fill="#1E293B">Item Name</text>
+  
+  <rect x="280" y="220" width="180" height="40" rx="5" fill="white" stroke="#E2E8F0" stroke-width="1" />
+  <circle cx="300" cy="240" r="15" fill="#4F46E5" />
+  <text x="325" y="245" font-family="Arial" font-size="14" fill="#1E293B">Item Name</text>
+  
+  <!-- JSON Overlay -->
+  <rect x="350" y="150" width="200" height="150" rx="5" fill="#1E293B" transform="rotate(-5 350 150)" />
+  <text x="360" y="170" font-family="monospace" font-size="10" fill="white" transform="rotate(-5 350 150)">
+    {
+      "type": "Panel",
+      "children": [
+        {
+          "type": "Button",
+          "text": "Home"
+        },
+        {
+          "type": "List",
+          "items": [...]
+        }
+      ]
+    }
+  </text>
+  
+  <!-- Analysis Elements -->
+  <line x1="220" y1="115" x2="300" y2="95" stroke="#6366F1" stroke-width="1" stroke-dasharray="4" />
+  <line x1="220" y1="165" x2="320" y2="135" stroke="#6366F1" stroke-width="1" stroke-dasharray="4" />
+  <line x1="280" y1="190" x2="380" y2="180" stroke="#6366F1" stroke-width="1" stroke-dasharray="4" />
+  
+  <circle cx="300" cy="95" r="5" fill="#6366F1" />
+  <circle cx="320" cy="135" r="5" fill="#6366F1" />
+  <circle cx="380" cy="180" r="5" fill="#6366F1" />
+</svg>
+

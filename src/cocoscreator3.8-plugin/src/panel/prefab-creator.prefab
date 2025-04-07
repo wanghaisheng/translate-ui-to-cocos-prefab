@@ -1,0 +1,337 @@
+{
+    "__type__": "cc.Prefab",
+    "_name": "prefab-creator",
+    "_objFlags": 0,
+    "_native": "",
+    "data": {
+        "__type__": "cc.Node",
+        "_name": "PrefabCreatorPanel",
+        "_objFlags": 0,
+        "_parent": null,
+        "_children": [
+            {
+                "__type__": "cc.Node",
+                "_name": "JsonPath",
+                "_objFlags": 0,
+                "_parent": {
+                    "__id__": 1
+                },
+                "_children": [],
+                "_active": true,
+                "_components": [
+                    {
+                        "__type__": "cc.EditBox",
+                        "_name": "",
+                        "_objFlags": 0,
+                        "node": {
+                            "__id__": 2
+                        },
+                        "_enabled": true,
+                        "placeholder": "JSON文件路径",
+                        "maxLength": 1000,
+                        "inputMode": 0,
+                        "inputFlag": 0,
+                        "returnType": 0,
+                        "tabIndex": 0,
+                        "fontSize": 20,
+                        "lineHeight": 40,
+                        "stayOnTop": false,
+                        "font": null,
+                        "_string": ""
+                    }
+                ],
+                "_position": {
+                    "__type__": "cc.Vec3",
+                    "x": 0,
+                    "y": 150,
+                    "z": 0
+                },
+                "_rotation": {
+                    "__type__": "cc.Quat",
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                },
+                "_scale": {
+                    "__type__": "cc.Vec3",
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            },
+            {
+                "__type__": "cc.Node",
+                "_name": "SavePath",
+                "_objFlags": 0,
+                "_parent": {
+                    "__id__": 1
+                },
+                "_children": [],
+                "_active": true,
+                "_components": [
+                    {
+                        "__type__": "cc.EditBox",
+                        "_name": "",
+                        "_objFlags": 0,
+                        "node": {
+                            "__id__": 3
+                        },
+                        "_enabled": true,
+                        "placeholder": "保存路径",
+                        "maxLength": 1000,
+                        "inputMode": 0,
+                        "inputFlag": 0,
+                        "returnType": 0,
+                        "tabIndex": 0,
+                        "fontSize": 20,
+                        "lineHeight": 40,
+                        "stayOnTop": false,
+                        "font": null,
+                        "_string": ""
+                    }
+                ],
+                "_position": {
+                    "__type__": "cc.Vec3",
+                    "x": 0,
+                    "y": 100,
+                    "z": 0
+                },
+                "_rotation": {
+                    "__type__": "cc.Quat",
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                },
+                "_scale": {
+                    "__type__": "cc.Vec3",
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            },
+            {
+                "__type__": "cc.Node",
+                "_name": "TextureFolder",
+                "_objFlags": 0,
+                "_parent": {
+                    "__id__": 1
+                },
+                "_children": [],
+                "_active": true,
+                "_components": [
+                    {
+                        "__type__": "cc.EditBox",
+                        "_name": "",
+                        "_objFlags": 0,
+                        "node": {
+                            "__id__": 4
+                        },
+                        "_enabled": true,
+                        "placeholder": "纹理资源目录",
+                        "maxLength": 1000,
+                        "inputMode": 0,
+                        "inputFlag": 0,
+                        "returnType": 0,
+                        "tabIndex": 0,
+                        "fontSize": 20,
+                        "lineHeight": 40,
+                        "stayOnTop": false,
+                        "font": null,
+                        "_string": ""
+                    }
+                ],
+                "_position": {
+                    "__type__": "cc.Vec3",
+                    "x": 0,
+                    "y": 50,
+                    "z": 0
+                },
+                "_rotation": {
+                    "__type__": "cc.Quat",
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                },
+                "_scale": {
+                    "__type__": "cc.Vec3",
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            },
+            {
+                "__type__": "cc.Node",
+                "_name": "FontFolder",
+                "_objFlags": 0,
+                "_parent": {
+                    "__id__": 1
+                },
+                "_children": [],
+                "_active": true,
+                "_components": [
+                    {
+                        "__type__": "cc.EditBox",
+                        "_name": "",
+                        "_objFlags": 0,
+                        "node": {
+                            "__id__": 5
+                        },
+                        "_enabled": true,
+                        "placeholder": "字体资源目录",
+                        "maxLength": 1000,
+                        "inputMode": 0,
+                        "inputFlag": 0,
+                        "returnType": 0,
+                        "tabIndex": 0,
+                        "fontSize": 20,
+                        "lineHeight": 40,
+                        "stayOnTop": false,
+                        "font": null,
+                        "_string": ""
+                    }
+                ],
+                "_position": {
+                    "__type__": "cc.Vec3",
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "_rotation": {
+                    "__type__": "cc.Quat",
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                },
+                "_scale": {
+                    "__type__": "cc.Vec3",
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            },
+            {
+                "__type__": "cc.Node",
+                "_name": "CreateButton",
+                "_objFlags": 0,
+                "_parent": {
+                    "__id__": 1
+                },
+                "_children": [],
+                "_active": true,
+                "_components": [
+                    {
+                        "__type__": "cc.Button",
+                        "_name": "",
+                        "_objFlags": 0,
+                        "node": {
+                            "__id__": 6
+                        },
+                        "_enabled": true,
+                        "interactable": true,
+                        "transition": 1,
+                        "normalColor": {
+                            "__type__": "cc.Color",
+                            "r": 255,
+                            "g": 255,
+                            "b": 255,
+                            "a": 255
+                        },
+                        "pressedColor": {
+                            "__type__": "cc.Color",
+                            "r": 200,
+                            "g": 200,
+                            "b": 200,
+                            "a": 255
+                        },
+                        "hoverColor": {
+                            "__type__": "cc.Color",
+                            "r": 230,
+                            "g": 230,
+                            "b": 230,
+                            "a": 255
+                        },
+                        "disabledColor": {
+                            "__type__": "cc.Color",
+                            "r": 150,
+                            "g": 150,
+                            "b": 150,
+                            "a": 255
+                        },
+                        "duration": 0.1,
+                        "zoomScale": 1.2,
+                        "clickEvents": []
+                    }
+                ],
+                "_position": {
+                    "__type__": "cc.Vec3",
+                    "x": 0,
+                    "y": -50,
+                    "z": 0
+                },
+                "_rotation": {
+                    "__type__": "cc.Quat",
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                },
+                "_scale": {
+                    "__type__": "cc.Vec3",
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                }
+            }
+        ],
+        "_active": true,
+        "_components": [
+            {
+                "__type__": "PrefabCreatorPanel",
+                "_name": "",
+                "_objFlags": 0,
+                "node": {
+                    "__id__": 1
+                },
+                "_enabled": true,
+                "jsonPath": {
+                    "__id__": 2
+                },
+                "savePath": {
+                    "__id__": 3
+                },
+                "textureFolder": {
+                    "__id__": 4
+                },
+                "fontFolder": {
+                    "__id__": 5
+                },
+                "createButton": {
+                    "__id__": 6
+                }
+            }
+        ],
+        "_position": {
+            "__type__": "cc.Vec3",
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "_rotation": {
+            "__type__": "cc.Quat",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+        },
+        "_scale": {
+            "__type__": "cc.Vec3",
+            "x": 1,
+            "y": 1,
+            "z": 1
+        }
+    }
+} 
