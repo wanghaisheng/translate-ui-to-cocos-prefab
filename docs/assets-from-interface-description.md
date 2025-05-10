@@ -77,6 +77,11 @@ This detailed prompt sets clear expectations for the AI. It's still a challengin
 
 
 
+
+
+# 使用方法
+
+
 好的，一旦你有了一个**新的界面描述** (例如，我们之前设计的“游戏主界面”、“胜利/失败页面”、“商店页面”等)，你可以按照以下步骤来使用我们刚刚精心设计的“生成UI元素CSV的提示词”：
 
 **使用流程：**
