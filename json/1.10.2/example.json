@@ -1,0 +1,335 @@
+{
+  "name": "MainPanel",
+  "pos": {
+    "x": 0.00,
+    "y": 0.00
+  },
+  "scale": {
+    "x": 1.00,
+    "y": 1.00
+  },
+  "rotation": 0.00,
+  "active": true,
+  "components": [
+    {
+      "type": "UISprite",
+      "size": {
+        "width": 800,
+        "height": 600
+      },
+      "color": "#FFFFFF",
+      "depth": 0,
+      "pivot": "Center",
+      "spType": "Simple",
+      "spName": "panel_bg",
+      "atlas": "ui_atlas"
+    }
+  ],
+  "children": [
+    {
+      "name": "Title",
+      "pos": {
+        "x": 0.00,
+        "y": 250.00
+      },
+      "scale": {
+        "x": 1.00,
+        "y": 1.00
+      },
+      "rotation": 0.00,
+      "active": true,
+      "components": [
+        {
+          "type": "UILabel",
+          "size": {
+            "width": 400,
+            "height": 50
+          },
+          "color": "#000000",
+          "depth": 1,
+          "pivot": "Center",
+          "text": "游戏标题",
+          "fontSize": 36,
+          "overflow": "ShrinkContent",
+          "outlineColor": "#FFFFFF",
+          "outlineWidth": 2,
+          "spacingX": 0,
+          "spacingY": 0,
+          "bitmapFont": "title_font"
+        }
+      ]
+    },
+    {
+      "name": "ContentPanel",
+      "pos": {
+        "x": 0.00,
+        "y": 0.00
+      },
+      "scale": {
+        "x": 1.00,
+        "y": 1.00
+      },
+      "rotation": 0.00,
+      "active": true,
+      "scrollView": {
+        "offset": {
+          "x": 0,
+          "y": 0
+        },
+        "size": {
+          "x": 700,
+          "y": 400
+        },
+        "movement": 1
+      },
+      "children": [
+        {
+          "name": "Item1",
+          "pos": {
+            "x": 0.00,
+            "y": 150.00
+          },
+          "scale": {
+            "x": 1.00,
+            "y": 1.00
+          },
+          "rotation": 0.00,
+          "active": true,
+          "components": [
+            {
+              "type": "UISprite",
+              "size": {
+                "width": 600,
+                "height": 100
+              },
+              "color": "#F0F0F0",
+              "depth": 2,
+              "pivot": "Center",
+              "spType": "Sliced",
+              "spName": "item_bg",
+              "atlas": "ui_atlas",
+              "border": {
+                "left": 10,
+                "right": 10,
+                "top": 10,
+                "bottom": 10
+              }
+            },
+            {
+              "type": "UILabel",
+              "size": {
+                "width": 500,
+                "height": 40
+              },
+              "color": "#333333",
+              "depth": 3,
+              "pivot": "Left",
+              "text": "项目1",
+              "fontSize": 24,
+              "overflow": "ClampContent"
+            }
+          ],
+          "button": true
+        },
+        {
+          "name": "Item2",
+          "pos": {
+            "x": 0.00,
+            "y": 0.00
+          },
+          "scale": {
+            "x": 1.00,
+            "y": 1.00
+          },
+          "rotation": 0.00,
+          "active": true,
+          "components": [
+            {
+              "type": "UISprite",
+              "size": {
+                "width": 600,
+                "height": 100
+              },
+              "color": "#F0F0F0",
+              "depth": 2,
+              "pivot": "Center",
+              "spType": "Sliced",
+              "spName": "item_bg",
+              "atlas": "ui_atlas",
+              "border": {
+                "left": 10,
+                "right": 10,
+                "top": 10,
+                "bottom": 10
+              }
+            },
+            {
+              "type": "UILabel",
+              "size": {
+                "width": 500,
+                "height": 40
+              },
+              "color": "#333333",
+              "depth": 3,
+              "pivot": "Left",
+              "text": "项目2",
+              "fontSize": 24,
+              "overflow": "ClampContent"
+            }
+          ],
+          "button": true
+        },
+        {
+          "name": "Item3",
+          "pos": {
+            "x": 0.00,
+            "y": -150.00
+          },
+          "scale": {
+            "x": 1.00,
+            "y": 1.00
+          },
+          "rotation": 0.00,
+          "active": true,
+          "components": [
+            {
+              "type": "UISprite",
+              "size": {
+                "width": 600,
+                "height": 100
+              },
+              "color": "#F0F0F0",
+              "depth": 2,
+              "pivot": "Center",
+              "spType": "Sliced",
+              "spName": "item_bg",
+              "atlas": "ui_atlas",
+              "border": {
+                "left": 10,
+                "right": 10,
+                "top": 10,
+                "bottom": 10
+              }
+            },
+            {
+              "type": "UILabel",
+              "size": {
+                "width": 500,
+                "height": 40
+              },
+              "color": "#333333",
+              "depth": 3,
+              "pivot": "Left",
+              "text": "项目3",
+              "fontSize": 24,
+              "overflow": "ClampContent"
+            }
+          ],
+          "button": true
+        }
+      ]
+    },
+    {
+      "name": "ButtonGroup",
+      "pos": {
+        "x": 0.00,
+        "y": -250.00
+      },
+      "scale": {
+        "x": 1.00,
+        "y": 1.00
+      },
+      "rotation": 0.00,
+      "active": true,
+      "grid": {
+        "arrangement": 0
+      },
+      "children": [
+        {
+          "name": "CloseButton",
+          "pos": {
+            "x": -100.00,
+            "y": 0.00
+          },
+          "scale": {
+            "x": 1.00,
+            "y": 1.00
+          },
+          "rotation": 0.00,
+          "active": true,
+          "components": [
+            {
+              "type": "UISprite",
+              "size": {
+                "width": 120,
+                "height": 50
+              },
+              "color": "#FF0000",
+              "depth": 2,
+              "pivot": "Center",
+              "spType": "Simple",
+              "spName": "button_red",
+              "atlas": "ui_atlas"
+            },
+            {
+              "type": "UILabel",
+              "size": {
+                "width": 100,
+                "height": 30
+              },
+              "color": "#FFFFFF",
+              "depth": 3,
+              "pivot": "Center",
+              "text": "关闭",
+              "fontSize": 20,
+              "overflow": "ShrinkContent"
+            }
+          ],
+          "button": true
+        },
+        {
+          "name": "ConfirmButton",
+          "pos": {
+            "x": 100.00,
+            "y": 0.00
+          },
+          "scale": {
+            "x": 1.00,
+            "y": 1.00
+          },
+          "rotation": 0.00,
+          "active": true,
+          "components": [
+            {
+              "type": "UISprite",
+              "size": {
+                "width": 120,
+                "height": 50
+              },
+              "color": "#00FF00",
+              "depth": 2,
+              "pivot": "Center",
+              "spType": "Simple",
+              "spName": "button_green",
+              "atlas": "ui_atlas"
+            },
+            {
+              "type": "UILabel",
+              "size": {
+                "width": 100,
+                "height": 30
+              },
+              "color": "#FFFFFF",
+              "depth": 3,
+              "pivot": "Center",
+              "text": "确认",
+              "fontSize": 20,
+              "overflow": "ShrinkContent"
+            }
+          ],
+          "button": true
+        }
+      ]
+    }
+  ]
+} 

@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Analysis Integration Tool</title>
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #6c757d;
+            --accent-color: #17a2b8;
+            --background-color: #f8f9fa;
+            --text-color: #212529;
+            --border-color: #dee2e6;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .main-content {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 300px;
+            background-color: white;
+            border-right: 1px solid var(--border-color);
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .tabs {
+            display: flex;
+            background-color: white;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tab {
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab.active {
+            border-bottom-color: var(--primary-color);
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .tab-content {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        .panel {
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .panel-header {
+            background-color: var(--light-color);
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: bold;
+        }
+
+        .panel-body {
+            padding: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #3a5a8c;
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        .btn-success {
+            background-color: var(--success-color);
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+
+        .btn-danger {
+            background-color: var(--danger-color);
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+        .analysis-result {
+            background-color: var(--light-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .analysis-result pre {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+
+        .element-list {
+            list-style: none;
+        }
+
+        .element-item {
+            padding: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+        }
+
+        .element-item:hover {
+            background-color: var(--light-color);
+        }
+
+        .element-item.selected {
+            background-color: #e9ecef;
+            font-weight: bold;
+        }
+
+        .preview-container {
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .preview-header {
+            background-color: var(--light-color);
+            padding: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: bold;
+        }
+
+        .preview-content {
+            padding: 1rem;
+            min-height: 300px;
+            position: relative;
+        }
+
+        .preview-element {
+            position: absolute;
+            border: 1px dashed var(--primary-color);
+            background-color: rgba(74, 111, 165, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: var(--primary-color);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .preview-element.selected {
+            border: 2px solid var(--accent-color);
+            background-color: rgba(23, 162, 184, 0.2);
+        }
+
+        .json-viewer {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+
+        .color-swatch {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .grid-item {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 1rem;
+        }
+
+        .grid-item h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .grid-item p {
+            margin-bottom: 0.5rem;
+        }
+
+        .grid-item .color-swatch {
+            width: 100%;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .hidden {
+            display: none;
+        }
+        
+        /* File selection styles */
+        .file-input-container {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border: 2px dashed var(--border-color);
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .file-input-container:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .file-input-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .file-input {
+            display: none;
+        }
+        
+        .file-input-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 0.5rem;
+        }
+        
+        .file-input-button:hover {
+            background-color: #3a5a8c;
+        }
+        
+        .file-preview {
+            max-width: 100%;
+            max-height: 200px;
+            margin-top: 1rem;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .file-info {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+        
+        .file-type-icon {
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>UI Analysis Integration Tool</h1>
+            <p>Connect UI analysis with visualization</p>
+        </header>
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="panel">
+                    <div class="panel-header">Analysis Tools</div>
+                    <div class="panel-body">
+                        <!-- Add file selection section -->
+                        <div class="file-input-container">
+                            <label class="file-input-label">Upload UI Reference</label>
+                            <label for="file-input" class="file-input-button">Choose File</label>
+                            <input type="file" id="file-input" class="file-input" accept="image/*,video/*">
+                            <div id="file-info" class="file-info">No file selected</div>
+                            <img id="image-preview" class="file-preview" alt="Image preview">
+                            <video id="video-preview" class="file-preview" controls></video>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="analysis-type">Analysis Type</label>
+                            <select id="analysis-type">
+                                <option value="layout">Layout Analysis</option>
+                                <option value="elements">Element Analysis</option>
+                                <option value="theme">Theme Analysis</option>
+                                <option value="interaction">Interaction Analysis</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ui-style">UI Style</label>
+                            <select id="ui-style">
+                                <option value="guofeng">国风 (Chinese Style)</option>
+                                <option value="oumei">欧美 (Western Style)</option>
+                                <option value="ercitciyuan">二次元 (Anime Style)</option>
+                                <option value="rihan">日韩 (Japanese & Korean Style)</option>
+                                <option value="qban-katong">Q版卡通 (Q-Style Cartoon)</option>
+                                <option value="kehuan">科幻 (Sci-Fi)</option>
+                                <option value="junshi">军事 (Military)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="game-type">Game Type</label>
+                            <select id="game-type">
+                                <option value="rpg">角色扮演 (RPG)</option>
+                                <option value="action">动作游戏 (Action)</option>
+                                <option value="strategy">策略游戏 (Strategy)</option>
+                                <option value="card">卡牌游戏 (Card)</option>
+                                <option value="simulation">模拟经营 (Simulation)</option>
+                                <option value="puzzle">益智游戏 (Puzzle)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="interface-type">Interface Type</label>
+                            <select id="interface-type">
+                                <option value="login">登录界面 (Login)</option>
+                                <option value="main-menu">主菜单 (Main Menu)</option>
+                                <option value="character">角色界面 (Character)</option>
+                                <option value="backpack">背包界面 (Backpack)</option>
+                                <option value="shop">商店界面 (Shop)</option>
+                                <option value="combat">战斗界面 (Combat)</option>
+                                <option value="settings">设置界面 (Settings)</option>
+                                <option value="chat">聊天界面 (Chat)</option>
+                                <option value="map">地图界面 (Map)</option>
+                                <option value="social">社交界面 (Social)</option>
+                                <option value="quests">任务界面 (Quests)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="layout">Layout</label>
+                            <select id="layout">
+                                <option value="16-9">横屏 (16:9)</option>
+                                <option value="9-16">竖屏 (9:16)</option>
+                            </select>
+                        </div>
+                        <button id="analyze-btn" class="btn-success">Analyze UI</button>
+                        <button id="export-btn" class="btn-secondary">Export Analysis</button>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-header">Analysis Results</div>
+                    <div class="panel-body">
+                        <div id="analysis-results">
+                            <p>Select options and click "Analyze UI" to see results.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="tabs">
+                    <div class="tab active" data-tab="preview">Preview</div>
+                    <div class="tab" data-tab="json">JSON</div>
+                    <div class="tab" data-tab="theme">Theme</div>
+                    <div class="tab" data-tab="elements">Elements</div>
+                </div>
+                <div class="tab-content">
+                    <div id="preview-tab" class="tab-pane active">
+                        <div class="panel">
+                            <div class="panel-header">UI Preview</div>
+                            <div class="panel-body">
+                                <div class="preview-container">
+                                    <div class="preview-header">Preview Area</div>
+                                    <div id="preview-content" class="preview-content">
+                                        <!-- Preview elements will be added here -->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="element-select">Select Element</label>
+                                    <select id="element-select">
+                                        <option value="">-- Select an element --</option>
+                                    </select>
+                                </div>
+                                <div id="element-properties" class="panel">
+                                    <div class="panel-header">Element Properties</div>
+                                    <div class="panel-body">
+                                        <p>Select an element to view its properties.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="json-tab" class="tab-pane">
+                        <div class="panel">
+                            <div class="panel-header">JSON Data</div>
+                            <div class="panel-body">
+                                <div id="json-viewer" class="json-viewer">
+                                    // JSON data will be displayed here
+                                </div>
+                                <button id="copy-json-btn" class="btn-secondary">Copy JSON</button>
+                                <button id="save-json-btn" class="btn-success">Save JSON</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="theme-tab" class="tab-pane">
+                        <div class="panel">
+                            <div class="panel-header">Theme Information</div>
+                            <div class="panel-body">
+                                <div class="grid">
+                                    <div class="grid-item">
+                                        <h3>Colors</h3>
+                                        <p>Primary: <span class="color-swatch" id="primary-color"></span> <span id="primary-color-value"></span></p>
+                                        <p>Secondary: <span class="color-swatch" id="secondary-color"></span> <span id="secondary-color-value"></span></p>
+                                        <p>Accent: <span class="color-swatch" id="accent-color"></span> <span id="accent-color-value"></span></p>
+                                        <p>Background: <span class="color-swatch" id="background-color"></span> <span id="background-color-value"></span></p>
+                                        <p>Text: <span class="color-swatch" id="text-color"></span> <span id="text-color-value"></span></p>
+                                    </div>
+                                    <div class="grid-item">
+                                        <h3>Fonts</h3>
+                                        <p>Primary: <span id="primary-font"></span></p>
+                                        <p>Secondary: <span id="secondary-font"></span></p>
+                                    </div>
+                                    <div class="grid-item">
+                                        <h3>Styles</h3>
+                                        <p>Button: <span id="button-style"></span></p>
+                                        <p>Icon: <span id="icon-style"></span></p>
+                                        <p>Background: <span id="background-style"></span></p>
+                                        <p>Animation: <span id="animation-effect"></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="elements-tab" class="tab-pane">
+                        <div class="panel">
+                            <div class="panel-header">UI Elements</div>
+                            <div class="panel-body">
+                                <ul id="element-list" class="element-list">
+                                    <!-- Elements will be added here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mock data for UI examples
+        const mockData = {
+            "guofeng": {
+                "colors": {
+                    "primary": "#8B4513",
+                    "secondary": "#D2691E",
+                    "accent": "#F4A460",
+                    "background": "#DEB887",
+                    "text": "#FFF8DC"
+                },
+                "fonts": {
+                    "primary": "STKaiti",
+                    "secondary": "STSong"
+                },
+                "buttonStyle": "rounded",
+                "iconStyle": "outline",
+                "backgroundStyle": "texture",
+                "animationEffect": "fade"
+            },
+            "oumei": {
+                "colors": {
+                    "primary": "#2F4F4F",
+                    "secondary": "#4682B4",
+                    "accent": "#708090",
+                    "background": "#B0C4DE",
+                    "text": "#F0F8FF"
+                },
+                "fonts": {
+                    "primary": "Arial",
+                    "secondary": "Helvetica"
+                },
+                "buttonStyle": "sharp",
+                "iconStyle": "outline",
+                "backgroundStyle": "solid",
+                "animationEffect": "fade"
+            },
+            "ercitciyuan": {
+                "colors": {
+                    "primary": "#FF69B4",
+                    "secondary": "#FFB6C1",
+                    "accent": "#FFC0CB",
+                    "background": "#FFE4E1",
+                    "text": "#FFF0F5"
+                },
+                "fonts": {
+                    "primary": "Comic Sans MS",
+                    "secondary": "Comic Sans"
+                },
+                "buttonStyle": "rounded",
+                "iconStyle": "outline",
+                "backgroundStyle": "gradient",
+                "animationEffect": "bounce"
+            }
+        };
+
+        // Mock data for UI elements
+        const mockElements = {
+            "login": [
+                { "name": "UsernameElement", "position": { "x": 100, "y": 200, "z": 0 }, "size": { "width": 200, "height": 50 }, "text": "username" },
+                { "name": "PasswordElement", "position": { "x": 100, "y": 270, "z": 0 }, "size": { "width": 200, "height": 50 }, "text": "password" },
+                { "name": "LoginButtonElement", "position": { "x": 100, "y": 340, "z": 0 }, "size": { "width": 200, "height": 50 }, "text": "login_button" },
+                { "name": "RegisterLinkElement", "position": { "x": 100, "y": 410, "z": 0 }, "size": { "width": 200, "height": 30 }, "text": "register_link" },
+                { "name": "ForgotPasswordElement", "position": { "x": 100, "y": 450, "z": 0 }, "size": { "width": 200, "height": 30 }, "text": "forgot_password" }
+            ],
+            "main-menu": [
+                { "name": "StartGameElement", "position": { "x": 100, "y": 200, "z": 0 }, "size": { "width": 200, "height": 50 }, "text": "start_game" },
+                { "name": "OptionsElement", "position": { "x": 100, "y": 270, "z": 0 }, "size": { "width": 200, "height": 50 }, "text": "options" },
+                { "name": "CreditsElement", "position": { "x": 100, "y": 340, "z": 0 }, "size": { "width": 200, "height": 50 }, "text": "credits" },
+                { "name": "ExitGameElement", "position": { "x": 100, "y": 410, "z": 0 }, "size": { "width": 200, "height": 50 }, "text": "exit_game" },
+                { "name": "VersionInfoElement", "position": { "x": 100, "y": 480, "z": 0 }, "size": { "width": 200, "height": 30 }, "text": "version_info" }
+            ],
+            "character": [
+                { "name": "AvatarElement", "position": { "x": 100, "y": 200, "z": 0 }, "size": { "width": 100, "height": 100 }, "text": "avatar" },
+                { "name": "StatsElement", "position": { "x": 220, "y": 200, "z": 0 }, "size": { "width": 200, "height": 100 }, "text": "stats" },
+                { "name": "EquipmentElement", "position": { "x": 100, "y": 320, "z": 0 }, "size": { "width": 200, "height": 100 }, "text": "equipment" },
+                { "name": "SkillsElement", "position": { "x": 320, "y": 320, "z": 0 }, "size": { "width": 200, "height": 100 }, "text": "skills" },
+                { "name": "InventoryElement", "position": { "x": 100, "y": 440, "z": 0 }, "size": { "width": 420, "height": 100 }, "text": "inventory" }
+            ]
+        };
+
+        // Mock data for analysis results
+        const mockAnalysisResults = {
+            "layout": {
+                "guofeng": {
+                    "rpg": {
+                        "login": {
+                            "16-9": "国风RPG登录界面采用传统中国风布局，主要元素居中排列，背景使用水墨风格。界面分为上中下三个区域，上部为游戏标题，中部为登录表单，下部为辅助链接。整体色调以棕色和米色为主，营造出古朴典雅的氛围。",
+                            "9-16": "国风RPG登录界面竖屏版本采用上下布局，顶部为游戏标题和Logo，中部为登录表单，底部为辅助链接和版权信息。界面元素采用传统中国风设计，包括卷轴、印章等元素，整体色调以棕色和米色为主。"
+                        }
+                    }
+                }
+            },
+            "elements": {
+                "guofeng": {
+                    "rpg": {
+                        "login": {
+                            "16-9": "国风RPG登录界面的主要元素包括：\n1. 游戏标题：使用书法字体，带有水墨效果\n2. 用户名输入框：带有传统纹样边框\n3. 密码输入框：带有传统纹样边框\n4. 登录按钮：使用卷轴样式，带有金色边框\n5. 注册链接：使用印章样式\n6. 忘记密码链接：使用印章样式",
+                            "9-16": "国风RPG登录界面竖屏版本的主要元素包括：\n1. 游戏Logo：使用传统中国风图案\n2. 游戏标题：使用书法字体，带有水墨效果\n3. 用户名输入框：带有传统纹样边框\n4. 密码输入框：带有传统纹样边框\n5. 登录按钮：使用卷轴样式，带有金色边框\n6. 注册链接：使用印章样式\n7. 忘记密码链接：使用印章样式\n8. 版权信息：使用小号字体，位于底部"
+                        }
+                    }
+                }
+            },
+            "theme": {
+                "guofeng": {
+                    "rpg": {
+                        "login": {
+                            "16-9": "国风RPG登录界面的主题特点：\n1. 颜色：以棕色(#8B4513)、米色(#DEB887)为主，搭配金色(#D2691E)作为点缀\n2. 字体：使用书法字体(STKaiti)作为主要字体，宋体(STSong)作为次要字体\n3. 按钮样式：使用卷轴样式，带有金色边框和渐变效果\n4. 图标样式：使用传统中国风图标，带有描边效果\n5. 背景样式：使用水墨风格背景，带有纹理效果\n6. 动画效果：使用淡入淡出效果，带有轻微的缩放动画",
+                            "9-16": "国风RPG登录界面竖屏版本的主题特点：\n1. 颜色：以棕色(#8B4513)、米色(#DEB887)为主，搭配金色(#D2691E)作为点缀\n2. 字体：使用书法字体(STKaiti)作为主要字体，宋体(STSong)作为次要字体\n3. 按钮样式：使用卷轴样式，带有金色边框和渐变效果\n4. 图标样式：使用传统中国风图标，带有描边效果\n5. 背景样式：使用水墨风格背景，带有纹理效果\n6. 动画效果：使用淡入淡出效果，带有轻微的缩放动画"
+                        }
+                    }
+                }
+            },
+            "interaction": {
+                "guofeng": {
+                    "rpg": {
+                        "login": {
+                            "16-9": "国风RPG登录界面的交互特点：\n1. 输入框：获得焦点时显示金色边框，失去焦点时恢复原样\n2. 登录按钮：悬停时轻微放大并改变颜色，点击时缩小并恢复原样\n3. 链接：悬停时显示下划线，点击时显示点击效果\n4. 表单验证：输入错误时显示红色提示，输入正确时显示绿色对勾\n5. 登录成功：显示水墨风格的过渡动画，进入游戏主界面",
+                            "9-16": "国风RPG登录界面竖屏版本的交互特点：\n1. 输入框：获得焦点时显示金色边框，失去焦点时恢复原样\n2. 登录按钮：悬停时轻微放大并改变颜色，点击时缩小并恢复原样\n3. 链接：悬停时显示下划线，点击时显示点击效果\n4. 表单验证：输入错误时显示红色提示，输入正确时显示绿色对勾\n5. 登录成功：显示水墨风格的过渡动画，进入游戏主界面"
+                        }
+                    }
+                }
+            }
+        };
+
+        // DOM Elements
+        const analyzeBtn = document.getElementById('analyze-btn');
+        const exportBtn = document.getElementById('export-btn');
+        const analysisTypeSelect = document.getElementById('analysis-type');
+        const uiStyleSelect = document.getElementById('ui-style');
+        const gameTypeSelect = document.getElementById('game-type');
+        const interfaceTypeSelect = document.getElementById('interface-type');
+        const layoutSelect = document.getElementById('layout');
+        const analysisResults = document.getElementById('analysis-results');
+        const previewContent = document.getElementById('preview-content');
+        const elementSelect = document.getElementById('element-select');
+        const elementProperties = document.getElementById('element-properties');
+        const jsonViewer = document.getElementById('json-viewer');
+        const copyJsonBtn = document.getElementById('copy-json-btn');
+        const saveJsonBtn = document.getElementById('save-json-btn');
+        const elementList = document.getElementById('element-list');
+        const tabs = document.querySelectorAll('.tab');
+        const tabPanes = document.querySelectorAll('.tab-pane');
+        
+        // File input elements
+        const fileInput = document.getElementById('file-input');
+        const fileInfo = document.getElementById('file-info');
+        const imagePreview = document.getElementById('image-preview');
+        const videoPreview = document.getElementById('video-preview');
+
+        // Theme elements
+        const primaryColorSwatch = document.getElementById('primary-color');
+        const secondaryColorSwatch = document.getElementById('secondary-color');
+        const accentColorSwatch = document.getElementById('accent-color');
+        const backgroundColorSwatch = document.getElementById('background-color');
+        const textColorSwatch = document.getElementById('text-color');
+        const primaryColorValue = document.getElementById('primary-color-value');
+        const secondaryColorValue = document.getElementById('secondary-color-value');
+        const accentColorValue = document.getElementById('accent-color-value');
+        const backgroundColorValue = document.getElementById('background-color-value');
+        const textColorValue = document.getElementById('text-color-value');
+        const primaryFont = document.getElementById('primary-font');
+        const secondaryFont = document.getElementById('secondary-font');
+        const buttonStyle = document.getElementById('button-style');
+        const iconStyle = document.getElementById('icon-style');
+        const backgroundStyle = document.getElementById('background-style');
+        const animationEffect = document.getElementById('animation-effect');
+
+        // Current data
+        let currentData = null;
+        let currentElements = [];
+        let currentTheme = null;
+
+        // Initialize the application
+        function init() {
+            // Add event listeners
+            analyzeBtn.addEventListener('click', analyzeUI);
+            exportBtn.addEventListener('click', exportAnalysis);
+            copyJsonBtn.addEventListener('click', copyJson);
+            saveJsonBtn.addEventListener('click', saveJson);
+            elementSelect.addEventListener('change', selectElement);
+            
+            // Add file input event listener
+            fileInput.addEventListener('change', handleFileSelection);
+            
+            // Add tab event listeners
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabId = tab.getAttribute('data-tab');
+                    switchTab(tabId);
+                });
+            });
+
+            // Initialize with default values
+            updatePreview();
+        }
+
+        // Handle file selection
+        function handleFileSelection(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            // Update file info
+            fileInfo.textContent = `${file.name} (${formatFileSize(file.size)})`;
+            
+            // Hide both previews initially
+            imagePreview.style.display = 'none';
+            videoPreview.style.display = 'none';
+            
+            // Check file type and display appropriate preview
+            if (file.type.startsWith('image/')) {
+                // Image file
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else if (file.type.startsWith('video/')) {
+                // Video file
+                const url = URL.createObjectURL(file);
+                videoPreview.src = url;
+                videoPreview.style.display = 'block';
+            }
+        }
+        
+        // Format file size
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // Analyze UI based on selected options
+        function analyzeUI() {
+            const style = uiStyleSelect.value;
+            const gameType = gameTypeSelect.value;
+            const interfaceType = interfaceTypeSelect.value;
+            const layout = layoutSelect.value;
+            const analysisType = analysisTypeSelect.value;
+
+            // Get mock data
+            currentTheme = mockData[style] || mockData['guofeng'];
+            currentElements = mockElements[interfaceType] || [];
+            
+            // Create current data
+            currentData = {
+                name: interfaceType,
+                style: style,
+                gameType: gameType,
+                layout: layout,
+                version: "1.0.0",
+                description: `这是一个${style}风格的${gameType}游戏的${interfaceType}示例，采用${layout}布局。`,
+                theme: currentTheme,
+                elements: currentElements,
+                animations: [
+                    {
+                        name: "ShowAnimation",
+                        type: currentTheme.animationEffect,
+                        duration: 0.5,
+                        delay: 0,
+                        targets: ["MainPanel", "TitleLabel"]
+                    },
+                    {
+                        name: "HideAnimation",
+                        type: currentTheme.animationEffect,
+                        duration: 0.3,
+                        delay: 0,
+                        targets: ["MainPanel", "TitleLabel"]
+                    }
+                ],
+                interactions: [
+                    {
+                        name: "CloseButtonClick",
+                        type: "click",
+                        target: "CloseButton",
+                        action: "HideAnimation"
+                    }
+                ]
+            };
+
+            // Get analysis result
+            let analysisResult = "分析结果将在这里显示。";
+            
+            if (mockAnalysisResults[analysisType] && 
+                mockAnalysisResults[analysisType][style] && 
+                mockAnalysisResults[analysisType][style][gameType] && 
+                mockAnalysisResults[analysisType][style][gameType][interfaceType] && 
+                mockAnalysisResults[analysisType][style][gameType][interfaceType][layout]) {
+                analysisResult = mockAnalysisResults[analysisType][style][gameType][interfaceType][layout];
+            }
+
+            // Display analysis result
+            analysisResults.innerHTML = `
+                <div class="analysis-result">
+                    <h3>${analysisType.charAt(0).toUpperCase() + analysisType.slice(1)} Analysis</h3>
+                    <pre>${analysisResult}</pre>
+                </div>
+            `;
+
+            // Update UI
+            updatePreview();
+            updateJsonViewer();
+            updateThemeViewer();
+            updateElementsList();
+        }
+
+        // Export analysis results
+        function exportAnalysis() {
+            const style = uiStyleSelect.value;
+            const gameType = gameTypeSelect.value;
+            const interfaceType = interfaceTypeSelect.value;
+            const layout = layoutSelect.value;
+            const analysisType = analysisTypeSelect.value;
+
+            // Create export data
+            const exportData = {
+                style: style,
+                gameType: gameType,
+                interfaceType: interfaceType,
+                layout: layout,
+                analysisType: analysisType,
+                analysisResult: analysisResults.textContent,
+                timestamp: new Date().toISOString()
+            };
+
+            // Convert to JSON
+            const jsonStr = JSON.stringify(exportData, null, 2);
+
+            // Create download link
+            const blob = new Blob([jsonStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `ui-analysis-${style}-${gameType}-${interfaceType}-${layout}-${analysisType}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Copy JSON to clipboard
+        function copyJson() {
+            const jsonStr = jsonViewer.textContent;
+            navigator.clipboard.writeText(jsonStr)
+                .then(() => {
+                    alert('JSON copied to clipboard!');
+                })
+                .catch(err => {
+                    console.error('Failed to copy JSON: ', err);
+                });
+        }
+
+        // Save JSON to file
+        function saveJson() {
+            const jsonStr = jsonViewer.textContent;
+            const blob = new Blob([jsonStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `ui-data-${currentData.style}-${currentData.gameType}-${currentData.name}-${currentData.layout}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Select element from dropdown
+        function selectElement() {
+            const elementName = elementSelect.value;
+            if (!elementName) return;
+
+            // Find element
+            const element = currentElements.find(el => el.name === elementName);
+            if (!element) return;
+
+            // Update element properties
+            updateElementProperties(element);
+
+            // Highlight element in preview
+            highlightElement(elementName);
+        }
+
+        // Switch tabs
+        function switchTab(tabId) {
+            // Update active tab
+            tabs.forEach(tab => {
+                if (tab.getAttribute('data-tab') === tabId) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+
+            // Update active tab pane
+            tabPanes.forEach(pane => {
+                if (pane.id === `${tabId}-tab`) {
+                    pane.classList.add('active');
+                } else {
+                    pane.classList.remove('active');
+                }
+            });
+        }
+
+        // Update preview with current data
+        function updatePreview() {
+            // Clear preview
+            previewContent.innerHTML = '';
+            elementSelect.innerHTML = '<option value="">-- Select an element --</option>';
+
+            // Set preview background
+            previewContent.style.backgroundColor = currentTheme ? currentTheme.colors.background : '#f8f9fa';
+
+            // Add elements to preview
+            if (currentElements && currentElements.length > 0) {
+                currentElements.forEach(element => {
+                    // Create element in preview
+                    const previewElement = document.createElement('div');
+                    previewElement.className = 'preview-element';
+                    previewElement.id = `preview-${element.name}`;
+                    previewElement.style.left = `${element.position.x}px`;
+                    previewElement.style.top = `${element.position.y}px`;
+                    previewElement.style.width = `${element.size.width}px`;
+                    previewElement.style.height = `${element.size.height}px`;
+                    previewElement.textContent = element.text;
+
+                    // Add click event
+                    previewElement.addEventListener('click', () => {
+                        // Remove selected class from all elements
+                        document.querySelectorAll('.preview-element').forEach(el => {
+                            el.classList.remove('selected');
+                        });
+
+                        // Add selected class to clicked element
+                        previewElement.classList.add('selected');
+
+                        // Update element select
+                        elementSelect.value = element.name;
+
+                        // Update element properties
+                        updateElementProperties(element);
+                    });
+
+                    // Add to preview
+                    previewContent.appendChild(previewElement);
+
+                    // Add to element select
+                    const option = document.createElement('option');
+                    option.value = element.name;
+                    option.textContent = element.text;
+                    elementSelect.appendChild(option);
+                });
+            }
+        }
+
+        // Update element properties
+        function updateElementProperties(element) {
+            if (!element) {
+                elementProperties.innerHTML = `
+                    <div class="panel-header">Element Properties</div>
+                    <div class="panel-body">
+                        <p>Select an element to view its properties.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            elementProperties.innerHTML = `
+                <div class="panel-header">Element Properties</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" value="${element.name}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Position</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="number" value="${element.position.x}" placeholder="X" readonly>
+                            <input type="number" value="${element.position.y}" placeholder="Y" readonly>
+                            <input type="number" value="${element.position.z}" placeholder="Z" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Size</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="number" value="${element.size.width}" placeholder="Width" readonly>
+                            <input type="number" value="${element.size.height}" placeholder="Height" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Text</label>
+                        <input type="text" value="${element.text}" readonly>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Update JSON viewer
+        function updateJsonViewer() {
+            if (!currentData) {
+                jsonViewer.textContent = '// No data available';
+                return;
+            }
+
+            jsonViewer.textContent = JSON.stringify(currentData, null, 2);
+        }
+
+        // Update theme viewer
+        function updateThemeViewer() {
+            if (!currentTheme) {
+                primaryColorSwatch.style.backgroundColor = '#f8f9fa';
+                secondaryColorSwatch.style.backgroundColor = '#f8f9fa';
+                accentColorSwatch.style.backgroundColor = '#f8f9fa';
+                backgroundColorSwatch.style.backgroundColor = '#f8f9fa';
+                textColorSwatch.style.backgroundColor = '#f8f9fa';
+                primaryColorValue.textContent = '';
+                secondaryColorValue.textContent = '';
+                accentColorValue.textContent = '';
+                backgroundColorValue.textContent = '';
+                textColorValue.textContent = '';
+                primaryFont.textContent = '';
+                secondaryFont.textContent = '';
+                buttonStyle.textContent = '';
+                iconStyle.textContent = '';
+                backgroundStyle.textContent = '';
+                animationEffect.textContent = '';
+                return;
+            }
+
+            // Update color swatches
+            primaryColorSwatch.style.backgroundColor = currentTheme.colors.primary;
+            secondaryColorSwatch.style.backgroundColor = currentTheme.colors.secondary;
+            accentColorSwatch.style.backgroundColor = currentTheme.colors.accent;
+            backgroundColorSwatch.style.backgroundColor = currentTheme.colors.background;
+            textColorSwatch.style.backgroundColor = currentTheme.colors.text;
+
+            // Update color values
+            primaryColorValue.textContent = currentTheme.colors.primary;
+            secondaryColorValue.textContent = currentTheme.colors.secondary;
+            accentColorValue.textContent = currentTheme.colors.accent;
+            backgroundColorValue.textContent = currentTheme.colors.background;
+            textColorValue.textContent = currentTheme.colors.text;
+
+            // Update fonts
+            primaryFont.textContent = currentTheme.fonts.primary;
+            secondaryFont.textContent = currentTheme.fonts.secondary;
+
+            // Update styles
+            buttonStyle.textContent = currentTheme.buttonStyle;
+            iconStyle.textContent = currentTheme.iconStyle;
+            backgroundStyle.textContent = currentTheme.backgroundStyle;
+            animationEffect.textContent = currentTheme.animationEffect;
+        }
+
+        // Update elements list
+        function updateElementsList() {
+            elementList.innerHTML = '';
+
+            if (!currentElements || currentElements.length === 0) {
+                elementList.innerHTML = '<li class="element-item">No elements available</li>';
+                return;
+            }
+
+            currentElements.forEach(element => {
+                const li = document.createElement('li');
+                li.className = 'element-item';
+                li.textContent = element.text;
+                li.addEventListener('click', () => {
+                    // Remove selected class from all elements
+                    document.querySelectorAll('.element-item').forEach(el => {
+                        el.classList.remove('selected');
+                    });
+
+                    // Add selected class to clicked element
+                    li.classList.add('selected');
+
+                    // Update element select
+                    elementSelect.value = element.name;
+
+                    // Update element properties
+                    updateElementProperties(element);
+
+                    // Highlight element in preview
+                    highlightElement(element.name);
+                });
+                elementList.appendChild(li);
+            });
+        }
+
+        // Highlight element in preview
+        function highlightElement(elementName) {
+            // Remove selected class from all elements
+            document.querySelectorAll('.preview-element').forEach(el => {
+                el.classList.remove('selected');
+            });
+
+            // Add selected class to element
+            const element = document.getElementById(`preview-${elementName}`);
+            if (element) {
+                element.classList.add('selected');
+            }
+        }
+
+        // Initialize the application
+        init();
+    </script>
+</body>
+</html> 

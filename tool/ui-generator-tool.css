@@ -1,0 +1,130 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.step {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.step h2 {
+    margin-top: 0;
+    color: #337ab7;
+}
+
+.global-inputs {
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.global-inputs label {
+    margin-right: 5px;
+}
+.global-inputs input {
+    margin-right: 15px;
+}
+
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    min-height: 60px;
+    resize: vertical;
+}
+
+button {
+    background-color: #337ab7;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #286090;
+}
+
+.prd-fields h3, .step h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #555;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.component-item, .element-item {
+    border: 1px dashed #ccc;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.component-item label, .element-item label {
+    font-size: 0.9em;
+}
+.component-item input, .component-item textarea,
+.element-item input, .element-item textarea, .element-item select {
+    width: calc(100% - 18px); /* Adjust for padding */
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    font-size: 0.9em;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+#csvTableBody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}

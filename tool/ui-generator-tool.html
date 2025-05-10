@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI 生成工作流工具</title>
+    <link rel="stylesheet" href="ui-generator-tool.css">
+</head>
+<body>
+    <div class="container">
+        <h1>UI 生成工作流工具</h1>
+
+        <div class="global-inputs">
+            <label for="gameGenre">游戏类型 (Game Genre):</label>
+            <input type="text" id="gameGenre" value="休闲益智">
+            <label for="overallArtStyle">整体美术风格 (Overall Art Style):</label>
+            <input type="text" id="overallArtStyle" value="卡通2D">
+        </div>
+
+        <!-- 步骤 1: 从一句话需求生成 PRD 视觉界面描述 -->
+        <div id="step1" class="step">
+            <h2>步骤 1: 生成 PRD 视觉界面描述</h2>
+            <label for="singleSentenceReq">一句话需求:</label>
+            <textarea id="singleSentenceReq" rows="2" placeholder="例如：我需要一个能让玩家查看他们收集到的所有熊猫伙伴，并能选择一个出战的界面。"></textarea>
+            
+            <div class="prd-fields">
+                <h3>1. 界面识别:</h3>
+                <label for="s1_interfaceName">1.1. 界面名称:</label>
+                <input type="text" id="s1_interfaceName" placeholder="例如：熊猫伙伴选择界面">
+                <label for="s1_corePurpose">1.2. 核心目的 (推断):</label>
+                <textarea id="s1_corePurpose" rows="2" placeholder="例如：允许玩家管理和选择出战的熊猫伙伴。"></textarea>
+
+                <h3>2. 整体视觉风格与氛围:</h3>
+                <label for="s1_artStyleFamily">2.1. 美术风格大类 (通用):</label>
+                <input type="text" id="s1_artStyleFamily" placeholder="例如：卡通2D, 像素复古 (将参考上方全局美术风格)">
+                <label for="s1_desiredAtmosphere">2.2. 期望氛围/感觉:</label>
+                <input type="text" id="s1_desiredAtmosphere" placeholder="例如：轻松愉快，富有收集乐趣">
+
+                <h3>3. 关键视觉组件与布局:</h3>
+                <div id="s1_componentsContainer">
+                    <!-- 组件将通过 JS 动态添加 -->
+                </div>
+                <button type="button" id="s1_addComponentButton">添加组件</button>
+                
+                <h3>4. 数据展示区域 (视觉占位符焦点):</h3>
+                <textarea id="s1_dataDisplayAreas" rows="3" placeholder="例如：一个列表区域，每个列表项包含伙伴缩略图、名称占位符和等级占位符。"></textarea>
+
+                <h3>5. 核心交互 (推断):</h3>
+                <textarea id="s1_coreInteractions" rows="2" placeholder="例如：点击选择伙伴，滑动列表。"></textarea>
+
+                <h3>6. 后续需研究/完善的信息:</h3>
+                <textarea id="s1_researchLater" rows="3" placeholder="例如：精确的颜色方案，具体的图标设计，详细的动画规格。"></textarea>
+            </div>
+            <button type="button" id="generatePrdButton">生成 PRD 描述文本</button>
+            <h3>PRD 描述输出:</h3>
+            <textarea id="step1_output" rows="10" readonly></textarea>
+            <button type="button" onclick="nextStep('step2', 'step1_output')">下一步</button>
+        </div>
+
+        <!-- 步骤 2: 从 PRD 生成详细视觉界面描述 / 落地页原型描述 -->
+        <div id="step2" class="step" style="display:none;">
+            <h2>步骤 2: 生成详细视觉界面描述 / 落地页原型描述</h2>
+            <p>此步骤根据PRD（通常来自步骤1的输出或您自己的PRD），结合全局游戏类型和美术风格，生成一个详细的、可作为“落地页原型”的文本描述。这个描述将用于下一步的UI资产拆解。</p>
+
+            <label for="step2_prdInput">原始PRD输入 (参考):</label>
+            <textarea id="step2_prdInput" rows="6" placeholder="从上一步复制，或直接粘贴PRD相关内容。此内容作为主要参考。"></textarea>
+
+            <h3>详细描述组件:</h3>
+            <label for="s2_purposeTheme">1. 界面目的和整体视觉主题/风格:</label>
+            <textarea id="s2_purposeTheme" rows="2" placeholder="例如：主菜单 - 一个充满活力、未来感十足的枢纽，带有全息元素..."></textarea>
+
+            <label for="s2_majorComponents">2. 主要视觉组件和布局区域 (每个组件另起一行或用项目符号):</label>
+            <textarea id="s2_majorComponents" rows="4" placeholder="例如：- 顶部导航栏&#10;- 中央角色展示区&#10;- 底部动作面板"></textarea>
+
+            <label for="s2_componentDetails">3. 各组件的视觉外观、风格、近似位置/关系 (详细说明，强调视觉占位符):</label>
+            <textarea id="s2_componentDetails" rows="6" placeholder="例如：顶部导航栏：采用与整体[美术风格]一致的扁平化设计，位于屏幕顶部，包含logo占位符和设置按钮占位符。&#10;中央角色展示区：占据屏幕主要部分，背景为模糊的场景图，前景为角色模型的视觉占位符..."></textarea>
+            <p><strong>重要:</strong> 描述文本/数据区域时，请专注于该区域的<em>视觉占位符或风格处理</em>，而不是文本内容本身。</p>
+
+            <label for="s2_interactiveElements">4. 关键交互元素及其视觉提示:</label>
+            <textarea id="s2_interactiveElements" rows="3" placeholder="例如：按钮具有清晰的“可按下”外观，带有斜面和PRD中描述的悬停状态。列表区域有滚动条视觉提示。"></textarea>
+
+            <label for="s2_dynamicVisuals">5. 动态视觉元素、动画或特殊效果 (如有):</label>
+            <textarea id="s2_dynamicVisuals" rows="3" placeholder="例如：背景中的粒子效果，按钮点击时的脉冲动画。"></textarea>
+            
+            <button type="button" id="generateDetailedDescButton">生成详细描述文本</button>
+            <h3>详细视觉界面描述输出 (落地页原型文本):</h3>
+            <textarea id="step2_output" rows="10" readonly></textarea>
+            <button type="button" onclick="prevStep('step1')">上一步</button>
+            <button type="button" onclick="nextStep('step3', 'step2_output')">下一步</button>
+        </div>
+
+        <!-- 步骤 3: 从视觉界面描述生成模块化 UI 资产 CSV -->
+        <div id="step3" class="step" style="display:none;">
+            <h2>步骤 3: 生成模块化 UI 资产 CSV</h2>
+            <label for="step3_detailedDescInput">详细视觉界面描述:</label>
+            <textarea id="step3_detailedDescInput" rows="10" placeholder="从上一步复制。"></textarea>
+            
+            <h3>UI 元素列表:</h3>
+            <div id="s3_elementsContainer">
+                <!-- UI 元素将通过 JS 动态添加 -->
+            </div>
+            <button type="button" id="s3_addElementButton">手动添加元素</button>
+            <button type="button" id="generateCsvButton">生成 CSV 数据</button>
+            
+            <h3>CSV 输出:</h3>
+            <table id="csvTable">
+                <thead>
+                    <tr>
+                        <th>Element_ID</th>
+                        <th>Description_Human</th>
+                        <th>Layer_Order_zIndex</th>
+                        <th>Position_X_Instruction</th>
+                        <th>Position_Y_Instruction</th>
+                        <th>Approx_Width_Instruction</th>
+                        <th>Approx_Height_Instruction</th>
+                        <th>Target_Aspect_Ratio_Suggestion</th>
+                        <th>Transparency_Required</th>
+                        <th>AI_Image_Prompt_Element_Specific</th>
+                        <th>Styling_Notes_Human</th>
+                    </tr>
+                </thead>
+                <tbody id="csvTableBody">
+                </tbody>
+            </table>
+            <textarea id="step3_csvOutput" rows="5" readonly placeholder="CSV 文本将显示在此"></textarea>
+            <button type="button" id="downloadCsvButton">下载 CSV</button>
+            <button type="button" onclick="prevStep('step2')">上一步</button>
+        </div>
+    </div>
+    <script src="ui-generator-tool.js"></script>
+</body>
+</html>

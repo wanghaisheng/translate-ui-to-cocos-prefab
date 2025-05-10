@@ -1,0 +1,30 @@
+{
+  "name": "prefab-creator",
+  "version": "1.0.0",
+  "description": "A tool to create prefabs from JSON files",
+  "author": "Your Name",
+  "main": "./dist/main.js",
+  "contributions": {
+    "builder": "./dist/builder.js",
+    "menu": [
+      {
+        "path": "i18n:MAIN_MENU.package.title/prefab-creator",
+        "label": "i18n:prefab-creator.menu.create",
+        "message": "create"
+      }
+    ],
+    "messages": {
+      "create": {
+        "methods": ["create"]
+      }
+    }
+  },
+  "dependencies": {
+    "@types/node": "^16.0.0",
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "fs-extra": "^10.0.0"
+  }
+} 

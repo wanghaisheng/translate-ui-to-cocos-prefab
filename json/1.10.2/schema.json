@@ -1,0 +1,230 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UI Prefab Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "节点名称"
+    },
+    "pos": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number",
+          "description": "X轴位置，保留2位小数"
+        },
+        "y": {
+          "type": "number",
+          "description": "Y轴位置，保留2位小数"
+        }
+      },
+      "required": ["x", "y"]
+    },
+    "scale": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number",
+          "description": "X轴缩放，保留2位小数"
+        },
+        "y": {
+          "type": "number",
+          "description": "Y轴缩放，保留2位小数"
+        }
+      },
+      "required": ["x", "y"]
+    },
+    "rotation": {
+      "type": "number",
+      "description": "Z轴旋转角度，保留2位小数"
+    },
+    "active": {
+      "type": "boolean",
+      "description": "节点是否激活"
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["UILabel", "UISprite", "UITexture"],
+            "description": "组件类型"
+          },
+          "size": {
+            "type": "object",
+            "properties": {
+              "width": {
+                "type": "number",
+                "description": "宽度"
+              },
+              "height": {
+                "type": "number",
+                "description": "高度"
+              }
+            },
+            "required": ["width", "height"]
+          },
+          "color": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$",
+            "description": "颜色值，十六进制格式"
+          },
+          "depth": {
+            "type": "number",
+            "description": "渲染深度"
+          },
+          "pivot": {
+            "type": "string",
+            "description": "锚点位置"
+          }
+        },
+        "required": ["type", "size", "color", "depth", "pivot"],
+        "allOf": [
+          {
+            "if": {
+              "properties": { "type": { "const": "UILabel" } }
+            },
+            "then": {
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "description": "文本内容"
+                },
+                "fontSize": {
+                  "type": "number",
+                  "description": "字体大小"
+                },
+                "overflow": {
+                  "type": "string",
+                  "description": "文本溢出处理方式"
+                },
+                "outlineColor": {
+                  "type": "string",
+                  "pattern": "^#[0-9A-Fa-f]{6}$",
+                  "description": "描边颜色"
+                },
+                "outlineWidth": {
+                  "type": "number",
+                  "description": "描边宽度"
+                },
+                "spacingX": {
+                  "type": "number",
+                  "description": "字符间距"
+                },
+                "spacingY": {
+                  "type": "number",
+                  "description": "行间距"
+                },
+                "bitmapFont": {
+                  "type": "string",
+                  "description": "位图字体名称"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": { "type": { "const": "UISprite" } }
+            },
+            "then": {
+              "properties": {
+                "spType": {
+                  "type": "string",
+                  "description": "精灵类型"
+                },
+                "spName": {
+                  "type": "string",
+                  "description": "精灵名称"
+                },
+                "atlas": {
+                  "type": "string",
+                  "description": "图集名称"
+                },
+                "border": {
+                  "type": "object",
+                  "properties": {
+                    "left": { "type": "number" },
+                    "right": { "type": "number" },
+                    "top": { "type": "number" },
+                    "bottom": { "type": "number" }
+                  },
+                  "description": "九宫格边框"
+                },
+                "fillDir": {
+                  "type": "number",
+                  "description": "填充方向"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": { "type": { "const": "UITexture" } }
+            },
+            "then": {
+              "properties": {
+                "spName": {
+                  "type": "string",
+                  "description": "纹理名称"
+                },
+                "spType": {
+                  "type": "string",
+                  "description": "纹理类型"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "button": {
+      "type": "boolean",
+      "description": "是否有BoxCollider组件"
+    },
+    "scrollView": {
+      "type": "object",
+      "properties": {
+        "offset": {
+          "type": "object",
+          "properties": {
+            "x": { "type": "number" },
+            "y": { "type": "number" }
+          },
+          "required": ["x", "y"]
+        },
+        "size": {
+          "type": "object",
+          "properties": {
+            "x": { "type": "number" },
+            "y": { "type": "number" }
+          },
+          "required": ["x", "y"]
+        },
+        "movement": {
+          "type": "integer",
+          "description": "滚动方向"
+        }
+      }
+    },
+    "grid": {
+      "type": "object",
+      "properties": {
+        "arrangement": {
+          "type": "integer",
+          "description": "排列方式"
+        }
+      }
+    },
+    "children": {
+      "type": "array",
+      "items": {
+        "$ref": "#"
+      },
+      "description": "子节点数组，递归引用自身"
+    }
+  },
+  "required": ["name", "pos", "scale", "rotation", "active"]
+} 

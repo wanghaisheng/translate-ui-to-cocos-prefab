@@ -1,0 +1,188 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Cocos Creator 3.8 UI Prefab Schema",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "节点名称"
+        },
+        "position": {
+            "type": "object",
+            "properties": {
+                "x": { "type": "number" },
+                "y": { "type": "number" },
+                "z": { "type": "number" }
+            },
+            "required": ["x", "y", "z"]
+        },
+        "rotation": {
+            "type": "object",
+            "properties": {
+                "x": { "type": "number" },
+                "y": { "type": "number" },
+                "z": { "type": "number" },
+                "w": { "type": "number" }
+            },
+            "required": ["x", "y", "z", "w"]
+        },
+        "scale": {
+            "type": "object",
+            "properties": {
+                "x": { "type": "number" },
+                "y": { "type": "number" },
+                "z": { "type": "number" }
+            },
+            "required": ["x", "y", "z"]
+        },
+        "active": {
+            "type": "boolean",
+            "description": "节点是否激活"
+        },
+        "components": {
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "__type__": { "const": "cc.Label" },
+                            "string": { "type": "string" },
+                            "fontSize": { "type": "number" },
+                            "lineHeight": { "type": "number" },
+                            "color": {
+                                "type": "object",
+                                "properties": {
+                                    "r": { "type": "number" },
+                                    "g": { "type": "number" },
+                                    "b": { "type": "number" },
+                                    "a": { "type": "number" }
+                                },
+                                "required": ["r", "g", "b", "a"]
+                            },
+                            "enableOutline": { "type": "boolean" },
+                            "outlineColor": {
+                                "type": "object",
+                                "properties": {
+                                    "r": { "type": "number" },
+                                    "g": { "type": "number" },
+                                    "b": { "type": "number" },
+                                    "a": { "type": "number" }
+                                },
+                                "required": ["r", "g", "b", "a"]
+                            },
+                            "outlineWidth": { "type": "number" }
+                        },
+                        "required": ["__type__", "string", "fontSize"]
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "__type__": { "const": "cc.Sprite" },
+                            "spriteFrame": { "type": "string" },
+                            "color": {
+                                "type": "object",
+                                "properties": {
+                                    "r": { "type": "number" },
+                                    "g": { "type": "number" },
+                                    "b": { "type": "number" },
+                                    "a": { "type": "number" }
+                                },
+                                "required": ["r", "g", "b", "a"]
+                            },
+                            "type": { "type": "number" },
+                            "sizeMode": { "type": "number" },
+                            "trim": { "type": "boolean" }
+                        },
+                        "required": ["__type__", "spriteFrame"]
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "__type__": { "const": "cc.Button" },
+                            "interactable": { "type": "boolean" },
+                            "transition": { "type": "number" },
+                            "normalColor": {
+                                "type": "object",
+                                "properties": {
+                                    "r": { "type": "number" },
+                                    "g": { "type": "number" },
+                                    "b": { "type": "number" },
+                                    "a": { "type": "number" }
+                                },
+                                "required": ["r", "g", "b", "a"]
+                            },
+                            "pressedColor": {
+                                "type": "object",
+                                "properties": {
+                                    "r": { "type": "number" },
+                                    "g": { "type": "number" },
+                                    "b": { "type": "number" },
+                                    "a": { "type": "number" }
+                                },
+                                "required": ["r", "g", "b", "a"]
+                            },
+                            "hoverColor": {
+                                "type": "object",
+                                "properties": {
+                                    "r": { "type": "number" },
+                                    "g": { "type": "number" },
+                                    "b": { "type": "number" },
+                                    "a": { "type": "number" }
+                                },
+                                "required": ["r", "g", "b", "a"]
+                            },
+                            "disabledColor": {
+                                "type": "object",
+                                "properties": {
+                                    "r": { "type": "number" },
+                                    "g": { "type": "number" },
+                                    "b": { "type": "number" },
+                                    "a": { "type": "number" }
+                                },
+                                "required": ["r", "g", "b", "a"]
+                            }
+                        },
+                        "required": ["__type__", "interactable"]
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "__type__": { "const": "cc.ScrollView" },
+                            "content": { "type": "object" },
+                            "horizontal": { "type": "boolean" },
+                            "vertical": { "type": "boolean" },
+                            "inertia": { "type": "boolean" },
+                            "brake": { "type": "number" },
+                            "elastic": { "type": "boolean" },
+                            "bounceDuration": { "type": "number" }
+                        },
+                        "required": ["__type__", "content"]
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "__type__": { "const": "cc.Layout" },
+                            "type": { "type": "number" },
+                            "resizeMode": { "type": "number" },
+                            "paddingLeft": { "type": "number" },
+                            "paddingRight": { "type": "number" },
+                            "paddingTop": { "type": "number" },
+                            "paddingBottom": { "type": "number" },
+                            "spacingX": { "type": "number" },
+                            "spacingY": { "type": "number" },
+                            "verticalDirection": { "type": "number" },
+                            "horizontalDirection": { "type": "number" }
+                        },
+                        "required": ["__type__", "type"]
+                    }
+                ]
+            }
+        },
+        "children": {
+            "type": "array",
+            "items": { "$ref": "#" }
+        }
+    },
+    "required": ["name", "position", "rotation", "scale", "active"]
+} 
